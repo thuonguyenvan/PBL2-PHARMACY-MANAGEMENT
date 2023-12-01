@@ -30,6 +30,9 @@ istream &operator >> (istream &in, Person &P)
     cout << "- Nhap so dien thoai: ";
     getenter;
     getline(cin, P.SDT);
+    cout << "- Nhap Email: ";
+    getenter;
+    getline(cin, P.Email);
     cout << "- Nhap ngay thang nam sinh (dd/mm/yyyy): ";
     getenter;
     getline(cin, P.DateOfBirth);

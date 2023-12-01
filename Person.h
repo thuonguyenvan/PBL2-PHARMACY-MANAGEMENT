@@ -3,14 +3,16 @@
 #include<iostream>
 using namespace std;
 
+
 class Person
 {
-protected:
+public:
     string Name;
     string SDT;
     string DateOfBirth;
     string CCCD;
     string Address;
+    string Email;
 public:
     Person();
     Person(const Person &);
