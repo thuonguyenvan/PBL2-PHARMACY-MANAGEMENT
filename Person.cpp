@@ -1,3 +1,4 @@
+#pragma once
 #include "Person.h"
 #include <iostream>
 #include <iomanip>

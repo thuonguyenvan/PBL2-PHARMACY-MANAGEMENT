@@ -1,3 +1,4 @@
+#pragma once
 #include "Management.h"
 #include <iostream>
 #include <iomanip>
@@ -36,22 +37,28 @@ void Management<T>::Add()
         cout << "\nEmail nay da duoc dung. \n";
     }
     else {
-        Count++;
+        this -> Count++;
         T tmp;
         tmp.Email = Email;
         cin >> tmp;
-        T newT[Count - 1];
-        for (int i = 0; i < Count - 1; ++ i){
-            newT[i] = this -> List[i];
+        if (this -> Count == 1){
+            this -> List = new T[1];
+            this -> List[0] = tmp;
         }
-        delete[] this -> List;
-        this -> List = new T[Count];
-        this -> List[Count - 1] = tmp;
-        for (int i = 0; i < Count - 1; ++ i){
-            this -> List[i] = newT[i];
+        else {
+            T newT[Count - 1];
+            for (int i = 0; i < Count - 1; ++ i){
+                newT[i] = this -> List[i];
+            }
+            delete[] this -> List;
+            this -> List = new T[Count];
+            this -> List[Count - 1] = tmp;
+            for (int i = 0; i < Count - 1; ++ i){
+                this -> List[i] = newT[i];
+            }
         }
         // cho nay se them ham update tac gia vao file
-        cout << "/Da them thanh cong nguoi dung. ";
+        cout << "\nDa them thanh cong nguoi dung. \n";
     }
 }
 
@@ -62,7 +69,7 @@ void Management<T>::Remove(const string &Email)
         cout << "\nNguoi dung khong ton tai. \n";
     }
     else {
-        Count--;
+        this -> Count--;
         T tmp[Count];
         int p = 0;
         for (int i = 0; i < Count + 1; ++ i){
@@ -74,7 +81,7 @@ void Management<T>::Remove(const string &Email)
             this -> List[i] = tmp[i];
         }
         // cho nay se them ham update tac gia vao file
-        cout << "/Da xoa thanh cong nguoi dung. ";
+        cout << "/nDa xoa thanh cong nguoi dung. ";
     }
 }
 
@@ -82,7 +89,7 @@ template <class T>
 void Management<T>::View()
 {  
     for (int i = 0; i < Count; ++i) {
-        cout << this -> List[i] << endl;
+        cout << this -> List[i];
     }
 }
 

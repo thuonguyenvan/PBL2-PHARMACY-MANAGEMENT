@@ -6,6 +6,7 @@ using namespace std;
 class Staff: public Person
 {
 private:
+    int Authentication;
     string StaffID;
     double Salary;
 public:
@@ -13,4 +14,5 @@ public:
     Staff(const Staff&);
     ~Staff();
     friend ostream& operator << (ostream &, const Staff&);
+    friend istream& operator >> (istream&, Staff&);
 };

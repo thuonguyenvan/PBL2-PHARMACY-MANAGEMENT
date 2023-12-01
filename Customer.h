@@ -5,7 +5,7 @@ using namespace std;
 
 class Customer :  public Person
 {
-private:
+public:
     int Point = 0;
 public:
     Customer();

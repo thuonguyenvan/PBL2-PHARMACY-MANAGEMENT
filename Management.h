@@ -1,6 +1,6 @@
 #pragma once
 using namespace std;
-#include "Customer.h"
+#include "Customer.cpp"
 template <class T>
 class Management
 {

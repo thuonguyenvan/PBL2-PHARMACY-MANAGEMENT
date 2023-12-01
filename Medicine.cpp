@@ -1,3 +1,4 @@
+#pragma once
 #include "Medicine.h"
 #include <iostream>
 #include <iomanip>
