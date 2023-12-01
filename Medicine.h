@@ -24,7 +24,13 @@ public:
     friend Person;
     friend ostream& operator<<(ostream&, const Medicine&);
     friend istream& operator>>(istream&, Medicine&);
-
+    void EditName();
+    void EditNSX();
+    void EditHSD();
+    void EditUses();
+    void EditGuide();
+    void EditPrice();
+    void EditSideEffects();
 };
 
 /*

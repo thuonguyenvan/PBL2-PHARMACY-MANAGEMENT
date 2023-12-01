@@ -46,3 +46,33 @@ istream &operator >> (istream &in, Person &P)
     getline(cin, P.Address);
     return in;
 }
+
+void Person::EditName(){
+    cout << "- Nhap ten moi: ";
+    edit(this -> Name);
+}
+void Person::EditSDT(){
+    cout << "- Nhap so dien thoai moi: ";
+    edit(this -> SDT);
+}
+
+void Person::EditDateOfBirth(){
+    cout << "- Nhap ngay thang nam sinh moi (dd/mm/yyyy): ";
+    edit(this -> DateOfBirth);
+}
+
+void Person::EditCCCD(){
+    cout << "- Nhap so CCCD moi: ";
+    edit(this -> CCCD);
+}
+
+void Person::EditAddress(){
+    cout << "- Nhap dia chi moi (so nha, ten duong, thon/phuong, quan/huyen, tinh/thanh pho): ";
+    edit(this -> Address);
+}
+
+void Person::EditEmail(){
+    cout <<"- Nhap dia chi email moi";
+    edit(this -> Email);
+}
+

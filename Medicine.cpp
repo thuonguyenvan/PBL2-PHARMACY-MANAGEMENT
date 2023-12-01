@@ -50,6 +50,46 @@ istream &operator >> (istream &in, Medicine &M)
     cin >> M.Price;
     return in;
 }
+
+void Medicine::EditName(){
+    cout << "- Nhap ten thuoc moi: ";
+    edit(this -> Name);
+}
+
+void Medicine::EditNSX(){
+    cout << "- Nhap ngay san xuat moi: ";
+    edit(this -> NSX);
+}
+
+void Medicine::EditHSD(){
+    cout << "- Nhap han su dung moi: ";
+    edit(this -> HSD);
+}
+
+void Medicine::EditUses(){
+    cout << "- Nhap cong dung moi: ";
+    edit(this -> Uses);
+}
+void Medicine::EditGuide(){
+    cout << "- Nhap huong dan su dung moi: ";
+    edit(this -> Guide);
+}
+
+void Medicine::EditPrice(){
+    cout << "- Nhap gia moi: ";
+    edit(this->Price);
+}
+void Medicine::EditSideEffects(){
+    cout << "- Nhap tac dung phu moi: ";
+    edit(this->SideEffects);
+}
+// void EditName();
+//     void EditNSX();
+//     void EditHSD();
+//     void EditUses();
+//     void EditGuide();
+//     void EditPrice();
+//     void EditSideEffects();
 /*
 truong hop cung loai thuoc nhung khac NSX
 string Name;

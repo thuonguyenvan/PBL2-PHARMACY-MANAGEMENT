@@ -19,6 +19,13 @@ public:
     Person();
     Person(const Person &);
     ~Person();
+    void EditName();
+    void EditSDT();
+    void EditDateOfBirth();
+    void EditCCCD();
+    void EditAddress();
+    void EditEmail();
+    //void Edit();
     friend istream &operator >> (istream&, Person &);
     friend ostream &operator << (ostream&, const Person &);
 };

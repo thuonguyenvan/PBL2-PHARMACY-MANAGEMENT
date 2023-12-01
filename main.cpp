@@ -4,6 +4,7 @@ using namespace std;
 int main(){
     Customer C;
     cin >> C;
+    C.EditName();
     cout << C;
 }
 /*

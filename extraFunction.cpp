@@ -3,6 +3,7 @@
 #include <string.h>
 using namespace std;
 #include "extraFunction.h"
+#define getenter fflush(stdin);
 
 void removeSpaces(string &str)
 {
@@ -21,4 +22,10 @@ void removeSpaces(string &str)
         nstr += str[i++];
     }
     str = nstr;
+}
+
+template <class T>
+void edit(T& t){
+    getenter;
+    getline(cin, t);
 }

@@ -1,0 +1,13 @@
+SID01|Nguyen Huu Hung Dung|0972327742|22/11/2004|049212310868|99 Pham Cu Luong, Son Tra, Thanh pho Da Nang|uts2211@gmail.com|theworldwith|10000000
+MID01|Nguyen Van Thuong|0766739336|22/09/2004|048204010868|1 Le Duan, Hai Chau, Thanh pho Da Nang|thuongnguyenvan2209@gmail.com|withonlyyou|0
+MID02|Nguyen Ngoc Bao Han|0905755906|18/01/2004|048210868040|K40/11 Nguyen Thien Ke, Son Tra, Thanh pho Da Nang|nnbhan136@gmail.com|youandme|0
+SID11|Tran Van Hien|0987654321|21/05/1992|123456789|So 51, Duong Nguyen Van Linh, Quan Thanh Khe, Thanh pho Da Nang|tranvanhien@email.com|password123|13000000
+SID12|Nguyen Thi Mai|0369852147|03/12/1988|456789012|So 15, Duong Hai Trieu, Quan Cam Le, Thanh pho Da Nang|nguyenthimai@email.com|securepass456|11000000
+SID13|Le Van Dung|0912345678|19/04/1975|345678901|So 22, Duong Vo Nguyen Giap, Quan Son Tra, Thanh pho Da Nang|levandung@email.com|userpass789|14000000
+SID14|Pham Ngoc Linh|0845678901|27/11/1995|789012345|So 40, Duong Le Loi, Quan Ngu Hanh Son, Thanh pho Da Nang|phamngoclinh@email.com|thuy12345|12000000
+SID15|Tran Thi Hoang Yen|0987654321|15/09/1990|987654321|So 7, Duong Hoang Sa, Quan Hai Chau, Thanh pho Da Nang|tranthihoangyen@email.com|hoa567|10500000
+SID16|Le Duc Thang|0369852147|14/03/1982|456789012|So 55, Duong Phan Chu Trinh, Quan Thanh Khe, Thanh pho Da Nang|leducthang@email.com|tuan789|15000000
+SID17|Nguyen Thi Thao|0912345678|02/07/1993|345678901|So 29, Duong Tran Phu, Quan Hai Chau, Thanh pho Da Nang|nguyenthithao@email.com|ngan456|12500000
+SID18|Phan Van Tu|0845678901|10/12/1980|789012345|So 62, Duong Nguyen Chi Thanh, Quan Cam Le, Thanh pho Da Nang|phanvantu@email.com|hung123|13500000
+SID19|Truong Hoai An|0123456789|18/06/1996|123456789|So 11, Duong Phan Van Tri, Quan Son Tra, Thanh pho Da Nang|truonghoaian@email.com|thuytth|11500000
+SID20|Nguyen Van Quoc|0987654321|21/08/1993|987654321|So 89, Duong Nguyen Tri Phuong, Quan Hai Chau, Thanh pho Da Nang|nguyenvanquoc@email.com|quoc123|13000000
