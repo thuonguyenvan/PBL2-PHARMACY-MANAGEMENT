@@ -1,0 +1,92 @@
+- quản lý: (kế thừa lớp nhân viên)
+	+ thêm, xóa nhân viên
+	+ nhập thuốc
+	+ thu, chi trong n ngày gần nhất (nhập thuốc, lương, chi phí phát sinh (số tiền & mô tả)),
+	
+- nhân viên :
+	+ mã nhân viên
+	+ thông tin cá nhân
+	+ tạo giao dịch
+	+ xem lịch sử giao dịch trong n ngày gần nhất
+	+ quản lý tài khoản khách (thêm, xóa, chỉnh sửa thông tin)
+
+- người mua:
+	+ thông tin cá nhân
+	+ tra cứu thuốc
+	+ thêm tài khoản
+	+ tích điểm
+	+ góp ý
+
+- thuốc:
+	+ Ma thuoc (de phan biet nsx, hsd)
+	+ ngày sx, hsd
+	+ công dụng
+	+ liều lượng
+	+ cách sử dụng
+	+ giá tiền
+	+ số lượng còn 
+	+ tác dụng phụ
+	+ thông báo khi thuốc còn ít thì nhập thêm hàng
+	+ cảnh báo khi thuốc gần hết hạn sử dụng
+
+- giao dịch: 	
+	+ nhân viên bán
+	+ ngày giao dịch
+	+ khách hàng
+	+ loại thuốc
+	+ số lượng
+	+ giá tiền
+	+ hình thức thanh toán
+###################################################################################################################
+
+Main :
+	Welcome (chọn chế độ người dùng) -> gọi giao diện welcome của mỗi chế độ (khách, đk, đn, thoát, trở về) 
+
+	Lớp menu người dùng:
+		- hàm login, thoát, trở về (dùng chung)
+		- sign up
+	Lớp guest:
+
+	Menu nhân viên, menu quản lý kế thừa nhân viên, menu người dùng
+	- hàm chung: xem thuốc, xem ttcn
+	- menu người dùng: mua hàng, thanh toán 
+
+
+
+   
+	
+	
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
