@@ -1,11 +1,11 @@
 #include "Person.cpp"
-#include "Customer.cpp"
+#include "StaffManagement.cpp"
 using namespace std;
 int main(){
-    Customer C;
-    cin >> C;
-    C.EditName();
-    cout << C;
+    StaffManagement CL;
+    ifstream FileStaff("./Data/Staff.txt");
+    CL.readStaffFromFile(FileStaff);
+    CL.ViewAllStaffs();
 }
 /*
 thuongnguyenvan2209@gmail.com

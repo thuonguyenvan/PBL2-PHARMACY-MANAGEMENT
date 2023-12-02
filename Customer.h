@@ -13,6 +13,7 @@ public:
     ~Customer();
     void AccumPoint();
     friend ostream& operator<<(ostream &, const Customer&);
+    void readCustomerFromFile(ifstream &);
 };
 
 /*

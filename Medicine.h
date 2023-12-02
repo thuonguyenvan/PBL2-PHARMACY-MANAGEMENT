@@ -24,6 +24,7 @@ public:
     friend Person;
     friend ostream& operator<<(ostream&, const Medicine&);
     friend istream& operator>>(istream&, Medicine&);
+    void readMedicineFromFile (ifstream &);
     void EditName();
     void EditNSX();
     void EditHSD();

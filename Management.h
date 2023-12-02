@@ -4,10 +4,11 @@ using namespace std;
 template <class T>
 class Management
 {
-private:
+protected:
     T *List;
-    int Count = 0;
+    int Count;
 public:
+    friend class ifstream;
     Management();
     ~Management();
     void Add();
@@ -15,4 +16,5 @@ public:
    // void Edit(const string &);
     void Remove(const string &);
     bool CheckExisted(const string &);
+    void readCountFromFile(ifstream &);
 };

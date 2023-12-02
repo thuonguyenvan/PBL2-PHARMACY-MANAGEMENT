@@ -83,6 +83,23 @@ void Medicine::EditSideEffects(){
     cout << "- Nhap tac dung phu moi: ";
     edit(this->SideEffects);
 }
+void Medicine :: readMedicineFromFile (ifstream &in) 
+{
+    string t;
+    getline(in, ID, '|');
+    getline(in, Name, '|');
+    getline(in, NSX,'|');
+    getline(in, HSD,'|');
+    getline(in, Uses,'|');
+    getline(in, Guide, '|');
+    in >> Left;
+    getline(in, t, '|');
+    in >> Price;
+    getline(in, t, '|');
+    getline(in, SideEffects, '\n');
+    
+}
+
 // void EditName();
 //     void EditNSX();
 //     void EditHSD();

@@ -9,7 +9,9 @@
 
 template <class T>
 Management<T>::Management()
-{}
+{
+    this -> Count = 0;
+}
 
 template <class T>
 Management<T>::~Management()
@@ -93,15 +95,15 @@ void Management<T>::View()
     }
 }
 
-
-
-
+template <class T>
+void Management<T>::readCountFromFile(ifstream &in)
+{
+    in >> Count;
+    string t; 
+    getline(in, t, '\n');
+}
 
 
 // lop quan ly nhan vien:
-
-
-
-
 
 

@@ -9,7 +9,7 @@ Person::Person()
 {}
 
 Person::Person(const Person &P)
-    : Name(P.Name), SDT(P.SDT), DateOfBirth(P.DateOfBirth), CCCD(P.CCCD), Address(P.Address)
+    : Name(P.Name), SDT(P.SDT), DateOfBirth(P.DateOfBirth), CCCD(P.CCCD), Address(P.Address), Password(P.Password)
 {}
 
 Person::~Person()
@@ -76,3 +76,7 @@ void Person::EditEmail(){
     edit(this -> Email);
 }
 
+void Person::EditPassword(){
+    cout << "- Nhap mat khau moi: ";
+    edit(this -> Password);
+}

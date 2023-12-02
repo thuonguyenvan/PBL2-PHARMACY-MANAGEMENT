@@ -1,15 +1,20 @@
-#pragma once
 using namespace std;
-#include "Management.cpp"
+#include "StaffManagement.h"
 #include "Staff.cpp"
 #include "Person.cpp"
 
-int main()
-{
-    Management<Staff> StaffList;
-    StaffList.Add();
-    StaffList.View();
-    return 0;
+void StaffManagement::readStaffFromFile(ifstream &File){
+    this->readCountFromFile(File);
+    this -> List = new Staff[this -> Count];
+    for (int i = 0; i < Count; ++ i){
+        List[i].readStaffFromFile(File);
+    }
+}
+
+void StaffManagement::ViewAllStaffs(){
+    cout << left << setw(7) << "ID" << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
+    << "CCCD" << left << setw(40) << "Dia chi" << left << setw(10) << "Luong" << endl;
+    this -> View();
 }
 /*
 thuongnguyenvan2209@gmail.com

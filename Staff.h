@@ -8,11 +8,13 @@ class Staff: public Person
 private:
     int Authentication;
     string StaffID;
-    double Salary;
+    long long int Salary;
 public:
     Staff();
     Staff(const Staff&);
     ~Staff();
     friend ostream& operator << (ostream &, const Staff&);
     friend istream& operator >> (istream&, Staff&);
+    void readStaffFromFile (ifstream &);
+
 };

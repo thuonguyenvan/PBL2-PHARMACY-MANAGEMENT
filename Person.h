@@ -13,6 +13,7 @@ protected:
     string CCCD;
     string Address;
     string Email;
+    string Password;
 public:
     template<class T>
     friend class Management;
@@ -25,6 +26,7 @@ public:
     void EditCCCD();
     void EditAddress();
     void EditEmail();
+    void EditPassword();
     //void Edit();
     friend istream &operator >> (istream&, Person &);
     friend ostream &operator << (ostream&, const Person &);

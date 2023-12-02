@@ -1,33 +1,20 @@
-#pragma once
 using namespace std;
 #include "MedicineManagement.h"
 #include "Medicine.cpp"
 #include "Person.cpp"
 
-void MedicineManagement::AddNumberOfMedicine(const string &ID ){
-    return;
+void MedicineManagement::readMedicineFromFile(ifstream &File){
+    this->readCountFromFile(File);
+    this -> List = new Medicine[this -> Count];
+    for (int i = 0; i < Count; ++ i){
+        List[i].readMedicineFromFile(File);
+    }
 }
 
-// void MedicineManagement::AddNewMedicine(){
-//     string ID;
-//     cout << "Nhap ma so thuoc: ";
-//     cin >> ID;
-//     if (CheckExisted(ID)) {
-//         cout << "\nMa thuoc nay da ton tai. Ban co muon tang so luong thuoc? \n";
-//         int check;
-//         cout << "Nhap 1 de tang, nhan phim khac de thoat: ";
-//         cin >> check;
-//         if (check) 
-//     }
-//     else {
-//         t
-//     }
-// }
-
-int main()
-{
-    
-    return 0;
+void MedicineManagement::ViewAllMedicines(){
+    cout << left << setw(7) << "ID" << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
+    << "CCCD" << left << setw(40) << "Dia chi" << left << setw(10) << "Luong" << endl;
+    this -> View();
 }
 /*
 thuongnguyenvan2209@gmail.com
