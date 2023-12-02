@@ -2,12 +2,13 @@
 #include<iostream>
 using namespace std;
 #include "Person.h"
-
+class CustomerManagement;
 class Customer :  public Person
 {
-public:
+protected:
     int Point = 0;
 public:
+    friend CustomerManagement;
     Customer();
     Customer(const Customer&);
     ~Customer();

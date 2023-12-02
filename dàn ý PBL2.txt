@@ -1,13 +1,11 @@
 - quản lý: (kế thừa lớp nhân viên)
 	+ thêm, xóa nhân viên
 	+ nhập thuốc
-	+ thu, chi trong n ngày gần nhất (nhập thuốc, lương, chi phí phát sinh (số tiền & mô tả)),
 	
 - nhân viên :
 	+ mã nhân viên
 	+ thông tin cá nhân
 	+ tạo giao dịch
-	+ xem lịch sử giao dịch trong n ngày gần nhất
 	+ quản lý tài khoản khách (thêm, xóa, chỉnh sửa thông tin)
 
 - người mua:
@@ -52,41 +50,68 @@ Main :
 	- menu người dùng: mua hàng, thanh toán 
 
 
+###################################################################################################################
 
+
+- Welcome Screen: chon che do -> 
+						+ nguoi dung: 
+							- guest:
+								+ xem va mua thuoc
+									+ xem thuoc:
+										- hien ra tat ca thuoc
+										- mua thuoc
+									+ tim thuoc:
+										- tim theo chuc nang:
+											+ mua thuoc
+										- tim theo ten:
+											+ mua thuoc
+								+ thanh thoan:
+									- hien ra tat ca thuoc da chon
+									- bo thuoc
+									- dat hang:
+										+ tich diem
+
+								+ tro ve 
+								+ thoat
+								
+									
+							- dang nhap:
+								+ xem thong tin ca nhan
+								+ guest
+								
+							- dang ky:
+								+ quay lai man hinh dang nhap
+							- tro ve
+							- thoat
+							
+						+ nhan vien:
+							- dang nhap:
+								+ nhap mat khau tai khoan hoac nhap cai gi do de thoat
+									+ hien ra menu quan ly / nhan vien  (authentication(0, 1)):
+										- menu nhan vien:
+											+ xem thong tin khach hang
+											+ xem thuoc
+											+ tao giao dich
+											+ quan ly khach hang:
+												- them
+												- sua
+												- xoa
+											+ xem ttcn
+										- menu quan ly:
+											+ ke thua nhan vien
+											+ quan ly nhan vien
+											+ xem thu chi
+											+ quan ly thuoc
+						+ 
+
+							- tro ve
+							- thoat
+						
+
+####################################################################################################
+bay gio:
+	+ hoan thien cac ham add, remove, edit,
    
 	
-	
-	
-
-	
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Person.h"
 using  namespace std;
+class MedicineManagement;
 class Medicine
 {
 private:
@@ -12,10 +13,11 @@ private:
     string HSD;
     string Uses;
     string Guide;
-    int Price;
-    int Left;
+    long long int Price;
+    long long int Left;
     string SideEffects;
 public:
+    friend class MedicineManagement;
     Medicine();
     Medicine(const Medicine &);
     ~Medicine();

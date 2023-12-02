@@ -1,9 +1,9 @@
 8
-T001|Paracetamol|2018-03-15|2023-12-31|GiamSot|UongVoiNuocKhongVuotQuaLieuLuongKhuyenNghi|5|100|Khong
-T002|Ibuprofen|2018-06-22|2024-02-28|GiamDau|UongSauBuaAnTranhAnDoi|8|50|BuonNon,DauDau
-T003|Cetirizine|2018-11-12|2023-11-30|GiamDiUng|UongVaoBuoiToiTranhUongRuou|10|75|BuonNgu
-T004|Aspirin|2019-02-18|2023-10-15|GiamDau|UongSauKhiAnUongDuNuoc|6|30|KichThichDaDay
-T005|Amoxicillin|2019-11-15|2024-04-30|KhangSinh|UongTheoHuongDanCuaBacSi|15|20|BuonNon,TieuChay
-T006|VitaminC|2017-10-19|2023-09-01|BoSung|UongMotVienMoiNgay|3|50|Khong
-T007|Diazepam|2021-02-14|2023-12-20|GiamCangThang|SuDungCanThanTranhUongRuou|12|40|BuonNgu,ChoiLoi
-T008|Omeprazole|2021-12-05|2024-01-31|TraoNguocAxit|UongTruocBuaAnTranhThucPhamCayNong|9|25|DauDau
+T001|Paracetamol|15/03/2018|31/12/2023|Giam Sot|Uong Voi Nuoc Khong Vuot Qua Lieu Luong Khuyen Nghi|5|100000|Khong
+T002|Ibuprofen|22/06/2018|28/02/2024|Giam Dau|Uong Sau Bua An Tranh An Doi|8|50000|Buon Non, Dau Dau
+T003|Cetirizine|12/11/2018|30/11/2023|Giam Di Ung|Uong Vao Buoi Toi Tranh Uong Ruou|10|75000|Buon Ngu
+T004|Aspirin|18/02/2019|15/10/2023|Giam Dau|Uong Sau Khi An Uong Du Nuoc|6|30000|Kich Thich Da Day
+T005|Amoxicillin|15/11/2019|30/04/2024|Khang Sinh|Uong Theo Huong Dan Cua Bac Si|15|20000|Buon Non, Tieu Chay
+T006|VitaminC|19/10/2017|01/09/2023|Bo Sung|Uong Mot Vien Moi Ngay|3|50000|Khong
+T007|Diazepam|14/02/2021|20/12/2023|Giam Cang Thang|Su Dung Can Than Tranh Uong Ruou|12|40000|Buon Ngu, Choi Loi
+T008|Omeprazole|05/12/2021|31/01/2024|Trao Nguoc Axit|Uong Truoc Bua An Tranh Thuc Pham Cay Nong|9|25000|Dau Dau

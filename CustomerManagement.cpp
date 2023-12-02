@@ -16,6 +16,51 @@ void CustomerManagement::ViewAllCustomers(){
     << "CCCD" << left << setw(40) << "Dia chi" << left << setw(3) << "Diem tich luy" << endl;
     this -> View();
 }
+
+void CustomerManagement::updateCustomerFile(){
+    ofstream File("./Data/Customer.txt");
+    File << Count << "\n";
+    for (int i = 0; i < Count; ++i){
+        File << List[i].Name << "|";
+        File << List[i].SDT << "|";
+        File << List[i].DateOfBirth << "|";
+        File << List[i].CCCD << "|";
+        File << List[i].Address << "|";
+        File << List[i].Email << "|";
+        File << List[i].Password << "|";
+        File << List[i].Point<< "\n";
+    }
+    File.close();
+}
+
+void CustomerManagement::addNewCustomer(){
+    this->Add();
+}
+
+void CustomerManagement::removeCustomer(const string &E){
+    this->Remove(E);
+}
+
+void CustomerManagement::editCustomer(const string &E){
+    
+}
+/*
+void List::List_overwriteNewArticle()
+{
+    ofstream outFile("../Data/Article.txt", ofstream::trunc);
+    outFile << "Ma bao|Ten cong bo|Tac gia|Tap chi|Thoi gian\n";
+    for (int i=0; i<Article_count; i++)
+    {
+        outFile <<  Art[i].Article_id << "|";
+        outFile <<  Art[i].Article_name << "|";
+        outFile <<  Art[i].Author_id << "|";
+        outFile <<  Art[i].Journal_id << "|";
+        outFile <<  Art[i].Publish_time << ",\n";
+    }
+    outFile.close();
+
+}
+*/
 /*
 thuongnguyenvan2209@gmail.com
 Nguyen Van Thuong

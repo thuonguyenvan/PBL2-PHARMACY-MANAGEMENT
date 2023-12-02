@@ -21,12 +21,12 @@ Management<T>::~Management()
 
 
 template <class T>
-bool Management<T>::CheckExisted(const string &Email)
+int Management<T>::CheckExisted(const string &Email)
 {  
     for (int i = 0; i < Count; ++i){
-        if (this -> List[i].Email == Email) return true;
+        if (this -> List[i].Email == Email) return i + 1;
     }
-    return false;
+    return 0;
 }
 
 template <class T>
@@ -60,7 +60,7 @@ void Management<T>::Add()
             }
         }
         // cho nay se them ham update tac gia vao file
-        cout << "\nDa them thanh cong nguoi dung. \n";
+        cout << "\nDa them thanh cong. \n";
     }
 }
 
@@ -102,6 +102,18 @@ void Management<T>::readCountFromFile(ifstream &in)
     string t; 
     getline(in, t, '\n');
 }
+
+template <class T>
+void Management<T>::Edit(const string &E){
+    int pos = CheckExisted(E);
+    if (!pos){
+        cout << "- Nguoi dung khong ton tai";
+    }
+    else{
+        List[pos - 1].Edit();
+    }
+}
+
 
 
 // lop quan ly nhan vien:

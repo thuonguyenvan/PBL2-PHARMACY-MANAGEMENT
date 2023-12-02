@@ -7,4 +7,8 @@ class StaffManagement: public Management<Staff>
 public:
     void readStaffFromFile(ifstream &);
     void ViewAllStaffs();
+    void updateStaffFile();
+    void addNewStaff();
+    void removeStaff(const string &);
+    void editStaff(const string &);
 };

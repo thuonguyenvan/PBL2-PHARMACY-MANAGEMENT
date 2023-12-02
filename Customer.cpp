@@ -7,7 +7,9 @@
 #include "extraFunction.cpp"
 #define getenter fflush(stdin);
 Customer::Customer()
-{}
+{
+    Point = 0;
+}
 
 Customer::Customer(const Customer& C)
     :Person(C), Point(C.Point)

@@ -21,8 +21,6 @@ ostream &operator << (ostream &out, const Staff &P)
     return out;
 }
 istream &operator >> (istream &in, Staff &S){
-    cout << "- Nhap phan quyen (Manager: 0, Staff: 1): ";
-    cin >> S.Authentication;
     cout << "- Nhap ID cua nhan vien: ";
     in >> S.StaffID;
     in >> static_cast<Person&>(S);
@@ -45,3 +43,43 @@ void Staff :: readStaffFromFile (ifstream &in)
     getline(in, t, '\n');
 }
 
+void Staff::EditSalary(){
+    cout <<"- Nhap luong moi";
+    edit(this -> Salary);
+}
+
+void Staff::EditStaffID(){
+    cout <<"- Nhap ID moi";
+    edit(this -> StaffID);
+}
+void Staff::MenuEdit(){
+    Person::MenuEdit();
+    cout << "\n                      8. Luong";
+    cout << "\n                      9. ID";
+    cout << "\n                      10. Thoat";
+}
+
+void Staff::Edit(){
+    MenuEdit();
+    int t;
+    cin >> t;
+    while (t < 1 || t > 10){
+        cout << "- Lua chon khong hop le, vui long nhap lai";
+        MenuEdit();
+        cin >> t;
+    }
+    if (t < 8) Person::Edit();
+    else{
+        switch (t)
+        {
+            case 8: 
+                EditSalary();
+                break;
+            case 9:
+                EditStaffID();
+                break;
+            case 10:
+                break;
+        }
+    }
+}

@@ -12,10 +12,56 @@ void MedicineManagement::readMedicineFromFile(ifstream &File){
 }
 
 void MedicineManagement::ViewAllMedicines(){
-    cout << left << setw(7) << "ID" << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
-    << "CCCD" << left << setw(40) << "Dia chi" << left << setw(10) << "Luong" << endl;
+    cout << left << setw(7) << "ID" << left << setw(15) << "Ten thuoc"  << left << setw(13) << "Ngay san xuat" << left << setw(13)<< "Han su dung" << left << setw(20) 
+    << "Cong dung" << left << setw(40) << "Huong dan su dung" << left << setw(10) << "Tac dung phu" << left << setw(10) << "So luong con" << left << setw(10) << "Gia" <<  endl;
     this -> View();
 }
+int MedicineManagement::CheckExisted(const string &ID){
+    for (int i = 0; i < Count;  ++i) if (List[i].ID == ID) return i + 1;
+    return 0;
+}
+void MedicineManagement::addNewMedicine(const string tid){
+    string s;
+    if (tid == "!"){
+        cout << "- Nhap ID thuoc: ";
+        cin >> s;
+        int pos = CheckExisted(s);
+        if (pos){
+            cout << "- Thuoc da ton tai, ban co muon tang so luong thuoc khong: ";
+            cout << "        1. Tang so luong          2. Thoat";
+            int option;
+            cin >> option;
+            if (option == 1){
+                increaseAmount(s);
+            }
+            else return;
+        }
+    }
+    else s = tid;
+    Medicine tmp;
+    tmp.ID = s;
+    cin >> tmp;
+    Count++;
+    if (Count == 1){
+        this -> List = new Medicine[1];
+        List[0] = tmp;
+    }
+    else {
+        Medicine *M =  new Medicine[Count - 1];
+        for (int i = 0; i < Count - 1; ++i){
+            M[i] = List[i];
+        }
+        delete [] this -> List;
+        this -> List = new Medicine[Count];
+        List[Count - 1] = tmp;
+        for (int i = 0; i < Count - 1; ++i){
+            List[i] = M[i];
+        }
+    }
+    cout << "\n- Da them thanh cong";
+}
+
+
 /*
 thuongnguyenvan2209@gmail.com
 Nguyen Van Thuong

@@ -1,11 +1,13 @@
 #include "Person.cpp"
-#include "StaffManagement.cpp"
+#include "CustomerManagement.cpp"
 using namespace std;
 int main(){
-    StaffManagement CL;
-    ifstream FileStaff("./Data/Staff.txt");
-    CL.readStaffFromFile(FileStaff);
-    CL.ViewAllStaffs();
+    CustomerManagement CL;
+    ifstream FileCustomer("./Data/Customer.txt");
+    CL.readCustomerFromFile(FileCustomer);
+    CL.ViewAllCustomers();
+    CL.updateCustomerFile();
+    FileCustomer.close();
 }
 /*
 thuongnguyenvan2209@gmail.com

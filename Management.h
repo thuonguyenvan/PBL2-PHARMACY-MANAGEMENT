@@ -15,6 +15,7 @@ public:
     void View();
    // void Edit(const string &);
     void Remove(const string &);
-    bool CheckExisted(const string &);
+    int CheckExisted(const string &);
     void readCountFromFile(ifstream &);
+    void Edit(const string &);
 };

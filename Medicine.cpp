@@ -24,7 +24,8 @@ void Medicine::WarningHSD(){
 }
 
 ostream& operator<<(ostream &out, const Medicine &M){
-    out << M.ID << " " << M.Name << ": \n";
+    out << left << setw(7) << M.ID << left << setw(15) << M.Name << left << setw(13) << M.NSX << left << setw(13)<< M.HSD << left << setw(20) 
+    << M.Uses << left << setw(40) << M.Guide << left << setw(10) << M.SideEffects << left << setw(10) << M.Left << left << setw(10) << M.Price <<  endl;
     return out;
 }
 
@@ -77,7 +78,7 @@ void Medicine::EditGuide(){
 
 void Medicine::EditPrice(){
     cout << "- Nhap gia moi: ";
-    edit(this->Price);
+    cin >> Price;
 }
 void Medicine::EditSideEffects(){
     cout << "- Nhap tac dung phu moi: ";

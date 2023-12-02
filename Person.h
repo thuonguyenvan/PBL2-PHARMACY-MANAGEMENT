@@ -27,7 +27,8 @@ public:
     void EditAddress();
     void EditEmail();
     void EditPassword();
-    //void Edit();
+    void MenuEdit();
+    void Edit(int = -1);
     friend istream &operator >> (istream&, Person &);
     friend ostream &operator << (ostream&, const Person &);
 };
