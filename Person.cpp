@@ -3,8 +3,9 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+//#include <limits>
 #include "extraFunction.cpp"
-#define getenter fflush(stdin);
+//#define getenter cin.ignore(numeric_limits<streamsize>::max(), '\n');
 Person::Person()
 {}
 
@@ -25,23 +26,23 @@ ostream &operator << (ostream &out, const Person &P)
 istream &operator >> (istream &in, Person &P) 
 {
     cout << endl << "- Nhap ho va ten: "; 
-    getenter;
+//    getenter;
     getline(cin, P.Name);
     cout << "- Nhap so dien thoai: ";
-    getenter;
+//    getenter;
     getline(cin, P.SDT);
     cout << "- Nhap ngay thang nam sinh (dd/mm/yyyy): ";
-    getenter;
+//    getenter;
     getline(cin, P.DateOfBirth);
     cout << "- Nhap so can cuoc cong dan: ";
-    getenter;
+//    getenter;
     getline(cin, P.CCCD);
     removeSpaces(P.CCCD);
     cout << "- Nhap dia chi (ex: 01 Le Duan, Hai Chau, Da Nang): ";
-    getenter;
+//    getenter;
     getline(cin, P.Address);
     cout << "- Nhap mau khau: ";
-    getenter;
+//   getenter;
     getline(cin, P.Password);
     return in;
 

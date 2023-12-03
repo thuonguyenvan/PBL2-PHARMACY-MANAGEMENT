@@ -1,18 +1,45 @@
 #include "LoginForm.h"
+#include <limits>
 using namespace std;
 
 int LoginForm::count = 1;
 
-int LoginForm::checkLogin(string& email, string& password){
-    if (email != "a"){
+int LoginForm::checkLogin(CustomerManagement& csList){
+    system("cls");
+    string email, password;
+    bool checkEmail = false, checkPassword = false;
+    cout << "De trong de quay lai.\n";
+    cout << "Nhap email: ";
+    getenter;
+    getline(cin, email);
+    if (email.empty()){
+        this->leftEmpty = true;
+        return -1;
+    }
+    cout << "Nhap mat khau: ";
+    getline(cin, password);
+    if (password.empty()){
+        this->leftEmpty = true;
+        return -1;
+    }
+    for (int i=0; i<csList.returnCount(); i++){
+        if (email == csList.returnEmail(i)){
+            checkEmail = true;
+            if (password == csList.returnPassword(i)){
+                checkPassword = true;
+                return i;
+            }
+        }
+    }
+    if (!checkEmail){
         cout << "Email doesn't exist.\n";
-        return false;
+        return (-1);
     }
-    else if (password != "a"){
+    else if (!checkPassword){
         cout << "Password is incorrect.\n";
-        return false;
+        return (-1);
     }
-    else return true;
+    else return 0;
 }
 
 void LoginForm::Show(){

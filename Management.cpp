@@ -3,8 +3,9 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+//#include <limits>
 #include "extraFunction.cpp"
-#define getenter fflush(stdin);
+//#define getenter cin.ignore(numeric_limits<streamsize>::max(), '\n');
 // quan ly nhan vien, khach hang, quan ly, thuoc
 
 template <class T>
@@ -33,10 +34,16 @@ template <class T>
 void Management<T>::Add()
 {  
     string Email;
+    retry: cout << "De trong de quay lai.\n";
     cout << "Nhap Email: ";
-    cin >> Email;
+    getenter;
+    getline(cin, Email);
+    if (Email.empty()) return;
     if (CheckExisted(Email)) {
         cout << "\nEmail nay da duoc dung. \n";
+        system("pause");
+        system("cls");
+        goto retry;
     }
     else {
         this -> Count++;
@@ -114,8 +121,20 @@ void Management<T>::Edit(const string &E){
     }
 }
 
+template <class T>
+int Management<T>::returnCount(){
+    return this->Count;
+}
 
+template <class T>
+string Management<T>::returnEmail(int index){
+    return this->List[index].Email;
+}
 
+template <class T>
+string Management<T>::returnPassword(int index){
+    return this->List[index].Password;
+}
 // lop quan ly nhan vien:
 
 

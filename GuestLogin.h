@@ -3,6 +3,6 @@ using namespace std;
 
 class GuestLogin: public LoginForm{
     public:
-        void Show();
+        char Show();
         void Run();
 };

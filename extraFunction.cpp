@@ -2,9 +2,10 @@
 #include <iostream>
 #include <chrono>
 #include <string.h>
+#include <limits>
 using namespace std;
 #include "extraFunction.h"
-#define getenter fflush(stdin);
+#define getenter cin.ignore(numeric_limits<streamsize>::max(), '\n');;
 
 void removeSpaces(string &str)
 {

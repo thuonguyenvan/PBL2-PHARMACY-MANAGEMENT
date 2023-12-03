@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class WelcomeScreen{
+class ExecuteCode{
     public:
         void static Run();
         char static Show();

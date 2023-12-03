@@ -3,9 +3,9 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include "Customer.h"
+//#include <limits>
 #include "extraFunction.cpp"
-#define getenter fflush(stdin);
+//#define getenter cin.ignore(numeric_limits<streamsize>::max(), '\n');
 Customer::Customer()
 {
     Point = 0;

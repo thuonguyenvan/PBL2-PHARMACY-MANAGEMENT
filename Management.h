@@ -18,4 +18,7 @@ public:
     int CheckExisted(const string &);
     void readCountFromFile(ifstream &);
     void Edit(const string &);
+    int returnCount();
+    string returnEmail(int index);
+    string returnPassword(int index);
 };

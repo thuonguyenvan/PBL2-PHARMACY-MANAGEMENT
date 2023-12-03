@@ -1,6 +1,6 @@
-#include ".\WelcomeScreen\WelcomeScreen.cpp"
+#include ".\ExecuteCode\ExecuteCode.cpp"
 using namespace std;
 
 int main(){
-    WelcomeScreen::Show();
+    ExecuteCode::Run();
 }
