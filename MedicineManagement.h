@@ -12,4 +12,5 @@ public:
     void editMedicine(const string &);
     void increaseAmount(const string &);
     int CheckExisted(const string&);
+    Medicine pickMedicine(const string&);
 };

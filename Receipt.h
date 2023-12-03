@@ -6,17 +6,15 @@
 #include "Medicine.cpp"
 using namespace std;
 class ReceiptManagement;
-class Receipt: public Customer
+class Receipt: public Customer, public Staff
 {
 private:
-    friend class ReceiptManagement;
     string ReceiptID;
     string DateOfTran;
-    string StaffID;
-    string StaffName;
     int CountMedicine;
     Medicine *List;
 public:
+    friend class ReceiptManagement;
     Receipt();
     Receipt(const Customer&, const Staff&);
     ~Receipt();

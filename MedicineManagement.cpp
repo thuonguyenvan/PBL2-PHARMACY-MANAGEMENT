@@ -100,6 +100,11 @@ void MedicineManagement::increaseAmount(const string &ID){
     }
 }
 
+Medicine MedicineManagement::pickMedicine(const string &ID){
+    int p = CheckExisted(ID);
+    return List[p-1];
+}
+
 /*
 thuongnguyenvan2209@gmail.com
 Nguyen Van Thuong

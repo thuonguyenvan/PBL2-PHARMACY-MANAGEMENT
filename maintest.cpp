@@ -10,8 +10,8 @@ string getCurrentDate(){
     char buffer[bufferSize];
     if (strftime(buffer, 20, "%d/%m/%Y %H:%M:%S", localtime(&currentTime))) {
         std::string currentTimeStr(buffer);
+        return currentTimeStr;
     }
-
 }
 
 int main() {

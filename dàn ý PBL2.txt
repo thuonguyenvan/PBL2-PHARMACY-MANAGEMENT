@@ -58,8 +58,8 @@ Main :
 							- guest:
 								+ xem va mua thuoc
 									+ xem thuoc:
-										- hien ra tat ca thuoc
-										- mua thuoc
+										- hien ra tat ca thuoc (done)
+										- mua thuoc 
 									+ tim thuoc:
 										- tim theo chuc nang:
 											+ mua thuoc
@@ -113,5 +113,10 @@ bay gio:
 	+ hoan thien cac ham add, remove, edit,
    
 	
-
-
+mua thuoc :
+	Receiptmanagent
+	tạo new Receipt
+	nếu nhân viên thực hiện: hai nhánh: khách và thành viên
+	nếu khách thực hiện -> nhân viên để trống
+	chọn id thuốc
+	chọn số lượng

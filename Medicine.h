@@ -35,6 +35,7 @@ public:
     void EditGuide();
     void EditPrice();
     void EditSideEffects();
+    void EditLeft();
     void MenuEdit();
     void Edit();
 };
