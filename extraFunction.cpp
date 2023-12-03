@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <chrono>
 #include <string.h>
 using namespace std;
 #include "extraFunction.h"
@@ -28,4 +29,15 @@ template <class T>
 void edit(T& t){
     getenter;
     getline(cin, t);
+}
+
+string getCurrentDate(){
+    auto now = chrono::system_clock::now();
+    time_t currentTime = std::chrono::system_clock::to_time_t(now);
+    const int bufferSize = 20; // Đủ cho chuỗi "dd/mm/yyyy hh:mm:ss"
+    char buffer[bufferSize];
+    if (strftime(buffer, 20, "%d/%m/%Y %H:%M:%S", localtime(&currentTime))) {
+        std::string currentTimeStr(buffer);
+        return currentTimeStr;
+    }
 }

@@ -52,6 +52,11 @@ istream &operator >> (istream &in, Medicine &M)
     return in;
 }
 
+void Medicine::EditID(){
+    cout << "- Nhap ID moi: ";
+    edit(this -> ID);
+}
+
 void Medicine::EditName(){
     cout << "- Nhap ten thuoc moi: ";
     edit(this -> Name);
@@ -101,6 +106,67 @@ void Medicine :: readMedicineFromFile (ifstream &in)
     
 }
 
+void Medicine::MenuEdit(){
+    cout << "- Nhap thong tin can thay doi hoac lua chon thoat: ";
+    cout << "\n                      1. ID";
+    cout << "\n                      2. Ten";
+    cout << "\n                      3. Ngay san xuat";
+    cout << "\n                      4. Han su dung";
+    cout << "\n                      5. Cong dung";
+    cout << "\n                      6. Cach dung";
+    cout << "\n                      7. So luong trong kho";
+    cout << "\n                      8. Gia";
+    cout << "\n                      9. Tac dung phu";
+    cout << "\n                      10. Thoat";
+    cout << "- Nhap lua chon cua ban: ";
+}
+
+void Medicine::EditLeft(){
+    cout << "- Nhap luong thuoc con lai moi: ";
+    cin >> Left;
+}
+
+void Medicine::Edit(){
+    MenuEdit();
+    int t;
+    cin >> t;
+    while (t < 1 || t > 10){
+        cout << "- Lua chon khong hop le, vui long chon lai\n";
+        MenuEdit();
+        cin >> t;
+    }
+    switch (t){
+        case 1:
+            EditID();
+            break;
+        case 2:
+            EditName();
+            break;
+        case 3:
+            EditNSX();
+            break;
+        case 4:
+            EditHSD();
+            break;
+        case 5:
+            EditUses();
+            break;
+        case 6:
+            EditGuide();
+            break;;
+        case 7:
+            EditLeft();
+            break;
+        case 8:
+            EditPrice();
+            break;
+        case 9:
+            EditSideEffects();
+            break;
+        case 10: 
+            break;
+    }
+}
 // void EditName();
 //     void EditNSX();
 //     void EditHSD();

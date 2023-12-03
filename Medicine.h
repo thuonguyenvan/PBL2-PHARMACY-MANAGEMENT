@@ -27,6 +27,7 @@ public:
     friend ostream& operator<<(ostream&, const Medicine&);
     friend istream& operator>>(istream&, Medicine&);
     void readMedicineFromFile (ifstream &);
+    void EditID();
     void EditName();
     void EditNSX();
     void EditHSD();
@@ -34,6 +35,8 @@ public:
     void EditGuide();
     void EditPrice();
     void EditSideEffects();
+    void MenuEdit();
+    void Edit();
 };
 
 /*

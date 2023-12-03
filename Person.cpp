@@ -82,7 +82,7 @@ void Person::EditPassword(){
 }
 
 void Person::MenuEdit(){
-    cout << "- Nhap thong tin can thay doi hoa lua chon thoat: ";
+    cout << "- Nhap thong tin can thay doi hoax lua chon thoat: ";
     cout << "\n                      1. Ten";
     cout << "\n                      2. So dien thoai";
     cout << "\n                      3. Ngay sinh";

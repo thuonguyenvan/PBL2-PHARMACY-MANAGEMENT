@@ -45,7 +45,7 @@ void Staff :: readStaffFromFile (ifstream &in)
 
 void Staff::EditSalary(){
     cout <<"- Nhap luong moi";
-    edit(this -> Salary);
+    cin >> Salary;
 }
 
 void Staff::EditStaffID(){

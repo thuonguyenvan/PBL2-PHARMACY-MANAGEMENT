@@ -61,6 +61,44 @@ void MedicineManagement::addNewMedicine(const string tid){
     cout << "\n- Da them thanh cong";
 }
 
+void MedicineManagement::removeMedicine(const string &ID){
+    if (!CheckExisted(ID)) cout << "- Thuoc khong ton tai";
+    else {
+        this -> Count--;
+        Medicine *tmp = new Medicine[Count]; 
+        int p = 0;
+        for (int i = 0; i < Count + 1; ++ i){
+            if (this -> List[i].ID != ID)  tmp[p++] = this ->List[i];
+        }
+        delete[] this -> List;
+        this -> List = new Medicine[Count];
+        for (int i = 0; i < Count - 1; ++ i){
+            this -> List[i] = tmp[i];
+        }
+        // cho nay se them ham update tac gia vao file
+        cout << "/nDa xoa thanh cong thuoc. ";
+    }
+}
+
+void MedicineManagement::editMedicine(const string &ID){
+    int p = CheckExisted(ID);
+    if (!p) cout << "- Thuoc khong ton tai";
+    else {
+        List[p - 1].Edit();
+    }
+}
+
+void MedicineManagement::increaseAmount(const string &ID){
+    int p = CheckExisted(ID);
+    if (!p) cout << "- Thuoc khong ton tai";
+    else {
+        cout << "- Nhap so luong thuoc muon nhap them: ";
+        int t;
+        cin >> t;
+        List[p - 1].Left += t;
+        cout << "- Da them thanh cong. ";
+    }
+}
 
 /*
 thuongnguyenvan2209@gmail.com

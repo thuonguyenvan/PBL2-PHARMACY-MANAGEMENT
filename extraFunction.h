@@ -3,3 +3,4 @@
 void removeSpaces(string &);
 template <class T>
 void edit(T&);
+string getCurrentDate();
