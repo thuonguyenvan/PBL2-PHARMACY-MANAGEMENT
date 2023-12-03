@@ -1,41 +1,26 @@
-#include "GuestLogin.h"
+#include "StaffLogin.h"
+#include "StaffManagement.cpp"
 using namespace std;
 
-char GuestLogin::Show(){
-    cout << GuestLogin::count++ << ". No account.\n";
-    cout << GuestLogin::count++ << ". Register.\n";
+char StaffLogin::Show(){
     LoginForm::Show();
-    GuestLogin::count = 1;
+    StaffLogin::count = 1;
     char temp;
     cin >> temp;
     return temp;
 }
 
-void GuestLogin::Run(){
-    CustomerManagement csList;
-    ifstream FileCustomer("./Data/Customer.txt");
-    csList.readCustomerFromFile(FileCustomer);
-    FileCustomer.close();
+void StaffLogin::Run(){
+    StaffManagement stList;
+    ifstream FileStaff("./Data/Staff.txt");
+    stList.readStaffFromFile(FileStaff);
+    FileStaff.close();
     retry:    system("cls");
         char temp = this->Show();
         switch(temp){
-            case '1':{      // khong dung tai khoan
-                system("cls");
-                //NoAccount::Run();
-                cout << "noacc";
-                break;
-            }
-            case '2':{      // dang ky
-                system("cls");
-                csList.addNewCustomer();
-            //    csList.updateCustomerFile();
-                system("pause");
-                goto retry;
-                break;
-            }
-            case '3':{      // dang nhap
+            case '1':{      // dang nhap
                 retryLogin: system("cls");
-                int index = this->checkLogin(csList);
+                int index = this->checkLogin(stList);
                 if (this->leftEmpty){           // kiem tra trong de quay lai
                     this->leftEmpty = false;
                     system("cls");
@@ -44,7 +29,7 @@ void GuestLogin::Run(){
                 if (index != (-1)){     // dang nhap thanh cong
                     //GuestMenu::Run();
                     system("cls");
-                    cout << "Welcome " << csList.returnEmail(index);
+                    cout << "Welcome " << stList.returnEmail(index);
                 }
                 else{       // dang nhap khong thanh cong
                     system("pause");
@@ -52,12 +37,12 @@ void GuestLogin::Run(){
                 }
                 break;
             }
-            case '4':{      // tro lai
+            case '2':{      // tro lai
                 system("cls");
                 this->backPressed = true;
                 break;
             }
-            case '5':{      // thoat
+            case '3':{      // thoat
                 exit(0);
                 break;
             }

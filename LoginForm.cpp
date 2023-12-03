@@ -1,10 +1,12 @@
+#pragma once
 #include "LoginForm.h"
 #include <limits>
 using namespace std;
 
 int LoginForm::count = 1;
 
-int LoginForm::checkLogin(CustomerManagement& csList){
+template<typename T>
+int LoginForm::checkLogin(T& List){
     system("cls");
     string email, password;
     bool checkEmail = false, checkPassword = false;
@@ -22,10 +24,10 @@ int LoginForm::checkLogin(CustomerManagement& csList){
         this->leftEmpty = true;
         return -1;
     }
-    for (int i=0; i<csList.returnCount(); i++){
-        if (email == csList.returnEmail(i)){
+    for (int i=0; i<List.returnCount(); i++){
+        if (email == List.returnEmail(i)){
             checkEmail = true;
-            if (password == csList.returnPassword(i)){
+            if (password == List.returnPassword(i)){
                 checkPassword = true;
                 return i;
             }
