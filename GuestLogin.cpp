@@ -1,4 +1,5 @@
 #include "GuestLogin.h"
+#include "GuestMenu.cpp"
 using namespace std;
 
 char GuestLogin::Show(){
@@ -17,12 +18,15 @@ void GuestLogin::Run(){
     csList.readCustomerFromFile(FileCustomer);
     FileCustomer.close();
     retry:    system("cls");
+        bool backPressed = false;
         char temp = this->Show();
         switch(temp){
             case '1':{      // khong dung tai khoan
                 system("cls");
-                //NoAccount::Run();
-                cout << "noacc";
+                int index = -1;
+                GuestMenu guestMenu;
+                guestMenu.Run(index);
+                backPressed = guestMenu.backPressed;
                 break;
             }
             case '2':{      // dang ky
@@ -42,9 +46,11 @@ void GuestLogin::Run(){
                     goto retry;
                 }
                 if (index != (-1)){     // dang nhap thanh cong
-                    //GuestMenu::Run();
                     system("cls");
                     cout << "Welcome " << csList.returnEmail(index);
+                    GuestMenu guestMenu;
+                    guestMenu.Run(index);
+                    backPressed = guestMenu.backPressed;
                 }
                 else{       // dang nhap khong thanh cong
                     system("pause");
@@ -68,4 +74,5 @@ void GuestLogin::Run(){
                 goto retry;
             }
         }
+    if (backPressed) goto retry;
 }
