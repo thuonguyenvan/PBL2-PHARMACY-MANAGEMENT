@@ -5,7 +5,10 @@
 #include <fstream>
 #include "extraFunction.cpp"
 Staff::Staff()
-{}
+{
+    Name = "";
+    StaffID = "";
+}
 
 Staff::Staff(const Staff& S)
     :Person(S), Salary(S.Salary), StaffID(S.StaffID)

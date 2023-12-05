@@ -120,3 +120,5 @@ mua thuoc :
 	nếu khách thực hiện -> nhân viên để trống
 	chọn id thuốc
 	chọn số lượng
+
+	tao ham pick thuoc o lop medicine management, nhap vao id, return ve thuoc do
