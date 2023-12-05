@@ -1,6 +1,7 @@
 #pragma once
 #include "ExecuteCode.h"
 #include "..\GuestLogin.cpp"
+#include "..\StaffLogin.cpp"
 
 using namespace std;
 
@@ -11,16 +12,15 @@ void ExecuteCode::Run(){
     bool backPressed = false;
     switch(temp){
         case '1':{
-            system("cls");
             GuestLogin guestLogin;
             guestLogin.Run();
             backPressed = guestLogin.backPressed;
             break;
         }
         case '2':{
-            system("cls");
-            //EmployeeLogin::Run();
-            cout << "employ";
+            StaffLogin staffLogin;
+            staffLogin.Run();
+            backPressed = staffLogin.backPressed;
             break;
         }
         case '3':{

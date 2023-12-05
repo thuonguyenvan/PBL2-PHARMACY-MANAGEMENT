@@ -7,7 +7,8 @@ class LoginForm{
     protected:
         static int count;
     public:
-        int checkLogin(CustomerManagement&);
+        template<typename T>
+        int checkLogin(T&);
         bool backPressed = false;
         bool leftEmpty = false;
         void static Show();
