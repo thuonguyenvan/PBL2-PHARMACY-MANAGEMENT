@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 #include "Receipt.h"
-class ReceiptManagement
+class ReceiptManagement: public MedicineManagement
 {
 private:
     Receipt *List;
@@ -9,7 +9,8 @@ private:
 public:
     ReceiptManagement();
     ~ReceiptManagement();
-    void addNewReceipt();
-    void removeReceipt(const string &);
+    string chooseMedicine();
+    void addNewReceipt(const Customer&, const Staff&);
+   // void removeReceipt(const string &);
 };
 

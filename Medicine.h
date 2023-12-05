@@ -4,6 +4,7 @@
 #include "Person.h"
 using  namespace std;
 class MedicineManagement;
+class ReceiptManagement;
 class Medicine
 {
 private:
@@ -17,6 +18,7 @@ private:
     long long int Left;
     string SideEffects;
 public:
+    friend class ReceiptManagement;
     friend class MedicineManagement;
     Medicine();
     Medicine(const Medicine &);
