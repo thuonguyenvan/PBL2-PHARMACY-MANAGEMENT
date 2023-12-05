@@ -127,13 +127,18 @@ int Management<T>::returnCount(){
 }
 
 template <class T>
-string Management<T>::returnEmail(int index){
+string Management<T>::returnEmail(const int& index){
     return this->List[index].Email;
 }
 
 template <class T>
-string Management<T>::returnPassword(int index){
+string Management<T>::returnPassword(const int& index){
     return this->List[index].Password;
+}
+
+template <class T>
+string Management<T>::returnName(const int& index){
+    return this->List[index].Name;
 }
 // lop quan ly nhan vien:
 

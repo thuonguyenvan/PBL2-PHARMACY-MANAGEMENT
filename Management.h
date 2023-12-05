@@ -19,6 +19,7 @@ public:
     void readCountFromFile(ifstream &);
     void Edit(const string &);
     int returnCount();
-    string returnEmail(int index);
-    string returnPassword(int index);
+    string returnEmail(const int&);
+    string returnPassword(const int&);
+    string returnName(const int&);
 };

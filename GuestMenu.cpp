@@ -1,4 +1,5 @@
 #include "GuestMenu.h"
+#include "MedicineManagement.cpp"
 using namespace std;
 
 char GuestMenu::Show(const int& index){
@@ -13,12 +14,54 @@ char GuestMenu::Show(const int& index){
 }
 
 void GuestMenu::Run(const int& index){
+    MedicineManagement mdList;
+    ifstream FileMedicine("./Data/Medicine.txt");
+    mdList.readMedicineFromFile(FileMedicine);
+    FileMedicine.close();
     retry:    system("cls");
         char temp = this->Show(index);
         switch(temp){
             case '1':{      // Xem thuoc
                 system("cls");
-                cout << "Xem thuoc";
+                GuestMenu::ViewMedsOptionMenu();
+                char temp;
+                cin >> temp;
+                if (temp == '1')
+                    mdList.ViewAllMedicines();
+                else{
+                    system("cls");
+                    GuestMenu::ViewMedsFindMenu();
+                    cin >> temp;
+                    if (temp == '1'){
+                        retryFindName: int index = this->SearchByName(mdList);
+                        if (this->leftEmpty){           // kiem tra trong de quay lai
+                            this->leftEmpty = false;
+                            system("cls");
+                            goto retry;
+                        }
+                        if (index != (-1)){     // tim thay thuoc
+                            system("cls");
+                            cout << "Da tim thay " << mdList.returnMedicineName(index);
+                        }
+                        else{       // khong tim thay
+                            system("pause");
+                            goto retryFindName;
+                        }
+                        break;
+                    }
+                    else{
+                        retryFindFunction: bool found = this->SearchByFunction(mdList);
+                        if (this->leftEmpty){           // kiem tra trong de quay lai
+                            this->leftEmpty = false;
+                            system("cls");
+                            goto retry;
+                        }
+                        if (!found) goto retryFindFunction;
+                        break;
+                    }
+                }
+                system("pause");
+                goto retry;
                 break;
             }
             case '2':{      // Xem gio hang

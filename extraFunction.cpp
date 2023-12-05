@@ -41,4 +41,5 @@ string getCurrentDate(){
         std::string currentTimeStr(buffer);
         return currentTimeStr;
     }
+    return NULL;
 }

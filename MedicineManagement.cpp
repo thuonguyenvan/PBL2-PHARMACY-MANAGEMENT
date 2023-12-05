@@ -105,6 +105,18 @@ Medicine MedicineManagement::pickMedicine(const string &ID){
     return List[p-1];
 }
 
+string MedicineManagement::returnMedicineName(const int& index){
+    return this->List[index].Name;
+}
+
+string MedicineManagement::returnMedicineFunction(const int& index){
+    return this->List[index].Uses;
+}
+
+void MedicineManagement::returnMedicineInfo(const int& index){
+    cout << List[index];
+}
+    
 /*
 thuongnguyenvan2209@gmail.com
 Nguyen Van Thuong

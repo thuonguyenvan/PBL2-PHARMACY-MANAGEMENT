@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <fstream>
 #include "extraFunction.cpp"
-#define getenter fflush(stdin);
+//#define getenter fflush(stdin);
 Medicine::Medicine()
 {}
 

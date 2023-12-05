@@ -2,7 +2,7 @@
 using namespace std;
 #include "Management.cpp"
 #include "Medicine.cpp"
-class  MedicineManagement: public Management< Medicine>
+class  MedicineManagement: public Management<Medicine>
 {
 public:
     void readMedicineFromFile(ifstream &);
@@ -13,4 +13,7 @@ public:
     void increaseAmount(const string &);
     int CheckExisted(const string&);
     Medicine pickMedicine(const string&);
+    string returnMedicineName(const int&);
+    string returnMedicineFunction(const int&);
+    void returnMedicineInfo(const int&);
 };
