@@ -75,8 +75,9 @@ int WorkMenu::ChooseMedicineAmount(){
     string amountStr;
     int amount;
     cout << "Nhap so luong thuoc muon mua hoac de trong de quay lai: ";
-    getenter;
-    getline(cin, amountStr);
+ //   cin.clear();
+//    getenter;
+    getline(cin >> ws, amountStr);
     if (amountStr.empty()){
         this->leftEmpty = true;
         return -1;
@@ -88,8 +89,9 @@ int WorkMenu::ChooseMedicineAmount(){
 string WorkMenu::ChooseMedicineID(){
     string ID;
     cout << "Nhap ID thuoc ban muon mua (de trong de quay lai): ";
-    getenter;
-    getline(cin, ID);
+//    cin.clear();
+//    getenter;
+    getline(cin >> ws, ID);
     if (ID.empty()){
         this->leftEmpty = true;
         return "null";
