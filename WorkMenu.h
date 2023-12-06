@@ -15,4 +15,6 @@ class WorkMenu{
         void DisplayReceipt();
         bool backPressed = false;
         bool leftEmpty = false;
+        int ChooseMedicineAmount();
+        string ChooseMedicineID();
 };

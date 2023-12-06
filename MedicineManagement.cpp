@@ -117,6 +117,10 @@ string MedicineManagement::returnMedicineFunction(const int& index){
 void MedicineManagement::returnMedicineInfo(const int& index){
     cout << List[index];
 }
+
+int MedicineManagement::returnMedicineAmount(const int& index){
+    return this->List[index].Left;
+}
     
 /*
 thuongnguyenvan2209@gmail.com

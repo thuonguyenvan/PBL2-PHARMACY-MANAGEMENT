@@ -12,11 +12,13 @@ void WorkMenu::Show(){
 void WorkMenu::ViewMedsOptionMenu(){
     cout << "1. Xem tat ca thuoc.\n";
     cout << "2. Tim thuoc.\n";
+    cout << "3. Tro ve.\n";
 }
 
 void WorkMenu::ViewMedsFindMenu(){
     cout << "1. Tim theo ten.\n";
     cout << "2. Tim theo chuc nang.\n";
+    cout << "3. Tro ve.\n";
 }
 
 template<typename T>
@@ -67,6 +69,32 @@ bool WorkMenu::SearchByFunction(T& List){
     if (!checkFunction)
         cout << "Khong tim thay thuoc voi chuc nang nay.\n";
     return checkFunction;
+}
+
+int WorkMenu::ChooseMedicineAmount(){
+    string amountStr;
+    int amount;
+    cout << "Nhap so luong thuoc muon mua hoac de trong de quay lai: ";
+    getenter;
+    getline(cin, amountStr);
+    if (amountStr.empty()){
+        this->leftEmpty = true;
+        return -1;
+    }
+    amount = stoi(amountStr,nullptr);
+    return amount;
+}
+
+string WorkMenu::ChooseMedicineID(){
+    string ID;
+    cout << "Nhap ID thuoc ban muon mua (de trong de quay lai): ";
+    getenter;
+    getline(cin, ID);
+    if (ID.empty()){
+        this->leftEmpty = true;
+        return "null";
+    }
+    else return ID;
 }
 
 void WorkMenu::DisplayReceipt(){

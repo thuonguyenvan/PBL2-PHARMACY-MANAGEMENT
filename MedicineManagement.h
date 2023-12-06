@@ -18,4 +18,5 @@ public:
     string returnMedicineName(const int&);
     string returnMedicineFunction(const int&);
     void returnMedicineInfo(const int&);
+    int returnMedicineAmount(const int&);
 };
