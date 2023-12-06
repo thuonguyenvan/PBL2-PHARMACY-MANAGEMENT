@@ -22,8 +22,8 @@ Receipt::~Receipt()
     delete []List;
     delete []Number;
 }
-Receipt::Receipt(const Customer& C, const Staff& S)
-    :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0)
+Receipt::Receipt(const Customer& C, const Staff& S, const MedicineManagement &MM)
+    :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0),  MedicineManagement(MM)
 {
 }
 
@@ -150,4 +150,21 @@ void Receipt::editReceipt(){
         cout << "- Nhap thuoc can chinh sua hoac nhap 1 de thoat: ";
         cin >> tid;
     }
+}
+
+void Receipt::buyMedicine(const string& ID){
+    int p = MedicineManagement::CheckExisted(ID);
+    if (!p) {
+        cout << "- Thuoc khong ton tai";
+        return;
+    }
+    int n;
+    cout << "- Nhap so luong thuoc muon mua: ";
+    cin >> n;
+    while (n < 0 || n > MedicineManagement::List[p - 1].Left) {
+        cout << "- So luong thuoc khong hop le, vui long nhap lai: ";
+        cin >> n;
+    }
+    MedicineManagement::List[p - 1].Left -= n;
+    addNewMedicine(List[p - 1], n);
 }
