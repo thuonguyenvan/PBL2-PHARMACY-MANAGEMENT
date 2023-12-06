@@ -44,6 +44,10 @@ void StaffManagement::removeStaff(const string &E){
 void StaffManagement::editStaff(const string &E){
     Edit(E);
 }
+
+string StaffManagement::returnID(const int& index){
+    return this->List[index].StaffID;
+}
 /*
 thuongnguyenvan2209@gmail.com
 Nguyen Van Thuong

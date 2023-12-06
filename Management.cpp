@@ -140,6 +140,12 @@ template <class T>
 string Management<T>::returnName(const int& index){
     return this->List[index].Name;
 }
+
+template <class T>
+void Management<T>::returnInfo(const int& index){
+    cout << List[index];
+}
+
 // lop quan ly nhan vien:
 
 

@@ -3,8 +3,8 @@
 using namespace std;
 
 char GuestLogin::Show(){
-    cout << GuestLogin::count++ << ". No account.\n";
-    cout << GuestLogin::count++ << ". Register.\n";
+    cout << GuestLogin::count++ << ". Khong dung tai khoan.\n";
+    cout << GuestLogin::count++ << ". Dang ky.\n";
     LoginForm::Show();
     GuestLogin::count = 1;
     char temp;
@@ -25,7 +25,7 @@ void GuestLogin::Run(){
                 system("cls");
                 int index = -1;
                 GuestMenu guestMenu;
-                guestMenu.Run(index);
+                guestMenu.Run(csList,index);
                 backPressed = guestMenu.backPressed;
                 break;
             }
@@ -49,7 +49,7 @@ void GuestLogin::Run(){
                     system("cls");
                     cout << "Welcome " << csList.returnEmail(index);
                     GuestMenu guestMenu;
-                    guestMenu.Run(index);
+                    guestMenu.Run(csList,index);
                     backPressed = guestMenu.backPressed;
                 }
                 else{       // dang nhap khong thanh cong

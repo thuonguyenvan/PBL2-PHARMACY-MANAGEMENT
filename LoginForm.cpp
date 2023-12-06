@@ -34,18 +34,18 @@ int LoginForm::checkLogin(T& List){
         }
     }
     if (!checkEmail){
-        cout << "Email doesn't exist.\n";
+        cout << "Email khong ton tai.\n";
         return (-1);
     }
     else if (!checkPassword){
-        cout << "Password is incorrect.\n";
+        cout << "Mat khau sai.\n";
         return (-1);
     }
     else return 0;
 }
 
 void LoginForm::Show(){
-    cout << LoginForm::count++ << ". Login.\n";
-    cout << LoginForm::count++ << ". Back.\n";
-    cout << LoginForm::count++ << ". Exit.\n";
+    cout << LoginForm::count++ << ". Dang nhap.\n";
+    cout << LoginForm::count++ << ". Tro ve.\n";
+    cout << LoginForm::count++ << ". Thoat.\n";
 }

@@ -1,36 +1,49 @@
-#include "GuestMenu.h"
+#include "StaffMenu.h"
 #include "MedicineManagement.cpp"
 using namespace std;
 
-char GuestMenu::Show(const int& index){
-    cout << GuestMenu::count++ << ". Xem va mua thuoc.\n";
-    cout << GuestMenu::count++ << ". Xem gio hang va thanh toan.\n";
-    if (index != -1) cout << GuestMenu::count++ << ". Xem thong tin ca nhan.\n";
+char StaffMenu::Show(const int& authentication){
+    cout << StaffMenu::count++ << ". Xem va tim thuoc.\n";
+    cout << StaffMenu::count++ << ". Tao giao dich.\n";
+    cout << StaffMenu::count++ << ". Quan ly khach hang.\n";
+    if (!authentication){
+        cout << StaffMenu::count++ << ". Quan ly nhan vien.\n";
+        cout << StaffMenu::count++ << ". Quan ly thuoc.\n";
+        cout << StaffMenu::count++ << ". Xem thu chi.\n";
+    }
+    cout << StaffMenu::count++ << ". Xem thong tin ca nhan.\n";
     WorkMenu::Show();
-    GuestMenu::count = 1;
+    StaffMenu::count = 1;
     char temp;
     cin >> temp;
     return temp;
 }
 
-void GuestMenu::Run(CustomerManagement& csList, const int& index){
+int StaffMenu::checkAuthentication(StaffManagement& stList, const int& index){
+    string ID = stList.returnID(index);
+    if (ID[0] == 'M') return 0;
+    else return 1;
+}
+
+void StaffMenu::Run(StaffManagement& stList, const int& index){
     MedicineManagement mdList;
     ifstream FileMedicine("./Data/Medicine.txt");
     mdList.readMedicineFromFile(FileMedicine);
     FileMedicine.close();
+    int authentication = checkAuthentication(stList,index);
     retry:    system("cls");
-        char temp = this->Show(index);
+        char temp = this->Show(authentication);
         switch(temp){
             case '1':{      // Xem thuoc
                 system("cls");
-                GuestMenu::ViewMedsOptionMenu();
+                StaffMenu::ViewMedsOptionMenu();
                 char temp;
                 cin >> temp;
                 if (temp == '1')
                     mdList.ViewAllMedicines();
                 else{
                     system("cls");
-                    GuestMenu::ViewMedsFindMenu();
+                    StaffMenu::ViewMedsFindMenu();
                     cin >> temp;
                     if (temp == '1'){
                         retryFindName: int index = this->SearchByName(mdList);
@@ -64,28 +77,50 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index){
                 goto retry;
                 break;
             }
-            case '2':{      // Xem gio hang
+            case '2':{      // tao giao dich
                 system("cls");
-                cout << "Gio hang";
+                cout << "Tao giao dich";
                 break;
             }
-            case '3':{      // tro lai
+            case '3':{      // Quan ly khach
                 system("cls");
-                if (index!=-1){
-                    csList.returnInfo(index);
+                cout << "Quan ly khach";
+                break;
+            }
+            case '4':{      // tro lai
+                system("cls");
+                if (authentication){
+                    stList.returnInfo(index);
                 }
                 else
-                    this->backPressed = true;
+                    cout << "quan ly nhan vien";
                 break;
             }
-            case '4':{      // thoat
-                if (index!=-1) this->backPressed = true;
-                else
-                    exit(0);
+            case '5':{      // thoat
+                if (!authentication){
+                    cout << "quan ly thuoc";
+                }
+                else this->backPressed = true;
                 break;
             }
-            case '5':{
-                if (index!=-1) exit(0);
+            case '6':{
+                if (!authentication){
+                    cout << "xem thu chi";
+                }
+                else exit(0);
+                break;
+            }
+            case '7':{
+                if (!authentication) this->backPressed = true;
+                else{
+                    cout << "Lua chon khong hop le!\n";
+                    system("pause");
+                    system("cls");
+                    goto retry;
+                }
+            }
+            case '8':{
+                if (!authentication) exit(0);
             }
             default:{
                 cout << "Lua chon khong hop le!\n";

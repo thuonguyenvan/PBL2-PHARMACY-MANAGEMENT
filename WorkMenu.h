@@ -12,8 +12,6 @@ class WorkMenu{
         int SearchByName(T&);
         template<typename T>
         bool SearchByFunction(T&);
-        void DisplayInfo(string&);
-        void DisplayAccountList();
         void DisplayReceipt();
         bool backPressed = false;
         bool leftEmpty = false;

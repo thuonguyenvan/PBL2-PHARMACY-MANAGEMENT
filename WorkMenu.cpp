@@ -1,3 +1,4 @@
+#pragma once
 #include "WorkMenu.h"
 using namespace std;
 
@@ -60,20 +61,12 @@ bool WorkMenu::SearchByFunction(T& List){
     for (int i=0; i<List.returnCount(); i++){
         if (function == List.returnMedicineFunction(i)){
             checkFunction = true;
-            List.returnMedicineInfo(i);
+            List.returnInfo(i);
         }
     }
     if (!checkFunction)
         cout << "Khong tim thay thuoc voi chuc nang nay.\n";
     return checkFunction;
-}
-
-void WorkMenu::DisplayInfo(string& ID){
-    
-}
-
-void WorkMenu::DisplayAccountList(){
-    
 }
 
 void WorkMenu::DisplayReceipt(){

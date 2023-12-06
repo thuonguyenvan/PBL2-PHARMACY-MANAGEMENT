@@ -11,4 +11,5 @@ public:
     void addNewStaff();
     void removeStaff(const string &);
     void editStaff(const string &);
+    string returnID(const int&);
 };

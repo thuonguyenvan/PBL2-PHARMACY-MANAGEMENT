@@ -1,5 +1,5 @@
 #include "StaffLogin.h"
-#include "StaffManagement.cpp"
+#include "StaffMenu.cpp"
 using namespace std;
 
 char StaffLogin::Show(){
@@ -27,9 +27,11 @@ void StaffLogin::Run(){
                     goto retry;
                 }
                 if (index != (-1)){     // dang nhap thanh cong
-                    //GuestMenu::Run();
                     system("cls");
                     cout << "Welcome " << stList.returnEmail(index);
+                    StaffMenu staffMenu;
+                    staffMenu.Run(stList,index);
+                    backPressed = staffMenu.backPressed;
                 }
                 else{       // dang nhap khong thanh cong
                     system("pause");
@@ -53,4 +55,5 @@ void StaffLogin::Run(){
                 goto retry;
             }
         }
+    if (backPressed) goto retry;
 }
