@@ -21,6 +21,10 @@ public:
     Receipt(const Customer&, const Staff&);
     ~Receipt();
     void addNewMedicine(const Medicine&, const int &);
+    void refreshReceipt();
     void showReceipt();
     void readReceiptFromFile(ifstream &);
+    void editReceipt();
+    void editMedicineInReceipt(const string&);
+    int checkExistedMedicine(const string&);
 };

@@ -28,6 +28,11 @@ Receipt::Receipt(const Customer& C, const Staff& S)
 }
 
 void Receipt::addNewMedicine(const Medicine &M, const int &n){
+    int p = checkExistedMedicine(M.ID);
+    if (p){
+        Number[p - 1] += n;
+        return;
+    }
     CountMedicine++;
     Total += M.Price * n;
     if (CountMedicine == 1){
@@ -54,10 +59,11 @@ void Receipt::addNewMedicine(const Medicine &M, const int &n){
         List[CountMedicine - 1] = M;
         Number[CountMedicine - 1] = n;
     }
-    cout << "-  Da thanh cong.";
+    cout << "-  Da them thanh cong.";
 }
 
 void Receipt::showReceipt(){
+    refreshReceipt();
     cout << "           GOAT PHARMACY \n";
     cout << "Ma giao dich: " << ReceiptID << "     Time: " << DateOfTran << endl;
     cout << "Ten nhan vien: " << Staff::Name << "    Ma nhan vien: " << StaffID << endl;
@@ -85,4 +91,63 @@ void Receipt :: readReceiptFromFile (ifstream &in)
     // getline(in, t, '|');
     // getline(in, SideEffects, '\n');
     
+}
+
+void Receipt::refreshReceipt(){
+    int cnt = 0;
+    Medicine tl[CountMedicine];
+    int tn[CountMedicine];
+    for (int i = 0; i < CountMedicine; ++i){
+        tn[i] = Number[i];
+        tl[i] = List[i];
+        cnt += Number[i] == 0;
+    }
+    if (!cnt) return;
+    delete [] this->List;
+    delete [] this->Number;
+    CountMedicine -= cnt;
+    this -> List = new Medicine[CountMedicine];
+    this -> Number = new int[CountMedicine];
+    int cur = 0;
+    for (int i = 0; i < CountMedicine + cnt; ++i){
+        if (tn[i]) {
+            List[cur] = tl[i];
+            Number[cur++] = tn[i];
+        }
+    }
+}
+
+int Receipt::checkExistedMedicine(const string &ID){
+    for (int i = 0; i < CountMedicine; ++i){
+        if (List[i].ID == ID) return i;
+    }
+    return 0;
+}
+
+void Receipt::editMedicineInReceipt(const string &ID){
+    int p = checkExistedMedicine(ID);
+    if (!p){
+        cout << "- Thuoc khong ton tai";
+        return;
+    }
+    cout << "- Nhap moi so luong muon mua: ";
+    int n;
+    cin >> n;
+    while (n < 0 || n > Number[p - 1]) {
+        cout << "- So luong khong hop le, vui long nhap lai: ";
+        cin >> n;
+    }
+    Number[p - 1] = n;
+}
+void Receipt::editReceipt(){
+    showReceipt();
+    string tid;
+    cout << "- Nhap thuoc can chinh sua hoac nhap 1 de thoat: ";
+    cin >> tid;
+    while (tid != "1"){
+        editMedicineInReceipt(tid);
+        showReceipt();
+        cout << "- Nhap thuoc can chinh sua hoac nhap 1 de thoat: ";
+        cin >> tid;
+    }
 }

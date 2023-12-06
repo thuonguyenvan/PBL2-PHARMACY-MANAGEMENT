@@ -122,3 +122,8 @@ mua thuoc :
 	chọn số lượng
 
 	tao ham pick thuoc o lop medicine management, nhap vao id, return ve thuoc do
+
+	khi nhân viên / khách đăng nhập đã tạo một Receipt; 
+	gọi hàm mua thuốc -> add thuốc vào Receipt
+	edit Receipt
+	thanh toán -> add Receipt vào Receiptmanagent 
