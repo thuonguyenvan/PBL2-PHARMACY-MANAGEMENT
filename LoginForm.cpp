@@ -13,7 +13,7 @@ int LoginForm::checkLogin(T& List){
     cout << "De trong de quay lai.\n";
     cout << "Nhap email: ";
     getenter;
-    getline(cin, email);
+    getline(cin >> ws, email);
     if (email.empty()){
         this->leftEmpty = true;
         return -1;

@@ -31,6 +31,7 @@ void Receipt::addNewMedicine(const Medicine &M, const int &n){
     int p = checkExistedMedicine(M.ID);
     if (p){
         Number[p - 1] += n;
+        Total += M.Price * n;
         return;
     }
     CountMedicine++;
@@ -70,7 +71,7 @@ void Receipt::showReceipt(){
     cout << "Ten khach hang:    " << Customer::Name << "    So dien thoai: " << Customer::SDT << endl;
     cout << "   STT " << "  Ma thuoc    " << "  Ten thuoc   " << "  So luong    " << "  Gia\n" ;
     for (int i = 1; i <= CountMedicine; ++i){
-        cout << i << "  "<< List[i - 1].ID << "  "<< List[i - 1].Name << "  " << Number[i - 1] << "  "<< Number[i - 1] * List[i].Price << endl;
+        cout << i << "  "<< List[i - 1].ID << "  "<< List[i - 1].Name << "  " << Number[i - 1] << "  "<< Number[i - 1] * List[i - 1].Price << endl;
     } 
     cout << "Tong cong: " << Total << endl;
 
@@ -119,7 +120,7 @@ void Receipt::refreshReceipt(){
 
 int Receipt::checkExistedMedicine(const string &ID){
     for (int i = 0; i < CountMedicine; ++i){
-        if (List[i].ID == ID) return i;
+        if (List[i].ID == ID) return i + 1;
     }
     return 0;
 }
@@ -166,5 +167,5 @@ void Receipt::buyMedicine(const string& ID){
         cin >> n;
     }
     MedicineManagement::List[p - 1].Left -= n;
-    addNewMedicine(List[p - 1], n);
+    addNewMedicine(MedicineManagement::List[p - 1], n);
 }

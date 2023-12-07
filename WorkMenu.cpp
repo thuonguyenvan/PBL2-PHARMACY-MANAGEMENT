@@ -29,7 +29,7 @@ int WorkMenu::SearchByName(T& List){
     cout << "De trong de quay lai.\n";
     cout << "Nhap ten can tim: ";
     getenter;
-    getline(cin, name);
+    getline(cin >> ws, name);
     if (name.empty()){
         this->leftEmpty = true;
         return -1;
@@ -37,7 +37,7 @@ int WorkMenu::SearchByName(T& List){
     for (int i=0; i<List.returnCount(); i++){
         if (name == List.returnMedicineName(i)){
             checkName = true;
-            break;
+            return i;
         }
     }
     if (!checkName){
@@ -55,7 +55,7 @@ bool WorkMenu::SearchByFunction(T& List){
     cout << "De trong de quay lai.\n";
     cout << "Nhap chuc nang can tim: ";
     getenter;
-    getline(cin, function);
+    getline(cin >> ws, function);
     if (function.empty()){
         this->leftEmpty = true;
         return true;
