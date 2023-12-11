@@ -7,6 +7,8 @@ class WorkMenu{
     protected:
         int static count;
     public:
+        WorkMenu();
+        ~WorkMenu();
         void Show();
         void ViewMedsOptionMenu();
         void ViewMedsFindMenu();

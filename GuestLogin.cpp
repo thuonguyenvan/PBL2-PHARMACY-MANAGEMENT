@@ -49,7 +49,6 @@ void GuestLogin::Run(){
                     cout << "Welcome " << csList.returnEmail(index);
                     GuestMenu guestMenu;
                     guestMenu.Run(csList,index);
-                    cout << "a";
                 }
                 else{       // dang nhap khong thanh cong
                     system("pause");

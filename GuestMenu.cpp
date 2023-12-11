@@ -15,8 +15,6 @@ char GuestMenu::Show(const int& index){
     return temp;
 }
 
-
-
 void GuestMenu::Run(CustomerManagement& csList, const int& index){
     MedicineManagement mdList;
     ifstream FileMedicine("./Data/Medicine.txt");
@@ -39,7 +37,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index){
         char temp = this->Show(index);
         switch(temp){
             case '1':{      // Xem thuoc
-                GuestMenu::BuyMedicine(mdList,receipt);
+                this->BuyMedicine(mdList,receipt);
                 break;
             }
             case '2':{      // Xem gio hang
@@ -49,7 +47,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index){
                 break;
             }
             case '3':{      // tro lai
-                system("cls");
+            //    system("cls");
                 if (index!=-1){
                     cout << c;
                     system("pause");

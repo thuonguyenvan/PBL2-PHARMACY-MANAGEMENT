@@ -4,6 +4,10 @@ using namespace std;
 
 int WorkMenu::count = 1;
 
+WorkMenu::WorkMenu(){}
+
+WorkMenu::~WorkMenu(){}
+
 void WorkMenu::Show(){
     cout << WorkMenu::count++ << ". Tro ve.\n";
     cout << WorkMenu::count++ << ". Thoat.\n";

@@ -19,8 +19,8 @@ Receipt::Receipt()
 
 Receipt::~Receipt()
 {
-    delete []List;
-    delete []Number;
+    //delete []List;
+    //delete []Number;
 }
 Receipt::Receipt(const Customer& C, const Staff& S, const MedicineManagement &MM)
     :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0),  MedicineManagement(MM)

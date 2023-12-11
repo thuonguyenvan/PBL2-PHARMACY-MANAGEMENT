@@ -17,7 +17,7 @@ Management<T>::Management()
 template <class T>
 Management<T>::~Management()
 {
-    delete[] List;
+    //delete[] List;
 }
 
 
