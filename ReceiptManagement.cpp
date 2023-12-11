@@ -2,8 +2,11 @@ using namespace std;
 #include "ReceiptManagement.h"
 #include "Receipt.cpp"
 #include "MedicineManagement.cpp"
-ReceiptManagement::ReceiptManagement()
-{}
+ReceiptManagement::ReceiptManagement(): MedicineManagement()
+{
+    List = new Receipt[1];
+    Count = 0;
+}
 
 ReceiptManagement::~ReceiptManagement()
 {
@@ -17,8 +20,8 @@ string ReceiptManagement::chooseMedicine(){
     return s;
 }
 
-void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S){
-    Receipt R(C, S);
+void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, const MedicineManagement& MM){
+    Receipt R(C, S, MM);
     R.DateOfTran = getCurrentDate();
     string t = chooseMedicine();
     while (t != "1"){

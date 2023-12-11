@@ -14,17 +14,20 @@ Receipt::Receipt()
     StaffID = "";
     Staff::Name = "";
     Total = 0;
-    
+    List = new Medicine[1];
+    Number = new int[1];
 }
 
 Receipt::~Receipt()
 {
-    //delete []List;
-    //delete []Number;
+    delete[] List;
+    delete[] Number;
 }
 Receipt::Receipt(const Customer& C, const Staff& S, const MedicineManagement &MM)
     :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0),  MedicineManagement(MM)
 {
+    List = new Medicine[1];
+    Number = new int[1];
 }
 
 void Receipt::addNewMedicine(const Medicine &M, const int &n){

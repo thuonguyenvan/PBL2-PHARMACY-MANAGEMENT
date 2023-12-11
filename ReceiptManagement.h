@@ -10,7 +10,7 @@ public:
     ReceiptManagement();
     ~ReceiptManagement();
     string chooseMedicine();
-    void addNewReceipt(const Customer&, const Staff&);
+    void addNewReceipt(const Customer&, const Staff&, const MedicineManagement&);
    // void removeReceipt(const string &);
 };
 

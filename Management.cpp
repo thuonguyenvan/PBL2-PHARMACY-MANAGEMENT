@@ -12,12 +12,13 @@ template <class T>
 Management<T>::Management()
 {
     this -> Count = 0;
+    List = new T[1];
 }
 
 template <class T>
 Management<T>::~Management()
 {
-    //delete[] List;
+    delete[] List;
 }
 
 
