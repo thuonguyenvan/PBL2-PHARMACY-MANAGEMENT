@@ -1,4 +1,6 @@
 #include <iostream>
+#include "MedicineManagement.cpp"
+#include "Receipt.cpp"
 using namespace std;
 
 class WorkMenu{
@@ -12,9 +14,8 @@ class WorkMenu{
         int SearchByName(T&);
         template<typename T>
         bool SearchByFunction(T&);
-        void DisplayReceipt();
-        bool backPressed = false;
         bool leftEmpty = false;
         int ChooseMedicineAmount();
         string ChooseMedicineID();
+        void BuyMedicine(MedicineManagement&, Receipt&);
 };

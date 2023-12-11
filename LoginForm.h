@@ -9,7 +9,6 @@ class LoginForm{
     public:
         template<typename T>
         int checkLogin(T&);
-        bool backPressed = false;
         bool leftEmpty = false;
         void static Show();
 };

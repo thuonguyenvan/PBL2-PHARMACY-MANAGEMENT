@@ -15,7 +15,10 @@ void StaffLogin::Run(){
     ifstream FileStaff("./Data/Staff.txt");
     stList.readStaffFromFile(FileStaff);
     FileStaff.close();
-    retry:    system("cls");
+    bool breaker = false;
+    while (!breaker){
+        system("cls");
+        bool backPressed = false;
         char temp = this->Show();
         switch(temp){
             case '1':{      // dang nhap
@@ -24,14 +27,12 @@ void StaffLogin::Run(){
                 if (this->leftEmpty){           // kiem tra trong de quay lai
                     this->leftEmpty = false;
                     system("cls");
-                    goto retry;
                 }
                 if (index != (-1)){     // dang nhap thanh cong
                     system("cls");
                     cout << "Welcome " << stList.returnEmail(index);
                     StaffMenu staffMenu;
                     staffMenu.Run(stList,index);
-                    backPressed = staffMenu.backPressed;
                 }
                 else{       // dang nhap khong thanh cong
                     system("pause");
@@ -41,7 +42,7 @@ void StaffLogin::Run(){
             }
             case '2':{      // tro lai
                 system("cls");
-                this->backPressed = true;
+                breaker = true;
                 break;
             }
             case '3':{      // thoat
@@ -52,8 +53,8 @@ void StaffLogin::Run(){
                 cout << "Lua chon khong hop le!\n";
                 system("pause");
                 system("cls");
-                goto retry;
+                break;
             }
         }
-    if (backPressed) goto retry;
+    }
 }

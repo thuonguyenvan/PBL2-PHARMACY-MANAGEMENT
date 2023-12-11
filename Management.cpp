@@ -142,8 +142,8 @@ string Management<T>::returnName(const int& index){
 }
 
 template <class T>
-void Management<T>::returnInfo(const int& index){
-    cout << List[index];
+T Management<T>::returnInfo(const int& index){
+    return List[index];
 }
 
 // lop quan ly nhan vien:

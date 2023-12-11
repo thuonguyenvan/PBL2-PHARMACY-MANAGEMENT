@@ -22,5 +22,5 @@ public:
     string returnEmail(const int&);
     string returnPassword(const int&);
     string returnName(const int&);
-    void returnInfo(const int&);
+    T returnInfo(const int&);
 };

@@ -12,14 +12,14 @@ int LoginForm::checkLogin(T& List){
     bool checkEmail = false, checkPassword = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap email: ";
-    getenter;
+//    getenter;
     getline(cin >> ws, email);
     if (email.empty()){
         this->leftEmpty = true;
         return -1;
     }
     cout << "Nhap mat khau: ";
-    getline(cin, password);
+    getline(cin >> ws, password);
     if (password.empty()){
         this->leftEmpty = true;
         return -1;
