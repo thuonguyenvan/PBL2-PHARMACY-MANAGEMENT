@@ -1,6 +1,9 @@
 #pragma once
 #include "GuestLogin.h"
 #include "GuestMenu.cpp"
+#include "CustomerManagement.cpp"
+#include "StaffManagement.cpp"
+#include "MedicineManagement.cpp"
 using namespace std;
 
 char GuestLogin::Show(){
@@ -14,11 +17,7 @@ char GuestLogin::Show(){
     return temp;
 }
 
-void GuestLogin::Run(){
-    CustomerManagement csList;
-    ifstream FileCustomer("./Data/Customer.txt");
-    csList.readCustomerFromFile(FileCustomer);
-    FileCustomer.close();
+void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, MedicineManagement &mdList){
     bool breaker = false;
     while (!breaker){
         system("cls");
@@ -28,7 +27,7 @@ void GuestLogin::Run(){
                 system("cls");
                 int index = -1;
                 GuestMenu guestMenu;
-                guestMenu.Run(csList,index);
+                guestMenu.Run(csList,index, mdList);
                 break;
             }
             case '2':{      // dang ky
@@ -45,6 +44,7 @@ void GuestLogin::Run(){
                     this->leftEmpty = false;
                     system("cls");
                 }
+<<<<<<< Updated upstream
                 else{
                     if (index != (-1)){     // dang nhap thanh cong
                         system("cls");
@@ -56,6 +56,17 @@ void GuestLogin::Run(){
                         system("pause");
                         goto retryLogin;
                     }
+=======
+                if (index != (-1)){     // dang nhap thanh cong
+                    system("cls");
+                    cout << "Welcome " << csList.returnEmail(index);
+                    GuestMenu guestMenu;
+                    guestMenu.Run(csList,index, mdList);
+                }
+                else{       // dang nhap khong thanh cong
+                    system("pause");
+                    goto retryLogin;
+>>>>>>> Stashed changes
                 }
                 break;
             }

@@ -124,6 +124,24 @@ int MedicineManagement::returnMedicineAmount(const int& index){
     return this->List[index].Left;
 }
     
+
+void MedicineManagement::updateMedicineFile(){
+    ofstream File("./Data/Medicine.txt");
+    File << Count << "\n";
+    for (int i = 0; i < Count; ++i){
+        File << List[i].ID << "|";
+        File << List[i].Name << "|";
+        File << List[i].NSX << "|";
+        File << List[i].HSD << "|";
+        File << List[i].Uses << "|";
+        File << List[i].Guide << "|";
+        File << List[i].Left << "|";
+        File << List[i].Price << "|";
+        File << List[i].SideEffects<< "\n";
+    }
+    File.close();
+}
+
 /*
 thuongnguyenvan2209@gmail.com
 Nguyen Van Thuong

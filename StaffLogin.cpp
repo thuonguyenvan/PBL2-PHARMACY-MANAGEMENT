@@ -11,11 +11,7 @@ char StaffLogin::Show(){
     return temp;
 }
 
-void StaffLogin::Run(){
-    StaffManagement stList;
-    ifstream FileStaff("./Data/Staff.txt");
-    stList.readStaffFromFile(FileStaff);
-    FileStaff.close();
+void StaffLogin::Run(CustomerManagement &csList, StaffManagement &stList, MedicineManagement &mdList){
     bool breaker = false;
     while (!breaker){
         system("cls");
