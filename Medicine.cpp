@@ -32,22 +32,22 @@ ostream& operator<<(ostream &out, const Medicine &M){
 istream &operator >> (istream &in, Medicine &M) 
 {
     cout << endl << "- Nhap ten thuoc: "; 
-    getenter;
+    //getenter;
     getline(cin, M.Name);
     removeSpaces(M.Name);
     cout << "- Nhap ngay san xuat (dd/mm/yyyy): ";
-    getenter;
+    //getenter;
     getline(cin, M.NSX);
     removeSpaces(M.NSX);
     cout << "- Nhap han su dung (dd/bb/yyyy): ";
-    getenter;
+    //getenter;
     getline(cin, M.HSD);
     removeSpaces(M.HSD);
     cout << "- Nhap cong dung cua thuoc: ";
-    getenter;
+    //getenter;
     getline(cin, M.Uses);
     cout << "- Nhap gia cua thuoc: ";
-    getenter;
+    //getenter;
     cin >> M.Price;
     return in;
 }

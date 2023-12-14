@@ -26,6 +26,7 @@ void MedicineManagement::addNewMedicine(const string tid){
     if (tid == "!"){
         cout << "- Nhap ID thuoc: ";
         cin >> s;
+        getenter;
         int pos = CheckExisted(s);
         if (pos){
             cout << "- Thuoc da ton tai, ban co muon tang so luong thuoc khong: ";
@@ -42,6 +43,7 @@ void MedicineManagement::addNewMedicine(const string tid){
     Medicine tmp;
     tmp.ID = s;
     cin >> tmp;
+    getenter;
     Count++;
     if (Count == 1){
         this -> List = new Medicine[1];

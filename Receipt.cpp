@@ -23,8 +23,8 @@ Receipt::~Receipt()
     delete[] List;
     delete[] Number;
 }
-Receipt::Receipt(const Customer& C, const Staff& S, const MedicineManagement &MM)
-    :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0),  MedicineManagement(MM)
+Receipt::Receipt(const Customer& C, const Staff& S)
+    :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0)
 {
     List = new Medicine[1];
     Number = new int[1];
@@ -148,16 +148,18 @@ void Receipt::editReceipt(){
     string tid;
     cout << "- Nhap thuoc can chinh sua hoac nhap 1 de thoat: ";
     cin >> tid;
+    getenter;
     while (tid != "1"){
         editMedicineInReceipt(tid);
         showReceipt();
         cout << "- Nhap thuoc can chinh sua hoac nhap 1 de thoat: ";
         cin >> tid;
+        getenter;
     }
 }
 
-void Receipt::buyMedicine(const string& ID){
-    int p = MedicineManagement::CheckExisted(ID);
+void Receipt::buyMedicine(const string& ID, MedicineManagement& mdList){
+    int p = mdList.CheckExisted(ID);
     if (!p) {
         cout << "- Thuoc khong ton tai";
         return;
@@ -165,10 +167,10 @@ void Receipt::buyMedicine(const string& ID){
     int n;
     cout << "- Nhap so luong thuoc muon mua: ";
     cin >> n;
-    while (n < 0 || n > MedicineManagement::List[p - 1].Left) {
+    while (n < 0 || n > mdList.List[p - 1].Left) {
         cout << "- So luong thuoc khong hop le, vui long nhap lai: ";
         cin >> n;
     }
-    MedicineManagement::List[p - 1].Left -= n;
-    addNewMedicine(MedicineManagement::List[p - 1], n);
+    mdList.List[p - 1].Left -= n;
+    addNewMedicine(mdList.List[p - 1], n);
 }

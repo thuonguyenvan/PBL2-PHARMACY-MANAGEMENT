@@ -37,7 +37,7 @@ void Management<T>::Add()
     string Email;
     retry: cout << "De trong de quay lai.\n";
     cout << "Nhap Email: ";
-    getenter;
+    //getenter;
     getline(cin, Email);
     if (Email.empty()) return;
     if (CheckExisted(Email)) {

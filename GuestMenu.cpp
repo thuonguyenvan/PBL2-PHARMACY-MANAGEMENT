@@ -12,6 +12,7 @@ char GuestMenu::Show(const int& index){
     GuestMenu::count = 1;
     char temp;
     cin >> temp;
+    getenter;
     return temp;
 }
 
@@ -30,7 +31,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index){
         c = temp;
     }
     Staff s;
-    Receipt receipt(c,s,mdList);
+    Receipt receipt(c,s);
     bool breaker = false;
     while (!breaker){
         system("cls");

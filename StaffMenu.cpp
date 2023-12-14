@@ -16,6 +16,7 @@ char StaffMenu::Show(const int& authentication){
     StaffMenu::count = 1;
     char temp;
     cin >> temp;
+    getenter;
     return temp;
 }
 
@@ -37,7 +38,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index){
     int authentication = checkAuthentication(stList,index);
     Customer c;
     Staff s(stList.returnInfo(index));
-    Receipt receipt(c,s,mdList);
+    Receipt receipt(c,s);
     bool breaker = false;
     while (!breaker){
         system("cls");

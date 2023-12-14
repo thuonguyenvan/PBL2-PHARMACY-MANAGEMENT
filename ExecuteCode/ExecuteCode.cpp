@@ -45,5 +45,6 @@ char ExecuteCode::Show(){
     cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     char temp;
     cin >> temp;
+    getenter;
     return temp;
 }

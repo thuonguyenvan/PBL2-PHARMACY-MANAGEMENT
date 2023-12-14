@@ -2,10 +2,12 @@
 using namespace std;
 #include "Management.cpp"
 #include "Medicine.cpp"
+class Receipt;
 class ReceptManagement;
 class  MedicineManagement: public Management<Medicine>
 {
 public:
+    friend class Receipt;
     friend class ReceptManagement;
     void readMedicineFromFile(ifstream &);
     void ViewAllMedicines();

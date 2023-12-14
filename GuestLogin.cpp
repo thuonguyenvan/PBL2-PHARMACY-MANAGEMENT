@@ -10,6 +10,7 @@ char GuestLogin::Show(){
     GuestLogin::count = 1;
     char temp;
     cin >> temp;
+    getenter;
     return temp;
 }
 
@@ -44,15 +45,17 @@ void GuestLogin::Run(){
                     this->leftEmpty = false;
                     system("cls");
                 }
-                if (index != (-1)){     // dang nhap thanh cong
-                    system("cls");
-                    cout << "Welcome " << csList.returnEmail(index);
-                    GuestMenu guestMenu;
-                    guestMenu.Run(csList,index);
-                }
-                else{       // dang nhap khong thanh cong
-                    system("pause");
-                    goto retryLogin;
+                else{
+                    if (index != (-1)){     // dang nhap thanh cong
+                        system("cls");
+                        cout << "Welcome " << csList.returnEmail(index);
+                        GuestMenu guestMenu;
+                        guestMenu.Run(csList,index);
+                    }
+                    else{       // dang nhap khong thanh cong
+                        system("pause");
+                        goto retryLogin;
+                    }
                 }
                 break;
             }

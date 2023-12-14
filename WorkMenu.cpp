@@ -32,7 +32,7 @@ int WorkMenu::SearchByName(T& List){
     bool checkName = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap ten can tim: ";
-    getenter;
+    //getenter;
     getline(cin, name);
     if (name.empty()){
         this->leftEmpty = true;
@@ -58,7 +58,7 @@ bool WorkMenu::SearchByFunction(T& List){
     bool checkFunction = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap chuc nang can tim: ";
-    getenter;
+    //getenter;
     getline(cin, function);
     if (function.empty()){
         this->leftEmpty = true;
@@ -94,7 +94,7 @@ string WorkMenu::ChooseMedicineID(){
     string ID;
     cout << "Nhap ID thuoc ban muon mua (de trong de quay lai): ";
 //    cin.clear();
-    getenter;
+    //getenter;
     getline(cin, ID);
     if (ID.empty()){
         this->leftEmpty = true;
@@ -110,12 +110,14 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
         char temp;
         WorkMenu::ViewMedsOptionMenu();
         cin >> temp;
+        getenter;
         while(temp<'1' || temp>'3'){
             cout << "Lua chon khong phu hop!\n";
             system("pause");
             system("cls");
             WorkMenu::ViewMedsOptionMenu();
             cin >> temp;
+            getenter;
         }
         switch(temp){
             case '1':{
@@ -125,11 +127,12 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                     this->leftEmpty = false;
                     return;
                 }
-                receipt.buyMedicine(ID);
+                receipt.buyMedicine(ID,mdList);
                 cout << "\nBan co muon mua tiep khong?\n";
                 cout << "1. Tiep tuc mua hang.\n";
                 cout << "2. Quay lai.\n";
                 cin >> temp;
+                getenter;
                 while(temp<'1' || temp>'2'){
                     cout << "Lua chon khong phu hop.\n";
                     system("pause");
@@ -139,6 +142,7 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                     cout << "1. Tiep tuc mua hang.\n";
                     cout << "2. Quay lai.\n";
                     cin >> temp;
+                    getenter;
                 }
                 switch(temp){
                     case '1':{
@@ -155,12 +159,14 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                 system("cls");
                 WorkMenu::ViewMedsFindMenu();
                 cin >> temp;
+                getenter;
                 while(temp<'1' || temp>'3'){
                     cout << "Lua chon khong phu hop.\n";
                     system("pause");
                     system("cls");
                     WorkMenu::ViewMedsFindMenu();
                     cin >> temp;
+                    getenter;
                 }
                 switch(temp){
                     case '1':{
@@ -178,11 +184,12 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                                 this->leftEmpty = false;
                                 return;
                             }
-                            receipt.buyMedicine(ID);
+                            receipt.buyMedicine(ID,mdList);
                             cout << "\nBan co muon mua tiep khong?\n";
                             cout << "1. Tiep tuc mua hang.\n";
                             cout << "2. Quay lai.\n";
                             cin >> temp;
+                            getenter;
                             while(temp<'1' || temp>'2'){
                                 cout << "Lua chon khong phu hop.\n";
                                 system("pause");
@@ -192,6 +199,7 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                                 cout << "1. Tiep tuc mua hang.\n";
                                 cout << "2. Quay lai.\n";
                                 cin >> temp;
+                                getenter;
                             }
                             switch(temp){
                                 case '1':{
@@ -222,11 +230,12 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                                 this->leftEmpty = false;
                                 return;
                             }
-                            receipt.buyMedicine(ID);
+                            receipt.buyMedicine(ID,mdList);
                             cout << "\nBan co muon mua tiep khong?\n";
                             cout << "1. Tiep tuc mua hang.\n";
                             cout << "2. Quay lai.\n";
                             cin >> temp;
+                            getenter;
                             while(temp<'1' || temp>'2'){
                                 cout << "Lua chon khong phu hop.\n";
                                 system("pause");
@@ -236,6 +245,7 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                                 cout << "1. Tiep tuc mua hang.\n";
                                 cout << "2. Quay lai.\n";
                                 cin >> temp;
+                                getenter;
                             }
                             switch(temp){
                                 case '1':{
