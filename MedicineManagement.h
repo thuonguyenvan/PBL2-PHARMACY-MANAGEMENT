@@ -21,5 +21,4 @@ public:
     string returnMedicineFunction(const int&);
     void returnMedicineInfo(const int&);
     int returnMedicineAmount(const int&);
-    void updateMedicineFile();
 };

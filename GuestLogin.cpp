@@ -1,9 +1,6 @@
 #pragma once
 #include "GuestLogin.h"
 #include "GuestMenu.cpp"
-#include "CustomerManagement.cpp"
-#include "StaffManagement.cpp"
-#include "MedicineManagement.cpp"
 using namespace std;
 
 char GuestLogin::Show(){
@@ -17,7 +14,11 @@ char GuestLogin::Show(){
     return temp;
 }
 
-void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, MedicineManagement &mdList){
+void GuestLogin::Run(){
+    CustomerManagement csList;
+    ifstream FileCustomer("./Data/Customer.txt");
+    csList.readCustomerFromFile(FileCustomer);
+    FileCustomer.close();
     bool breaker = false;
     while (!breaker){
         system("cls");
@@ -27,7 +28,7 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                 system("cls");
                 int index = -1;
                 GuestMenu guestMenu;
-                guestMenu.Run(csList,index, mdList);
+                guestMenu.Run(csList,index);
                 break;
             }
             case '2':{      // dang ky
@@ -44,8 +45,6 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                     this->leftEmpty = false;
                     system("cls");
                 }
-<<<<<<< Updated upstream
-<<<<<<< HEAD
                 else{
                     if (index != (-1)){     // dang nhap thanh cong
                         system("cls");
@@ -57,34 +56,6 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                         system("pause");
                         goto retryLogin;
                     }
-=======
-=======
->>>>>>> main
-                if (index != (-1)){     // dang nhap thanh cong
-                    system("cls");
-                    cout << "Welcome " << csList.returnEmail(index);
-                    GuestMenu guestMenu;
-                    guestMenu.Run(csList,index, mdList);
-                }
-                else{       // dang nhap khong thanh cong
-                    system("pause");
-                    goto retryLogin;
-<<<<<<< HEAD
-=======
-=======
-                else{
-                    if (index != (-1)){     // dang nhap thanh cong
-                        system("cls");
-                        cout << "Welcome " << csList.returnEmail(index);
-                        GuestMenu guestMenu;
-                        guestMenu.Run(csList,index);
-                    }
-                    else{       // dang nhap khong thanh cong
-                        system("pause");
-                        goto retryLogin;
-                    }
->>>>>>> main
->>>>>>> Stashed changes
                 }
                 break;
             }

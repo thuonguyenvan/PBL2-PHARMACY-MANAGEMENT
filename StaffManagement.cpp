@@ -1,4 +1,3 @@
-#pragma once
 using namespace std;
 #include "StaffManagement.h"
 #include "Staff.cpp"

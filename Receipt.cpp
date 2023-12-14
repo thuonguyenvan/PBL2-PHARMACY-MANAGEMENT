@@ -137,11 +137,9 @@ void Receipt::editMedicineInReceipt(const string &ID){
     cout << "- Nhap moi so luong muon mua: ";
     int n;
     cin >> n;
-    getenter;
     while (n < 0 || n > Number[p - 1]) {
         cout << "- So luong khong hop le, vui long nhap lai: ";
         cin >> n;
-        getenter;
     }
     Number[p - 1] = n;
 }
@@ -169,14 +167,9 @@ void Receipt::buyMedicine(const string& ID, MedicineManagement& mdList){
     int n;
     cout << "- Nhap so luong thuoc muon mua: ";
     cin >> n;
-<<<<<<< HEAD
-=======
-    getenter;
->>>>>>> main
     while (n < 0 || n > mdList.List[p - 1].Left) {
         cout << "- So luong thuoc khong hop le, vui long nhap lai: ";
         cin >> n;
-        getenter;
     }
     mdList.List[p - 1].Left -= n;
     addNewMedicine(mdList.List[p - 1], n);

@@ -3,6 +3,6 @@ using namespace std;
 
 class StaffLogin: public LoginForm{
     public:
-        void Run(CustomerManagement &csList, StaffManagement &stList, MedicineManagement &mdList);
+        void Run();
         char Show();
 };

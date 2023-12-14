@@ -32,18 +32,8 @@ int WorkMenu::SearchByName(T& List){
     bool checkName = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap ten can tim: ";
-<<<<<<< HEAD
     //getenter;
     getline(cin, name);
-=======
-<<<<<<< Updated upstream
-    getenter;
-    getline(cin >> ws, name);
-=======
-    //getenter;
-    getline(cin, name);
->>>>>>> Stashed changes
->>>>>>> main
     if (name.empty()){
         this->leftEmpty = true;
         return -1;
@@ -68,18 +58,8 @@ bool WorkMenu::SearchByFunction(T& List){
     bool checkFunction = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap chuc nang can tim: ";
-<<<<<<< HEAD
     //getenter;
     getline(cin, function);
-=======
-<<<<<<< Updated upstream
-    getenter;
-    getline(cin >> ws, function);
-=======
-    //getenter;
-    getline(cin, function);
->>>>>>> Stashed changes
->>>>>>> main
     if (function.empty()){
         this->leftEmpty = true;
         return true;
@@ -114,18 +94,8 @@ string WorkMenu::ChooseMedicineID(){
     string ID;
     cout << "Nhap ID thuoc ban muon mua (de trong de quay lai): ";
 //    cin.clear();
-<<<<<<< HEAD
     //getenter;
     getline(cin, ID);
-=======
-<<<<<<< Updated upstream
-//    getenter;
-    getline(cin >> ws, ID);
-=======
-    //getenter;
-    getline(cin, ID);
->>>>>>> Stashed changes
->>>>>>> main
     if (ID.empty()){
         this->leftEmpty = true;
         return "null";
@@ -133,13 +103,6 @@ string WorkMenu::ChooseMedicineID(){
     else return ID;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-void WorkMenu::DisplayReceipt(){
-    
-=======
->>>>>>> main
 void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
     bool breaker = false;
     while (!breaker){
@@ -308,8 +271,4 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
             }
         }
     }
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> main
 }

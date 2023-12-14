@@ -36,22 +36,12 @@ void StaffMenu::Run(StaffManagement& stList, const int& index){
     csList.readCustomerFromFile(FileCustomer);
     FileCustomer.close();
     int authentication = checkAuthentication(stList,index);
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-    retry:    system("cls");
-=======
->>>>>>> main
     Customer c;
     Staff s(stList.returnInfo(index));
     Receipt receipt(c,s);
     bool breaker = false;
     while (!breaker){
         system("cls");
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> main
         char temp = this->Show(authentication);
         switch(temp){
             case '1':{      // Xem thuoc

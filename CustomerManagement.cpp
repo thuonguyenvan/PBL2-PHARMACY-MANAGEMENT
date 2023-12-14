@@ -1,4 +1,3 @@
-#pragma once
 using namespace std;
 #include "CustomerManagement.h"
 #include "Customer.cpp"
