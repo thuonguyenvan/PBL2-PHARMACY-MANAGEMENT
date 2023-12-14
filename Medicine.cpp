@@ -32,23 +32,24 @@ ostream& operator<<(ostream &out, const Medicine &M){
 istream &operator >> (istream &in, Medicine &M) 
 {
     cout << endl << "- Nhap ten thuoc: "; 
-    getenter;
+    //getenter;
     getline(cin, M.Name);
     removeSpaces(M.Name);
     cout << "- Nhap ngay san xuat (dd/mm/yyyy): ";
-    getenter;
+    //getenter;
     getline(cin, M.NSX);
     removeSpaces(M.NSX);
     cout << "- Nhap han su dung (dd/bb/yyyy): ";
-    getenter;
+    //getenter;
     getline(cin, M.HSD);
     removeSpaces(M.HSD);
     cout << "- Nhap cong dung cua thuoc: ";
-    getenter;
+    //getenter;
     getline(cin, M.Uses);
     cout << "- Nhap gia cua thuoc: ";
-    getenter;
+    //getenter;
     cin >> M.Price;
+    getenter;
     return in;
 }
 
@@ -84,6 +85,7 @@ void Medicine::EditGuide(){
 void Medicine::EditPrice(){
     cout << "- Nhap gia moi: ";
     cin >> Price;
+    getenter;
 }
 void Medicine::EditSideEffects(){
     cout << "- Nhap tac dung phu moi: ";
@@ -124,16 +126,19 @@ void Medicine::MenuEdit(){
 void Medicine::EditLeft(){
     cout << "- Nhap luong thuoc con lai moi: ";
     cin >> Left;
+    getenter;
 }
 
 void Medicine::Edit(){
     MenuEdit();
     int t;
     cin >> t;
+    getenter;
     while (t < 1 || t > 10){
         cout << "- Lua chon khong hop le, vui long chon lai\n";
         MenuEdit();
         cin >> t;
+        getenter;
     }
     switch (t){
         case 1:

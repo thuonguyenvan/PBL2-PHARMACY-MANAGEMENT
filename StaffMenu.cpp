@@ -16,6 +16,7 @@ char StaffMenu::Show(const int& authentication){
     StaffMenu::count = 1;
     char temp;
     cin >> temp;
+    getenter;
     return temp;
 }
 
@@ -31,7 +32,16 @@ void StaffMenu::Run(StaffManagement& stList, const int& index){
     mdList.readMedicineFromFile(FileMedicine);
     FileMedicine.close();
     int authentication = checkAuthentication(stList,index);
+<<<<<<< Updated upstream
     retry:    system("cls");
+=======
+    Customer c;
+    Staff s(stList.returnInfo(index));
+    Receipt receipt(c,s);
+    bool breaker = false;
+    while (!breaker){
+        system("cls");
+>>>>>>> Stashed changes
         char temp = this->Show(authentication);
         switch(temp){
             case '1':{      // Xem thuoc

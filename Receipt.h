@@ -8,7 +8,7 @@
 using namespace std;
 class ReceiptManagement;
 
-class Receipt: public Customer, public Staff, public MedicineManagement
+class Receipt: public Customer, public Staff
 {
 private:
     string ReceiptID;
@@ -20,7 +20,7 @@ private:
 public:
     friend class ReceiptManagement;
     Receipt();
-    Receipt(const Customer&, const Staff&, const MedicineManagement&);
+    Receipt(const Customer&, const Staff&);
     ~Receipt();
     void addNewMedicine(const Medicine&, const int &);
     void refreshReceipt();
@@ -29,5 +29,5 @@ public:
     void editReceipt();
     void editMedicineInReceipt(const string&);
     int checkExistedMedicine(const string&);
-    void buyMedicine(const string &); // khi nhap ID thuoc muon mua vao thi goi ham nay
+    void buyMedicine(const string &, MedicineManagement&); // khi nhap ID thuoc muon mua vao thi goi ham nay
 };

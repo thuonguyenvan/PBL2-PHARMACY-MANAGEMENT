@@ -7,6 +7,7 @@ char StaffLogin::Show(){
     StaffLogin::count = 1;
     char temp;
     cin >> temp;
+    getenter;
     return temp;
 }
 

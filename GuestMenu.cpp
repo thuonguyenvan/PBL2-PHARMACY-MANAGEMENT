@@ -12,6 +12,7 @@ char GuestMenu::Show(const int& index){
     GuestMenu::count = 1;
     char temp;
     cin >> temp;
+    getenter;
     return temp;
 }
 
@@ -22,8 +23,15 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index){
     FileMedicine.close();
     Customer c;
     Staff s;
+<<<<<<< Updated upstream
     Receipt receipt(c,s,mdList);
     retry:    system("cls");
+=======
+    Receipt receipt(c,s);
+    bool breaker = false;
+    while (!breaker){
+        system("cls");
+>>>>>>> Stashed changes
         char temp = this->Show(index);
         switch(temp){
             case '1':{      // Xem thuoc

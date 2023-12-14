@@ -12,11 +12,16 @@ template <class T>
 Management<T>::Management()
 {
     this -> Count = 0;
+<<<<<<< Updated upstream
+=======
+    //List = new T[1];
+>>>>>>> Stashed changes
 }
 
 template <class T>
 Management<T>::~Management()
 {
+    cout << "A";
     delete[] List;
 }
 
@@ -36,7 +41,7 @@ void Management<T>::Add()
     string Email;
     retry: cout << "De trong de quay lai.\n";
     cout << "Nhap Email: ";
-    getenter;
+    //getenter;
     getline(cin, Email);
     if (Email.empty()) return;
     if (CheckExisted(Email)) {
