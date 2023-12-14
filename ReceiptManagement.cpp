@@ -1,3 +1,4 @@
+#pragma once
 using namespace std;
 #include "ReceiptManagement.h"
 #include "Receipt.cpp"
@@ -21,7 +22,7 @@ string ReceiptManagement::chooseMedicine(){
 }
 
 void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, const MedicineManagement& MM){
-    Receipt R(C, S, MM);
+    Receipt R(C, S);
     R.DateOfTran = getCurrentDate();
     string t = chooseMedicine();
     while (t != "1"){
