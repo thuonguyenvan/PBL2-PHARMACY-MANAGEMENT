@@ -4,5 +4,5 @@ using namespace std;
 class GuestLogin: public LoginForm{
     public:
         char Show();
-        void Run();
+        void Run(CustomerManagement &, StaffManagement &, MedicineManagement &);
 };

@@ -16,11 +16,7 @@ char GuestMenu::Show(const int& index){
     return temp;
 }
 
-void GuestMenu::Run(CustomerManagement& csList, const int& index){
-    MedicineManagement mdList;
-    ifstream FileMedicine("./Data/Medicine.txt");
-    mdList.readMedicineFromFile(FileMedicine);
-    FileMedicine.close();
+void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManagement &mdList){
     Customer c;
     if (index!=-1){
         Customer temp(csList.returnInfo(index));

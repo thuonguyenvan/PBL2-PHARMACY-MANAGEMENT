@@ -26,15 +26,7 @@ int StaffMenu::checkAuthentication(StaffManagement& stList, const int& index){
     else return 1;
 }
 
-void StaffMenu::Run(StaffManagement& stList, const int& index){
-    MedicineManagement mdList;
-    ifstream FileMedicine("./Data/Medicine.txt");
-    mdList.readMedicineFromFile(FileMedicine);
-    FileMedicine.close();
-    CustomerManagement csList;
-    ifstream FileCustomer("./Data/Customer.txt");
-    csList.readCustomerFromFile(FileCustomer);
-    FileCustomer.close();
+void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagement &mdList, CustomerManagement &csList){
     int authentication = checkAuthentication(stList,index);
     Customer c;
     Staff s(stList.returnInfo(index));

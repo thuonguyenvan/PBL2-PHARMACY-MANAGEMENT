@@ -1,5 +1,6 @@
 #include "StaffLogin.h"
 #include "StaffMenu.cpp"
+#include "StaffManagement.cpp"
 using namespace std;
 
 char StaffLogin::Show(){
@@ -11,11 +12,7 @@ char StaffLogin::Show(){
     return temp;
 }
 
-void StaffLogin::Run(){
-    StaffManagement stList;
-    ifstream FileStaff("./Data/Staff.txt");
-    stList.readStaffFromFile(FileStaff);
-    FileStaff.close();
+void StaffLogin::Run(StaffManagement &stList, CustomerManagement &csList, MedicineManagement &mdList){
     bool breaker = false;
     while (!breaker){
         system("cls");
@@ -33,7 +30,7 @@ void StaffLogin::Run(){
                     system("cls");
                     cout << "Welcome " << stList.returnEmail(index);
                     StaffMenu staffMenu;
-                    staffMenu.Run(stList,index);
+                    staffMenu.Run(stList,index, mdList, csList);
                 }
                 else{       // dang nhap khong thanh cong
                     system("pause");
