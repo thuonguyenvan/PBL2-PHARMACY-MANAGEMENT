@@ -12,16 +12,12 @@ template <class T>
 Management<T>::Management()
 {
     this -> Count = 0;
-<<<<<<< Updated upstream
-=======
-    //List = new T[1];
->>>>>>> Stashed changes
+    List = new T[1];
 }
 
 template <class T>
 Management<T>::~Management()
 {
-    cout << "A";
     delete[] List;
 }
 
@@ -147,8 +143,8 @@ string Management<T>::returnName(const int& index){
 }
 
 template <class T>
-void Management<T>::returnInfo(const int& index){
-    cout << List[index];
+T Management<T>::returnInfo(const int& index){
+    return List[index];
 }
 
 // lop quan ly nhan vien:

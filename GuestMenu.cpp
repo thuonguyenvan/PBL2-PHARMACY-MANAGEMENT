@@ -22,194 +22,44 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index){
     mdList.readMedicineFromFile(FileMedicine);
     FileMedicine.close();
     Customer c;
+    if (index!=-1){
+        Customer temp(csList.returnInfo(index));
+        c = temp;
+    }
+    else{
+        Customer temp;
+        c = temp;
+    }
     Staff s;
-<<<<<<< Updated upstream
-    Receipt receipt(c,s,mdList);
-    retry:    system("cls");
-=======
     Receipt receipt(c,s);
     bool breaker = false;
     while (!breaker){
         system("cls");
->>>>>>> Stashed changes
         char temp = this->Show(index);
         switch(temp){
             case '1':{      // Xem thuoc
-                retryBuy: system("cls");
-                GuestMenu::ViewMedsOptionMenu();
-                cin >> temp;
-                while(temp<'1' || temp>'3'){
-                    cout << "Lua chon khong phu hop!\n";
-                    system("pause");
-                    system("cls");
-                    GuestMenu::ViewMedsOptionMenu();
-                    cin >> temp;
-                }
-                switch(temp){
-                    case '1':{
-                        mdList.ViewAllMedicines();
-                        string ID = this->ChooseMedicineID();
-                        if (this->leftEmpty){
-                            this->leftEmpty = false;
-                            goto retry;
-                        }
-                        receipt.buyMedicine(ID);
-                        cout << "\nBan co muon mua tiep khong?\n";
-                        cout << "1. Tiep tuc mua hang.\n";
-                        cout << "2. Quay lai.\n";
-                        cin >> temp;
-                        while(temp<'1' || temp>'2'){
-                            cout << "Lua chon khong phu hop.\n";
-                            system("pause");
-                            system("cls");
-                            cout << "Chon mua thanh cong.\n";
-                            cout << "Ban co muon mua tiep khong?\n";
-                            cout << "1. Tiep tuc mua hang.\n";
-                            cout << "2. Quay lai.\n";
-                            cin >> temp;
-                        }
-                        switch(temp){
-                            case '1':{
-                                goto retryBuy;
-                                break;
-                            }
-                            case '2':{
-                                goto retry;
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                    case '2':{
-                        system("cls");
-                        GuestMenu::ViewMedsFindMenu();
-                        cin >> temp;
-                        while(temp<'1' || temp>'3'){
-                            cout << "Lua chon khong phu hop.\n";
-                            system("pause");
-                            system("cls");
-                            GuestMenu::ViewMedsFindMenu();
-                            cin >> temp;
-                        }
-                        switch(temp){
-                            case '1':{
-                                retryFindName: int index = this->SearchByName(mdList);
-                                if (this->leftEmpty){           // kiem tra trong de quay lai
-                                    this->leftEmpty = false;
-                                    system("cls");
-                                    goto retry;
-                                }
-                                if (index != (-1)){     // tim thay thuoc
-                                    system("cls");
-                                    mdList.returnInfo(index);
-                                    string ID = this->ChooseMedicineID();
-                                    if (this->leftEmpty){
-                                        this->leftEmpty = false;
-                                        goto retry;
-                                    }
-                                    receipt.buyMedicine(ID);
-                                    cout << "\nBan co muon mua tiep khong?\n";
-                                    cout << "1. Tiep tuc mua hang.\n";
-                                    cout << "2. Quay lai.\n";
-                                    cin >> temp;
-                                    while(temp<'1' || temp>'2'){
-                                        cout << "Lua chon khong phu hop.\n";
-                                        system("pause");
-                                        system("cls");
-                                        cout << "Chon mua thanh cong.\n";
-                                        cout << "Ban co muon mua tiep khong?\n";
-                                        cout << "1. Tiep tuc mua hang.\n";
-                                        cout << "2. Quay lai.\n";
-                                        cin >> temp;
-                                    }
-                                    switch(temp){
-                                        case '1':{
-                                            goto retryBuy;
-                                            break;
-                                        }
-                                        case '2':{
-                                            goto retry;
-                                            break;
-                                        }
-                                    }
-                                }
-                                else{       // khong tim thay
-                                    system("pause");
-                                    goto retryFindName;
-                                }
-                                break;
-                            }
-                            case '2':{
-                                bool found = this->SearchByFunction(mdList);
-                                if (this->leftEmpty){           // kiem tra trong de quay lai
-                                    this->leftEmpty = false;
-                                    system("cls");
-                                    goto retry;
-                                }
-                                if (found){
-                                    string ID = this->ChooseMedicineID();
-                                    if (this->leftEmpty){
-                                        this->leftEmpty = false;
-                                        goto retry;
-                                    }
-                                    receipt.buyMedicine(ID);
-                                    cout << "\nBan co muon mua tiep khong?\n";
-                                    cout << "1. Tiep tuc mua hang.\n";
-                                    cout << "2. Quay lai.\n";
-                                    cin >> temp;
-                                    while(temp<'1' || temp>'2'){
-                                        cout << "Lua chon khong phu hop.\n";
-                                        system("pause");
-                                        system("cls");
-                                        cout << "Chon mua thanh cong.\n";
-                                        cout << "Ban co muon mua tiep khong?\n";
-                                        cout << "1. Tiep tuc mua hang.\n";
-                                        cout << "2. Quay lai.\n";
-                                        cin >> temp;
-                                    }
-                                    switch(temp){
-                                        case '1':{
-                                            goto retryBuy;
-                                            break;
-                                        }
-                                        case '2':{
-                                            goto retry;
-                                            break;
-                                        }
-                                    }
-                                }
-                                break;
-                            }
-                            case '3':{
-                                goto retry;
-                                break;
-                            }
-                        }
-                    }
-                    case '3':{
-                        goto retry;
-                        break;
-                    }
-                }
+                this->BuyMedicine(mdList,receipt);
+                break;
             }
             case '2':{      // Xem gio hang
                 system("cls");
                 receipt.showReceipt();
                 system("pause");
-                goto retry;
                 break;
             }
             case '3':{      // tro lai
-                system("cls");
+            //    system("cls");
                 if (index!=-1){
-                    csList.returnInfo(index);
+                    cout << c;
+                    system("pause");
                 }
                 else
-                    this->backPressed = true;
+                    breaker = true;
                 break;
             }
             case '4':{      // thoat
-                if (index!=-1) this->backPressed = true;
+                if (index!=-1)
+                    breaker = true;
                 else
                     exit(0);
                 break;
@@ -221,7 +71,8 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index){
                 cout << "Lua chon khong hop le!\n";
                 system("pause");
                 system("cls");
-                goto retry;
+                break;
             }
         }
+    }
 }

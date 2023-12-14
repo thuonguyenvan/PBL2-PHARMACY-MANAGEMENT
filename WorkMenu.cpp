@@ -4,6 +4,10 @@ using namespace std;
 
 int WorkMenu::count = 1;
 
+WorkMenu::WorkMenu(){}
+
+WorkMenu::~WorkMenu(){}
+
 void WorkMenu::Show(){
     cout << WorkMenu::count++ << ". Tro ve.\n";
     cout << WorkMenu::count++ << ". Thoat.\n";
@@ -28,13 +32,8 @@ int WorkMenu::SearchByName(T& List){
     bool checkName = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap ten can tim: ";
-<<<<<<< Updated upstream
-    getenter;
-    getline(cin >> ws, name);
-=======
     //getenter;
     getline(cin, name);
->>>>>>> Stashed changes
     if (name.empty()){
         this->leftEmpty = true;
         return -1;
@@ -59,13 +58,8 @@ bool WorkMenu::SearchByFunction(T& List){
     bool checkFunction = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap chuc nang can tim: ";
-<<<<<<< Updated upstream
-    getenter;
-    getline(cin >> ws, function);
-=======
     //getenter;
     getline(cin, function);
->>>>>>> Stashed changes
     if (function.empty()){
         this->leftEmpty = true;
         return true;
@@ -73,7 +67,7 @@ bool WorkMenu::SearchByFunction(T& List){
     for (int i=0; i<List.returnCount(); i++){
         if (function == List.returnMedicineFunction(i)){
             checkFunction = true;
-            List.returnInfo(i);
+            List.returnMedicineInfo(i);
         }
     }
     if (!checkFunction)
@@ -87,7 +81,7 @@ int WorkMenu::ChooseMedicineAmount(){
     cout << "Nhap so luong thuoc muon mua hoac de trong de quay lai: ";
  //   cin.clear();
 //    getenter;
-    getline(cin >> ws, amountStr);
+    getline(cin, amountStr);
     if (amountStr.empty()){
         this->leftEmpty = true;
         return -1;
@@ -100,13 +94,8 @@ string WorkMenu::ChooseMedicineID(){
     string ID;
     cout << "Nhap ID thuoc ban muon mua (de trong de quay lai): ";
 //    cin.clear();
-<<<<<<< Updated upstream
-//    getenter;
-    getline(cin >> ws, ID);
-=======
     //getenter;
     getline(cin, ID);
->>>>>>> Stashed changes
     if (ID.empty()){
         this->leftEmpty = true;
         return "null";
@@ -114,10 +103,6 @@ string WorkMenu::ChooseMedicineID(){
     else return ID;
 }
 
-<<<<<<< Updated upstream
-void WorkMenu::DisplayReceipt(){
-    
-=======
 void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
     bool breaker = false;
     while (!breaker){
@@ -286,5 +271,4 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
             }
         }
     }
->>>>>>> Stashed changes
 }

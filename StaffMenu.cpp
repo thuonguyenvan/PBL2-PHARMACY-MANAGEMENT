@@ -31,60 +31,21 @@ void StaffMenu::Run(StaffManagement& stList, const int& index){
     ifstream FileMedicine("./Data/Medicine.txt");
     mdList.readMedicineFromFile(FileMedicine);
     FileMedicine.close();
+    CustomerManagement csList;
+    ifstream FileCustomer("./Data/Customer.txt");
+    csList.readCustomerFromFile(FileCustomer);
+    FileCustomer.close();
     int authentication = checkAuthentication(stList,index);
-<<<<<<< Updated upstream
-    retry:    system("cls");
-=======
     Customer c;
     Staff s(stList.returnInfo(index));
     Receipt receipt(c,s);
     bool breaker = false;
     while (!breaker){
         system("cls");
->>>>>>> Stashed changes
         char temp = this->Show(authentication);
         switch(temp){
             case '1':{      // Xem thuoc
-                system("cls");
-                StaffMenu::ViewMedsOptionMenu();
-                char temp;
-                cin >> temp;
-                if (temp == '1')
-                    mdList.ViewAllMedicines();
-                else{
-                    system("cls");
-                    StaffMenu::ViewMedsFindMenu();
-                    cin >> temp;
-                    if (temp == '1'){
-                        retryFindName: int index = this->SearchByName(mdList);
-                        if (this->leftEmpty){           // kiem tra trong de quay lai
-                            this->leftEmpty = false;
-                            system("cls");
-                            goto retry;
-                        }
-                        if (index != (-1)){     // tim thay thuoc
-                            system("cls");
-                            cout << "Da tim thay " << mdList.returnMedicineName(index);
-                        }
-                        else{       // khong tim thay
-                            system("pause");
-                            goto retryFindName;
-                        }
-                        break;
-                    }
-                    else{
-                        retryFindFunction: bool found = this->SearchByFunction(mdList);
-                        if (this->leftEmpty){           // kiem tra trong de quay lai
-                            this->leftEmpty = false;
-                            system("cls");
-                            goto retry;
-                        }
-                        if (!found) goto retryFindFunction;
-                        break;
-                    }
-                }
-                system("pause");
-                goto retry;
+                StaffMenu::BuyMedicine(mdList,receipt);
                 break;
             }
             case '2':{      // tao giao dich
@@ -94,23 +55,40 @@ void StaffMenu::Run(StaffManagement& stList, const int& index){
             }
             case '3':{      // Quan ly khach
                 system("cls");
-                cout << "Quan ly khach";
+                csList.ViewAllCustomers();
+                // cout << "Chon STT khach muon chinh sua: ";
+                // int ID;
+                // cin >> ID;
+                system("pause");
                 break;
             }
             case '4':{      // tro lai
                 system("cls");
                 if (authentication){
-                    stList.returnInfo(index);
+                    cout << s;
+                    system("pause");
                 }
-                else
-                    cout << "quan ly nhan vien";
+                else{
+                    system("cls");
+                    stList.ViewAllStaffs();
+                    // cout << "Chon STT khach muon chinh sua: ";
+                    // int ID;
+                    // cin >> ID;
+                    system("pause");
+                    break;
+                }
                 break;
             }
             case '5':{      // thoat
                 if (!authentication){
-                    cout << "quan ly thuoc";
+                    system("cls");
+                    mdList.ViewAllMedicines();
+                    // cout << "Chon STT khach muon chinh sua: ";
+                    // int ID;
+                    // cin >> ID;
+                    system("pause");
                 }
-                else this->backPressed = true;
+                else breaker = true;
                 break;
             }
             case '6':{
@@ -121,22 +99,36 @@ void StaffMenu::Run(StaffManagement& stList, const int& index){
                 break;
             }
             case '7':{
-                if (!authentication) this->backPressed = true;
+                if (!authentication){
+                    cout << s;
+                    system("pause");
+                }
                 else{
                     cout << "Lua chon khong hop le!\n";
                     system("pause");
                     system("cls");
-                    goto retry;
                 }
+                break;
             }
             case '8':{
+                if (!authentication)
+                    breaker = true;
+                else{
+                    cout << "Lua chon khong hop le!\n";
+                    system("pause");
+                    system("cls");
+                }
+                break;
+            }
+            case '9':{
                 if (!authentication) exit(0);
             }
             default:{
                 cout << "Lua chon khong hop le!\n";
                 system("pause");
                 system("cls");
-                goto retry;
+                break;
             }
         }
+    }
 }

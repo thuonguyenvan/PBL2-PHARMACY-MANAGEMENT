@@ -1,3 +1,4 @@
+#pragma once
 #include "GuestLogin.h"
 #include "GuestMenu.cpp"
 using namespace std;
@@ -18,8 +19,9 @@ void GuestLogin::Run(){
     ifstream FileCustomer("./Data/Customer.txt");
     csList.readCustomerFromFile(FileCustomer);
     FileCustomer.close();
-    retry:    system("cls");
-        bool backPressed = false;
+    bool breaker = false;
+    while (!breaker){
+        system("cls");
         char temp = this->Show();
         switch(temp){
             case '1':{      // khong dung tai khoan
@@ -27,7 +29,6 @@ void GuestLogin::Run(){
                 int index = -1;
                 GuestMenu guestMenu;
                 guestMenu.Run(csList,index);
-                backPressed = guestMenu.backPressed;
                 break;
             }
             case '2':{      // dang ky
@@ -35,7 +36,6 @@ void GuestLogin::Run(){
                 csList.addNewCustomer();
             //    csList.updateCustomerFile();
                 system("pause");
-                goto retry;
                 break;
             }
             case '3':{      // dang nhap
@@ -44,20 +44,7 @@ void GuestLogin::Run(){
                 if (this->leftEmpty){           // kiem tra trong de quay lai
                     this->leftEmpty = false;
                     system("cls");
-                    goto retry;
                 }
-<<<<<<< Updated upstream
-                if (index != (-1)){     // dang nhap thanh cong
-                    system("cls");
-                    cout << "Welcome " << csList.returnEmail(index);
-                    GuestMenu guestMenu;
-                    guestMenu.Run(csList,index);
-                    backPressed = guestMenu.backPressed;
-                }
-                else{       // dang nhap khong thanh cong
-                    system("pause");
-                    goto retryLogin;
-=======
                 else{
                     if (index != (-1)){     // dang nhap thanh cong
                         system("cls");
@@ -69,13 +56,11 @@ void GuestLogin::Run(){
                         system("pause");
                         goto retryLogin;
                     }
->>>>>>> Stashed changes
                 }
                 break;
             }
             case '4':{      // tro lai
-                system("cls");
-                this->backPressed = true;
+                breaker = true;
                 break;
             }
             case '5':{      // thoat
@@ -86,8 +71,8 @@ void GuestLogin::Run(){
                 cout << "Lua chon khong hop le!\n";
                 system("pause");
                 system("cls");
-                goto retry;
+                break;
             }
         }
-    if (backPressed) goto retry;
+    }
 }

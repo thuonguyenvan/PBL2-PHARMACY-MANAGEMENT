@@ -6,35 +6,33 @@
 using namespace std;
 
 void ExecuteCode::Run(){
-    
-
-    retry:    char temp = ExecuteCode::Show();
-    bool backPressed = false;
-    switch(temp){
-        case '1':{
-            GuestLogin guestLogin;
-            guestLogin.Run();
-            backPressed = guestLogin.backPressed;
-            break;
-        }
-        case '2':{
-            StaffLogin staffLogin;
-            staffLogin.Run();
-            backPressed = staffLogin.backPressed;
-            break;
-        }
-        case '3':{
-            exit(0);
-            break;
-        }
-        default:{
-            cout << "Lua chon khong hop le!\n";
-            system("pause");
-            system("cls");
-            goto retry;
+    while (true){
+        system("cls");
+        char temp = ExecuteCode::Show();
+        bool backPressed = false;
+        switch(temp){
+            case '1':{
+                GuestLogin guestLogin;
+                guestLogin.Run();
+                break;
+            }
+            case '2':{
+                StaffLogin staffLogin;
+                staffLogin.Run();
+                break;
+            }
+            case '3':{
+                exit(0);
+                break;
+            }
+            default:{
+                cout << "Lua chon khong hop le!\n";
+                system("pause");
+                system("cls");
+                break;
+            }
         }
     }
-    if (backPressed) goto retry;
 }
 
 char ExecuteCode::Show(){
