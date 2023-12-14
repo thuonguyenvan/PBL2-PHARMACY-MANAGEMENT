@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 using namespace std;
 
@@ -20,27 +19,4 @@ class SmartPtr{
         // like a pointer (useful if T represents
         // a class or struct or union type)
         T* operator->() { return ptr; }
-=======
-#include <iostream>
-using namespace std;
-
-template <class T>
-class SmartPtr{
-    T* ptr; // Actual pointer
-    public:
-        // Constructor
-        explicit SmartPtr(T* p = NULL) { ptr = p; }
-    
-        // Destructor
-        ~SmartPtr() { delete (ptr); }
-    
-        // Overloading dereferencing operator
-        T& operator*() { return *ptr; }
-    
-        // Overloading arrow operator so that
-        // members of T can be accessed
-        // like a pointer (useful if T represents
-        // a class or struct or union type)
-        T* operator->() { return ptr; }
->>>>>>> efacc985dacfb5baa6091624f41eb57542a778ce
 };

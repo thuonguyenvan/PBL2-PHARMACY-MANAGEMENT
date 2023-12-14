@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #pragma once
 #include ".\ExecuteCode\ExecuteCode.cpp"
 using namespace std;
@@ -26,11 +25,4 @@ int main(){
     // mdList.updateMedicineFile();
     // csList.updateCustomerFile();
     // stList.updateStaffFile();
-=======
-#include ".\ExecuteCode\ExecuteCode.cpp"
-using namespace std;
-
-int main(){
-    ExecuteCode::Run();
->>>>>>> efacc985dacfb5baa6091624f41eb57542a778ce
 }

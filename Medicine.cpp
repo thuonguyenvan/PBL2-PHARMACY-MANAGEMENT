@@ -49,6 +49,7 @@ istream &operator >> (istream &in, Medicine &M)
     cout << "- Nhap gia cua thuoc: ";
     //getenter;
     cin >> M.Price;
+    getenter;
     return in;
 }
 
@@ -84,6 +85,7 @@ void Medicine::EditGuide(){
 void Medicine::EditPrice(){
     cout << "- Nhap gia moi: ";
     cin >> Price;
+    getenter;
 }
 void Medicine::EditSideEffects(){
     cout << "- Nhap tac dung phu moi: ";
@@ -124,16 +126,19 @@ void Medicine::MenuEdit(){
 void Medicine::EditLeft(){
     cout << "- Nhap luong thuoc con lai moi: ";
     cin >> Left;
+    getenter;
 }
 
 void Medicine::Edit(){
     MenuEdit();
     int t;
     cin >> t;
+    getenter;
     while (t < 1 || t > 10){
         cout << "- Lua chon khong hop le, vui long chon lai\n";
         MenuEdit();
         cin >> t;
+        getenter;
     }
     switch (t){
         case 1:
