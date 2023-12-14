@@ -33,6 +33,7 @@ void MedicineManagement::addNewMedicine(const string tid){
             cout << "        1. Tang so luong          2. Thoat";
             int option;
             cin >> option;
+            getenter;
             if (option == 1){
                 increaseAmount(s);
             }

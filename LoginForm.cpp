@@ -12,8 +12,18 @@ int LoginForm::checkLogin(T& List){
     bool checkEmail = false, checkPassword = false;
     cout << "De trong de quay lai.\n";
     cout << "Nhap email: ";
+<<<<<<< HEAD
 //    getenter;
     getline(cin, email);
+=======
+<<<<<<< Updated upstream
+    getenter;
+    getline(cin >> ws, email);
+=======
+//    getenter;
+    getline(cin, email);
+>>>>>>> Stashed changes
+>>>>>>> main
     if (email.empty()){
         this->leftEmpty = true;
         return -1;

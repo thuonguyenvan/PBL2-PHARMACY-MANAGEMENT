@@ -45,6 +45,7 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                     system("cls");
                 }
 <<<<<<< Updated upstream
+<<<<<<< HEAD
                 else{
                     if (index != (-1)){     // dang nhap thanh cong
                         system("cls");
@@ -57,6 +58,8 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                         goto retryLogin;
                     }
 =======
+=======
+>>>>>>> main
                 if (index != (-1)){     // dang nhap thanh cong
                     system("cls");
                     cout << "Welcome " << csList.returnEmail(index);
@@ -66,6 +69,21 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                 else{       // dang nhap khong thanh cong
                     system("pause");
                     goto retryLogin;
+<<<<<<< HEAD
+=======
+=======
+                else{
+                    if (index != (-1)){     // dang nhap thanh cong
+                        system("cls");
+                        cout << "Welcome " << csList.returnEmail(index);
+                        GuestMenu guestMenu;
+                        guestMenu.Run(csList,index);
+                    }
+                    else{       // dang nhap khong thanh cong
+                        system("pause");
+                        goto retryLogin;
+                    }
+>>>>>>> main
 >>>>>>> Stashed changes
                 }
                 break;

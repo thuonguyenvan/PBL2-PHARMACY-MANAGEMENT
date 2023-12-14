@@ -49,6 +49,7 @@ void Staff :: readStaffFromFile (ifstream &in)
 void Staff::EditSalary(){
     cout <<"- Nhap luong moi";
     cin >> Salary;
+    getenter;
 }
 
 void Staff::EditStaffID(){
@@ -66,10 +67,12 @@ void Staff::Edit(){
     MenuEdit();
     int t;
     cin >> t;
+    getenter;
     while (t < 1 || t > 10){
         cout << "- Lua chon khong hop le, vui long nhap lai";
         MenuEdit();
         cin >> t;
+        getenter;
     }
     if (t < 8) Person::Edit();
     else{

@@ -17,6 +17,7 @@ string ReceiptManagement::chooseMedicine(){
     string s;
     cout << "- Nhap ID thuoc muon mua hoac 1 de thoat: ";
     cin >> s;
+    getenter;
     return s;
 }
 

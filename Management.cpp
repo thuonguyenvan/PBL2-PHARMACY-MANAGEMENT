@@ -12,12 +12,20 @@ template <class T>
 Management<T>::Management()
 {
     this -> Count = 0;
+<<<<<<< HEAD
     List = new T[1];
+=======
+<<<<<<< Updated upstream
+=======
+    //List = new T[1];
+>>>>>>> Stashed changes
+>>>>>>> main
 }
 
 template <class T>
 Management<T>::~Management()
 {
+    cout << "A";
     delete[] List;
 }
 

@@ -28,10 +28,21 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
         c = temp;
     }
     Staff s;
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+    Receipt receipt(c,s,mdList);
+    retry:    system("cls");
+=======
+>>>>>>> main
     Receipt receipt(c,s);
     bool breaker = false;
     while (!breaker){
         system("cls");
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> main
         char temp = this->Show(index);
         switch(temp){
             case '1':{      // Xem thuoc
