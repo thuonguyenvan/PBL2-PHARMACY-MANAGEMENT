@@ -28,8 +28,10 @@ void removeSpaces(string &str)
 
 template <class T>
 void edit(T& t){
-    getenter;
-    getline(cin, t);
+    //getenter;
+    string temp;
+    getline(cin, temp);
+    if (!temp.empty()) t = temp;
 }
 
 string getCurrentDate(){

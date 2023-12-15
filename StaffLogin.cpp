@@ -16,7 +16,6 @@ void StaffLogin::Run(StaffManagement &stList, CustomerManagement &csList, Medici
     bool breaker = false;
     while (!breaker){
         system("cls");
-        bool backPressed = false;
         char temp = this->Show();
         switch(temp){
             case '1':{      // dang nhap
@@ -26,15 +25,17 @@ void StaffLogin::Run(StaffManagement &stList, CustomerManagement &csList, Medici
                     this->leftEmpty = false;
                     system("cls");
                 }
-                if (index != (-1)){     // dang nhap thanh cong
-                    system("cls");
-                    cout << "Welcome " << stList.returnEmail(index);
-                    StaffMenu staffMenu;
-                    staffMenu.Run(stList,index, mdList, csList);
-                }
-                else{       // dang nhap khong thanh cong
-                    system("pause");
-                    goto retryLogin;
+                else{
+                    if (index != (-1)){     // dang nhap thanh cong
+                        system("cls");
+                        cout << "Welcome " << stList.returnEmail(index);
+                        StaffMenu staffMenu;
+                        staffMenu.Run(stList,index, mdList, csList);
+                    }
+                    else{       // dang nhap khong thanh cong
+                        system("pause");
+                        goto retryLogin;
+                    }
                 }
                 break;
             }

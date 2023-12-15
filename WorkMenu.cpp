@@ -272,3 +272,48 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
         }
     }
 }
+
+template<typename T>
+void WorkMenu::EditInformation(T& person, int check){
+    while (true){
+        system("cls");
+        char temp;
+        if (check)
+            cout << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
+            << "CCCD" << left << setw(40) << "Dia chi" << left << setw(3) << "Diem tich luy" << endl;
+        else
+            cout << left << setw(7) << "ID" << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
+            << "CCCD" << left << setw(40) << "Dia chi" << left << setw(10) << "Luong" << endl;
+        cout << person;
+        cout << "\n1. Chinh sua thong tin ca nhan.\n";
+        cout << "2. Tro lai.\n";
+        cin >> temp;
+        getenter;
+        while(temp<'1' || temp>'2'){
+            cout << "Lua chon khong phu hop!\n";
+            system("pause");
+            system("cls");
+            if (check)
+                cout << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
+                << "CCCD" << left << setw(40) << "Dia chi" << left << setw(3) << "Diem tich luy" << endl;
+            else
+                cout << left << setw(7) << "ID" << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
+                << "CCCD" << left << setw(40) << "Dia chi" << left << setw(10) << "Luong" << endl;
+            cout << person;
+            cout << "\n1. Chinh sua thong tin ca nhan.\n";
+            cout << "2. Tro lai.\n";
+            cin >> temp;
+            getenter;
+        }
+        switch(temp){
+            case '1':{
+                person.Edit();
+                break;
+            }
+            case '2':{
+                return;
+                break;
+            }
+        }
+    }
+}

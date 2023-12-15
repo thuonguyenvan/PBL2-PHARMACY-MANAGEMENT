@@ -11,7 +11,6 @@ void ExecuteCode::Run(MedicineManagement &M, CustomerManagement &C, StaffManagem
     while (true){
         system("cls");
         char temp = ExecuteCode::Show();
-        bool backPressed = false;
         switch(temp){
             case '1':{
                 GuestLogin guestLogin;

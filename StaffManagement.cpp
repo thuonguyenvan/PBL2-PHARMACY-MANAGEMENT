@@ -35,15 +35,15 @@ void StaffManagement::updateStaffFile(){
 }
 
 void StaffManagement::addNewStaff(){
-    Add();
+    this->Add();
 }
 
 void StaffManagement::removeStaff(const string &E){
-    Remove(E);
+    this->Remove(E);
 }
 
 void StaffManagement::editStaff(const string &E){
-    Edit(E);
+    this->Edit(E);
 }
 
 string StaffManagement::returnID(const int& index){

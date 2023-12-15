@@ -20,4 +20,6 @@ class WorkMenu{
         int ChooseMedicineAmount();
         string ChooseMedicineID();
         void BuyMedicine(MedicineManagement&, Receipt&);
+        template<typename T>
+        void EditInformation(T&, int check);
 };

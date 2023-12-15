@@ -69,6 +69,7 @@ void Management<T>::Add()
         }
         // cho nay se them ham update tac gia vao file
         cout << "\nDa them thanh cong. \n";
+        system("pause");
     }
 }
 
@@ -87,7 +88,7 @@ void Management<T>::Remove(const string &Email)
         }
         delete[] this -> List;
         this -> List = new T[Count];
-        for (int i = 0; i < Count - 1; ++ i){
+        for (int i = 0; i < Count ; ++ i){
             this -> List[i] = tmp[i];
         }
         // cho nay se them ham update tac gia vao file

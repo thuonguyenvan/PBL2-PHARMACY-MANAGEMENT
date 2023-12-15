@@ -93,16 +93,19 @@ void Person::MenuEdit(){
     cout << "\n                      7. Mat khau";
 }
 void Person::Edit(int t){
-    if (t == -1)
+    if (t == -1){
         MenuEdit();
-        cout << "\n                      8. Thoat";
+        cout << "\n                      8. Thoat\n";
         cin >> t;
+        getenter;
         while (t < 1 || t > 8){
             cout << "- Lua chon khong hop le, vui long nhap lai";
             MenuEdit();
-            cout << "\n                      8. Thoat";
+            cout << "\n                      8. Thoat\n";
             cin >> t;
+            getenter;
         }
+    }
     switch(t){
         case 1: 
             EditName();

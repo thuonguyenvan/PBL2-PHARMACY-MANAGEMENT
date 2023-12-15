@@ -34,7 +34,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
         char temp = this->Show(index);
         switch(temp){
             case '1':{      // Xem thuoc
-                this->BuyMedicine(mdList,receipt);
+                BuyMedicine(mdList,receipt);
                 break;
             }
             case '2':{      // Xem gio hang
@@ -43,24 +43,22 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                 system("pause");
                 break;
             }
-            case '3':{      // tro lai
-            //    system("cls");
+            case '3':{      // xem thong tin ca nhan || tro lai
                 if (index!=-1){
-                    cout << c;
-                    system("pause");
+                    EditInformation(c,1);
                 }
                 else
                     breaker = true;
                 break;
             }
-            case '4':{      // thoat
+            case '4':{      // tro lai || thoat
                 if (index!=-1)
                     breaker = true;
                 else
                     exit(0);
                 break;
             }
-            case '5':{
+            case '5':{      // thoat
                 if (index!=-1) exit(0);
             }
             default:{

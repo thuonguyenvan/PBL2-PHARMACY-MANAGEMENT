@@ -43,10 +43,7 @@ void CustomerManagement::removeCustomer(const string &E){
 }
 
 void CustomerManagement::editCustomer(const string &E){
-    cout << "1. Them khach hang.\n";
-    cout << "2. Chinh sua khach hang.\n";
-    cout << "3. Xoa khach hang.\n";
-    cout << "4. Quay lai.\n";
+    this->Edit(E);
 }
 
 /*

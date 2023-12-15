@@ -34,7 +34,6 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                 system("cls");
                 csList.addNewCustomer();
             //    csList.updateCustomerFile();
-                system("pause");
                 break;
             }
             case '3':{      // dang nhap

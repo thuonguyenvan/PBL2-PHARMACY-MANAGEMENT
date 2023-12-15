@@ -59,19 +59,21 @@ void Staff::MenuEdit(){
     Person::MenuEdit();
     cout << "\n                      8. Luong";
     cout << "\n                      9. ID";
-    cout << "\n                      10. Thoat";
+    cout << "\n                      10. Thoat\n";
 }
 
 void Staff::Edit(){
     MenuEdit();
     int t;
     cin >> t;
+    getenter;
     while (t < 1 || t > 10){
         cout << "- Lua chon khong hop le, vui long nhap lai";
         MenuEdit();
         cin >> t;
+        getenter;
     }
-    if (t < 8) Person::Edit();
+    if (t < 8) Person::Edit(t);
     else{
         switch (t)
         {

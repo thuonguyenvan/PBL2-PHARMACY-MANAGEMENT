@@ -33,6 +33,7 @@ void MedicineManagement::addNewMedicine(const string tid){
             cout << "        1. Tang so luong          2. Thoat";
             int option;
             cin >> option;
+            getenter;
             if (option == 1){
                 increaseAmount(s);
             }
@@ -75,7 +76,7 @@ void MedicineManagement::removeMedicine(const string &ID){
         }
         delete[] this -> List;
         this -> List = new Medicine[Count];
-        for (int i = 0; i < Count - 1; ++ i){
+        for (int i = 0; i < Count ; ++ i){
             this -> List[i] = tmp[i];
         }
         // cho nay se them ham update tac gia vao file
