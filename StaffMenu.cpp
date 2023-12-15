@@ -42,23 +42,6 @@ void StaffMenu::ManagementMenu(StaffManagement& stList, MedicineManagement &mdLi
         cout << "4. Quay lai.\n";
         cin >> temp;
         getenter;
-        while(temp<'1' || temp>'4'){
-            cout << "Lua chon khong phu hop!\n";
-            system("pause");
-            system("cls");
-            if (check == 1)
-                csList.ViewAllCustomers();
-            else if (check == 2)
-                mdList.ViewAllMedicines();
-            else
-                stList.ViewAllStaffs();
-            cout << "\n1. Them.\n";
-            cout << "2. Chinh sua.\n";
-            cout << "3. Xoa.\n";
-            cout << "4. Quay lai.\n";
-            cin >> temp;
-            getenter;
-        }
         switch(temp){
             case '1':{
                 system("cls");
@@ -107,6 +90,12 @@ void StaffMenu::ManagementMenu(StaffManagement& stList, MedicineManagement &mdLi
                 return;
                 break;
             }
+            default:{
+                cout << "Lua chon khong phu hop!\n";
+                system("pause");
+                system("cls");
+                break;
+            }
         }
     }
 }
@@ -131,26 +120,19 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 break;
             }
             case '3':{      // Quan ly khach
-                system("cls");
                 ManagementMenu(stList,mdList,csList,1);
                 break;
             }
             case '4':{      //  xem ttcn || quan ly nv
-                if (authentication){
+                if (authentication)
                     EditInformation(s,0);
-                }
-                else{
-                    system("cls");
+                else
                     ManagementMenu(stList,mdList,csList,0);
-                    break;
-                }
                 break;
             }
             case '5':{      // quan ly thuoc || tro ve
-                if (!authentication){
-                    system("cls");
+                if (!authentication)
                     ManagementMenu(stList,mdList,csList,2);
-                }
                 else breaker = true;
                 break;
             }
@@ -162,9 +144,8 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 break;
             }
             case '7':{      // xem ttcn
-                if (!authentication){
+                if (!authentication)
                     EditInformation(s,0);
-                }
                 else{
                     cout << "Lua chon khong hop le!\n";
                     system("pause");
