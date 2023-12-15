@@ -46,10 +46,19 @@ istream &operator >> (istream &in, Medicine &M)
     cout << "- Nhap cong dung cua thuoc: ";
     //getenter;
     getline(cin, M.Uses);
+    cout << "- Nhap huong dan su dung: ";
+    getline(cin, M.Guide);
+    removeSpaces(M.Guide);
+    removeSpaces(M.Uses);
+    cout << "- Nhap tac dung phu cua thuoc: ";
+    cin >> M.SideEffects;
+    getenter;
+    cout << "- Nhap so luong: ";
+    cin >> M.Left;
     cout << "- Nhap gia cua thuoc: ";
     //getenter;
     cin >> M.Price;
-    getenter;
+   // getenter;
     return in;
 }
 

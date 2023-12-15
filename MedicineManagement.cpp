@@ -33,33 +33,62 @@ void MedicineManagement::addNewMedicine(const string tid){
             cout << "        1. Tang so luong          2. Thoat";
             int option;
             cin >> option;
-            getenter;
+            while (option != 1 && option !=2 ){
+                cout << "- Lua chon khong hop le, vui long nhap lai: ";
+                cin >> option;
+            }
+           // getenter;
             if (option == 1){
                 increaseAmount(s);
             }
-            else return;
         }
-    }
-    else s = tid;
-    Medicine tmp;
-    tmp.ID = s;
-    cin >> tmp;
-    getenter;
-    Count++;
-    if (Count == 1){
-        this -> List = new Medicine[1];
-        List[0] = tmp;
+        else {
+            Medicine tmp;
+            tmp.ID = s;
+            cin >> tmp;
+            getenter;
+            Count++;
+            if (Count == 1){
+                this -> List = new Medicine[1];
+                List[0] = tmp;
+            }
+            else {
+                Medicine *M =  new Medicine[Count - 1];
+                for (int i = 0; i < Count - 1; ++i){
+                    M[i] = List[i];
+                }
+                delete [] this -> List;
+                this -> List = new Medicine[Count];
+                List[Count - 1] = tmp;
+                for (int i = 0; i < Count - 1; ++i){
+                    List[i] = M[i];
+                }
+            }
+
+        }
     }
     else {
-        Medicine *M =  new Medicine[Count - 1];
-        for (int i = 0; i < Count - 1; ++i){
-            M[i] = List[i];
+        s = tid;
+        Medicine tmp;
+        tmp.ID = s;
+        cin >> tmp;
+        getenter;
+        Count++;
+        if (Count == 1){
+            this -> List = new Medicine[1];
+            List[0] = tmp;
         }
-        delete [] this -> List;
-        this -> List = new Medicine[Count];
-        List[Count - 1] = tmp;
-        for (int i = 0; i < Count - 1; ++i){
-            List[i] = M[i];
+        else {
+            Medicine *M =  new Medicine[Count - 1];
+            for (int i = 0; i < Count - 1; ++i){
+                M[i] = List[i];
+            }
+            delete [] this -> List;
+            this -> List = new Medicine[Count];
+            List[Count - 1] = tmp;
+            for (int i = 0; i < Count - 1; ++i){
+                List[i] = M[i];
+            }
         }
     }
     cout << "\n- Da them thanh cong";
