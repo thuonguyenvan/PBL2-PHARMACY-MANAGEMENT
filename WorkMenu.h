@@ -21,5 +21,5 @@ class WorkMenu{
         string ChooseMedicineID();
         void BuyMedicine(MedicineManagement&, Receipt&);
         template<typename T>
-        void EditInformation(T&, int check);
+        void EditInformation(T&, int, int&);
 };

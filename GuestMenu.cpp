@@ -44,8 +44,10 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                 break;
             }
             case '3':{      // xem thong tin ca nhan || tro lai
-                if (index!=-1)
-                    EditInformation(c,1);
+                if (index!=-1){
+                    int authentication = -1;
+                    EditInformation(c,1,authentication);
+                }
                 else
                     breaker = true;
                 break;

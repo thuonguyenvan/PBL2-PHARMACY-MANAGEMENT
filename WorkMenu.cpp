@@ -272,7 +272,7 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
 }
 
 template<typename T>
-void WorkMenu::EditInformation(T& person, int check){
+void WorkMenu::EditInformation(T& person, int check, int& authentication){
     while (true){
         system("cls");
         char temp;
@@ -289,7 +289,11 @@ void WorkMenu::EditInformation(T& person, int check){
         getenter;
         switch(temp){
             case '1':{
-                person.Edit();
+                if (check)
+                    person.Edit();
+                else if (authentication)
+                    person.Person::Edit();
+                else person.Edit();
                 break;
             }
             case '2':{
