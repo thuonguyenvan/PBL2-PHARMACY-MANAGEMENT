@@ -148,13 +148,14 @@ void Receipt::editMedicineInReceipt(const string &ID){
 void Receipt::editReceipt(){
     showReceipt();
     string tid;
-    cout << "- Nhap thuoc can chinh sua hoac nhap 1 de thoat: ";
+    cout << "- Nhap ID thuoc can chinh sua hoac nhap 1 de thoat: ";
     cin >> tid;
     getenter;
     while (tid != "1"){
+        system("cls");
         editMedicineInReceipt(tid);
         showReceipt();
-        cout << "- Nhap thuoc can chinh sua hoac nhap 1 de thoat: ";
+        cout << "- Nhap ID thuoc can chinh sua hoac nhap 1 de thoat: ";
         cin >> tid;
         getenter;
     }
@@ -177,4 +178,17 @@ void Receipt::buyMedicine(const string& ID, MedicineManagement& mdList){
     }
     mdList.List[p - 1].Left -= n;
     addNewMedicine(mdList.List[p - 1], n);
+}
+
+long long Receipt::returnTotal(){
+    return this->Total;
+}
+
+void Receipt::ClearReceipt(){
+    CountMedicine = 0;
+    Total = 0;
+    delete[] List;
+    delete[] Number;
+    List = new Medicine[1];
+    Number = new int[1];
 }

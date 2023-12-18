@@ -115,9 +115,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 break;
             }
             case '2':{      // tao giao dich
-                system("cls");
-                receipt.showReceipt();
-                system("pause");
+                ReceiptMenu(receipt);
                 break;
             }
             case '3':{      // Quan ly khach
@@ -126,7 +124,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '4':{      //  xem ttcn || quan ly nv
                 if (authentication)
-                    EditInformation(s,0,authentication);
+                    EditInformation(s,authentication);
                 else
                     ManagementMenu(stList,mdList,csList,0);
                 break;
@@ -146,7 +144,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '7':{      // xem ttcn
                 if (!authentication)
-                    EditInformation(s,0,authentication);
+                    EditInformation(s,authentication);
                 else{
                     cout << "Lua chon khong hop le!\n";
                     system("pause");

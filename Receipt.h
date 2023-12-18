@@ -30,4 +30,6 @@ public:
     void editMedicineInReceipt(const string&);
     int checkExistedMedicine(const string&);
     void buyMedicine(const string &, MedicineManagement&); // khi nhap ID thuoc muon mua vao thi goi ham nay
+    long long returnTotal();
+    void ClearReceipt();
 };

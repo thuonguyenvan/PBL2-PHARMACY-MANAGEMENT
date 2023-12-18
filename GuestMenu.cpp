@@ -38,15 +38,13 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                 break;
             }
             case '2':{      // Xem gio hang
-                system("cls");
-                receipt.showReceipt();
-                system("pause");
+                ReceiptMenu(receipt);
                 break;
             }
             case '3':{      // xem thong tin ca nhan || tro lai
                 if (index!=-1){
                     int authentication = -1;
-                    EditInformation(c,1,authentication);
+                    EditInformation(c,authentication);
                 }
                 else
                     breaker = true;
