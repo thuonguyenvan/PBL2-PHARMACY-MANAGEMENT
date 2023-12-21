@@ -11,6 +11,7 @@ public:
     ~ReceiptManagement();
     string chooseMedicine();
     void addNewReceipt(const Customer&, const Staff&, const MedicineManagement&);
+    void readReceiptFromFile(ifstream &);
    // void removeReceipt(const string &);
 };
 

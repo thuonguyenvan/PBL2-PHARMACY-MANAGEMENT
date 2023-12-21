@@ -56,3 +56,11 @@ void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, const M
         for (int i = 0; i < Count - 1; i++) List[i] = tr[i];
     }
 }
+
+void ReceiptManagement::readReceiptFromFile(ifstream &File){
+    this->readCountFromFile(File);
+    this -> List = new Receipt[this -> Count];
+    for (int i = 0; i < Count; ++ i){
+        List[i].readReceiptFromFile(File);
+    }
+}

@@ -129,3 +129,9 @@ mua thuoc :
 	khi họ nhập ID thì gọi hàm boughtMedicine()
 	thanh toán -> add Receipt vào Receiptmanagent , tạo ngay Receipt mới;
 
+----------------------------------------------------------------------------
+ghi them noi dung chuyen khoan la ma giao dich
+co mot van de la neu k thanh toan nhung thuoc trong kho van bi tru
+
+Mdg - time - count - tennv - mnv  - ten kh - sdt - ma thuoc - ten - so luong - gia -
+- tong cong

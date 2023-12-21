@@ -16,6 +16,7 @@ Receipt::Receipt()
     Total = 0;
     List = new Medicine[1];
     Number = new int[1];
+    ReceiptID = generate_transaction_code();
 }
 
 Receipt::~Receipt()
@@ -24,7 +25,7 @@ Receipt::~Receipt()
     delete[] Number;
 }
 Receipt::Receipt(const Customer& C, const Staff& S)
-    :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0)
+    :Customer(C), Staff(S), DateOfTran(getCurrentDate()), CountMedicine(0), Total(0), ReceiptID(generate_transaction_code())
 {
     List = new Medicine[1];
     Number = new int[1];
@@ -80,22 +81,6 @@ void Receipt::showReceipt(){
 
 }
 
-void Receipt :: readReceiptFromFile (ifstream &in) 
-{
-    string t;
-    // getline(in, ID, '|');
-    // getline(in, Name, '|');
-    // getline(in, NSX,'|');
-    // getline(in, HSD,'|');
-    // getline(in, Uses,'|');
-    // getline(in, Guide, '|');
-    // in >> Left;
-    // getline(in, t, '|');
-    // in >> Price;
-    // getline(in, t, '|');
-    // getline(in, SideEffects, '\n');
-    
-}
 
 void Receipt::refreshReceipt(){
     int cnt = 0;
@@ -191,4 +176,30 @@ void Receipt::ClearReceipt(){
     delete[] Number;
     List = new Medicine[1];
     Number = new int[1];
+}
+
+void Receipt :: readReceiptFromFile (ifstream &in) 
+{
+    string t;
+    getline(in, ReceiptID, '|');
+    getline(in, DateOfTran, '|');
+    in >> CountMedicine;
+    getline(in, t, '|');
+    getline(in, Staff::Name,'|');
+    getline(in, StaffID,'|');
+    getline(in, Customer::Name,'|');
+    getline(in, Customer::SDT,'|');
+    this -> List = new Medicine[CountMedicine];
+    this -> Number = new int[CountMedicine];
+    for (int i = 0; i < CountMedicine; i++){
+        getline(in, List[i].ID, '|');
+        getline(in, List[i].Name, '|');
+        in >> Number[i];
+        getline(in, t, '|');
+        in >> List[i].Price;
+        List[i].Price /= Number[i];
+        getline(in, t, '|');
+    }
+    in >> Total;
+    getline(in, t, '|');
 }

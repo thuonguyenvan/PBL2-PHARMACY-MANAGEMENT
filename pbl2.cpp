@@ -19,8 +19,12 @@ int main(){
     stList.readStaffFromFile(FileStaff);
     FileStaff.close();
 
-    ExecuteCode::Run(mdList, csList, stList);
+    Receipt rcList;
+    ifstream FileReceipt("./Data/Receipt.txt");
+    rcList.readReceiptFromFile(FileReceipt);
+    FileReceipt.close();
 
+    ExecuteCode::Run(mdList, csList, stList);
 
     // mdList.updateMedicineFile();
     // csList.updateCustomerFile();
