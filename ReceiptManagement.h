@@ -13,6 +13,10 @@ public:
     void addNewReceipt(const Customer&, const Staff&, const MedicineManagement&);
     void readReceiptFromFile(ifstream &);
     void updateReceiptFile();
+
+    void showReceiptByDate(const string &, const string &);
+    void showReceiptByMonth(const string &, const string &);
+    void showReceiptByYear(const string &, const string &);
    // void removeReceipt(const string &);
 };
 

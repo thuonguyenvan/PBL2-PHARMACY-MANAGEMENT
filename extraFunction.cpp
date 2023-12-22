@@ -70,3 +70,62 @@ std::string generate_transaction_code(int length = 5) {
 
 //     return 0;
 // }
+
+bool soSanhNgay(const std::string& ngay1, const std::string& ngay2) {
+    int ngay1_int, thang1_int, nam1_int;
+    int ngay2_int, thang2_int, nam2_int;
+
+    sscanf(ngay1.c_str(), "%d/%d/%d", &ngay1_int, &thang1_int, &nam1_int);
+    sscanf(ngay2.c_str(), "%d/%d/%d", &ngay2_int, &thang2_int, &nam2_int);
+
+    if (nam1_int < nam2_int ||
+        (nam1_int == nam2_int && thang1_int < thang2_int) ||
+        (nam1_int == nam2_int && thang1_int == thang2_int && ngay1_int < ngay2_int)) {
+        return false;
+    } else if (nam1_int > nam2_int ||
+               (nam1_int == nam2_int && thang1_int > thang2_int) ||
+               (nam1_int == nam2_int && thang1_int == thang2_int && ngay1_int > ngay2_int)) {
+        return true;
+    } else {
+        return true;
+    }
+}
+
+#include <iostream>
+
+bool soSanhThang(const std::string& thang1, const std::string& thang2) {
+    int thang1_int, nam1_int;
+    int thang2_int, nam2_int;
+
+    sscanf(thang1.c_str(), "%d/%d", &thang1_int, &nam1_int);
+    sscanf(thang2.c_str(), "%d/%d", &thang2_int, &nam2_int);
+
+    if (nam1_int < nam2_int || (nam1_int == nam2_int && thang1_int < thang2_int)) {
+        //std::cout << thang1 << " trước " << thang2 << std::endl;
+        return false;
+    } else if (nam1_int > nam2_int || (nam1_int == nam2_int && thang1_int > thang2_int)) {
+       // std::cout << thang2 << " trước " << thang1 << std::endl;
+        return true;
+    } else {
+       // std::cout << thang1 << " và " << thang2 << " là cùng một tháng." << std::endl;
+        return true;
+    }
+}
+
+bool soSanhNam(const std::string& nam1, const std::string& nam2) {
+    int nam1_int, nam2_int;
+
+    sscanf(nam1.c_str(), "%d", &nam1_int);
+    sscanf(nam2.c_str(), "%d", &nam2_int);
+
+    if (nam1_int < nam2_int) {
+       // std::cout << nam1 << " trước " << nam2 << std::endl;
+        return false;
+    } else if (nam1_int > nam2_int) {
+       // std::cout << nam2 << " trước " << nam1 << std::endl;
+        return true;
+    } else {
+       // std::cout << nam1 << " và " << nam2 << " là cùng một năm." << std::endl;
+        return true;
+    }
+}

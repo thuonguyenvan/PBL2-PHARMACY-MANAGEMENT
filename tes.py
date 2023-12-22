@@ -1,11 +1,16 @@
-import random
-import string
+from datetime import datetime
 
-def generate_transaction_code(length=10):
-    characters = string.ascii_letters + string.digits
-    transaction_code = ''.join(random.choice(characters) for i in range(length))
-    return transaction_code
+def so_sanh_ngay(ngay1, ngay2, dinh_dang="%d/%m/%Y"):
+    ngay1_obj = datetime.strptime(ngay1, dinh_dang)
+    ngay2_obj = datetime.strptime(ngay2, dinh_dang)
 
-# Sử dụng hàm để tạo mã giao dịch
-transaction_code = generate_transaction_code()
-print("Mã giao dịch mới:", transaction_code)
+    if ngay1_obj < ngay2_obj:
+        return f"{ngay1} trước {ngay2}"
+    elif ngay1_obj > ngay2_obj:
+        return f"{ngay2} trước {ngay1}"
+    else:
+        return f"{ngay1} và {ngay2} là cùng một ngày"
+
+# Thử nghiệm hàm
+ngay_truoc = so_sanh_ngay("20/01/2023", "22/12/2023")
+print(ngay_truoc)

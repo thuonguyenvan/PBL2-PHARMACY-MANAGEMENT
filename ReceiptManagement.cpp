@@ -87,3 +87,93 @@ void ReceiptManagement::updateReceiptFile(){
     }
     File.close();
 }
+
+
+void ReceiptManagement::showReceiptByDate(const string & bg, const string & ed){
+    string rcDate = List[0].DateOfTran.substr(0, 10);
+    int t = soSanhNgay(bg, rcDate);
+    int id = -1;
+    if (t) id = 0;
+    else{
+        for (int i = 1; i < Count; ++i){
+            rcDate = List[i].DateOfTran.substr(0, 10);
+            t = soSanhNgay(bg, rcDate);
+            if (t) {
+                id = i; 
+                break;
+            }
+        }
+    }
+    if (id == -1){
+        printf("- Khong co giao dich nao tu ngay %s den ngay %s", bg, ed);
+        return;
+    }
+    int c = 0;
+    for (int i = id; i < Count; ++i){
+        rcDate = List[i].DateOfTran.substr(0, 10);
+        if (!soSanhNgay(rcDate, ed)) break;
+        List[i].showReceipt();
+        c++;
+    }
+    printf("- Co tong cong %d giao dich tu ngay %s den ngay %s", c, bg, ed);
+}
+
+
+void ReceiptManagement::showReceiptByMonth(const string & bg, const string & ed){
+    string rcDate = List[0].DateOfTran.substr(3, 10);
+    int t = soSanhNgay(bg, rcDate);
+    int id = -1;
+    if (t) id = 0;
+    else{
+        for (int i = 1; i < Count; ++i){
+            rcDate = List[i].DateOfTran.substr(3, 10);
+            t = soSanhNgay(bg, rcDate);
+            if (t) {
+                id = i; 
+                break;
+            }
+        }
+    }
+    if (id == -1){
+        printf("- Khong co giao dich nao tu thang %s den thang %s", bg, ed);
+        return;
+    }
+    int c = 0;
+    for (int i = id; i < Count; ++i){
+        rcDate = List[i].DateOfTran.substr(3, 10);
+        if (soSanhNgay(rcDate, ed)) break;
+        List[i].showReceipt();
+        c++;
+    }
+    printf("- Co tong cong %d giao dich tu thang %s den thang %s", c, bg, ed);
+}
+
+
+void ReceiptManagement::showReceiptByYear(const string & bg, const string & ed){
+    string rcDate = List[0].DateOfTran.substr(6, 10);
+    int t = soSanhNam(bg, rcDate);
+    int id = -1;
+    if (t) id = 0;
+    else{
+        for (int i = 1; i < Count; ++i){
+            rcDate = List[i].DateOfTran.substr(6, 10);
+            t = soSanhNam(bg, rcDate);
+            if (t) {
+                id = i; 
+                break;
+            }
+        }
+    }
+    if (id == -1){
+        printf("- Khong co giao dich nao tu nam %s den nam %s", bg, ed);
+        return;
+    }
+    int c = 0;
+    for (int i = id; i < Count; ++i){
+        rcDate = List[i].DateOfTran.substr(3, 10);
+        if (soSanhNam(rcDate, ed)) break;
+        List[i].showReceipt();
+        c++;
+    }
+    printf("- Co tong cong %d giao dich tu nam %s den nam %s", c, bg, ed);
+}
