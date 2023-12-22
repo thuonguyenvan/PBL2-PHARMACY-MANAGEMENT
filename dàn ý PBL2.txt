@@ -135,3 +135,12 @@ co mot van de la neu k thanh toan nhung thuoc trong kho van bi tru
 
 Mdg - time - count - tennv - mnv  - ten kh - sdt - ma thuoc - ten - so luong - gia -
 - tong cong
+
+
+-------------------------------------------------------------------------------------
+- ham tra ve nhung rc chua thanh toan
+- ham xac nhan cai do da thanh toan
+- sau 10 ngay neu chua thanh toan thi se huy
+- bo sung in email 
+- dungx lam tich diem 
+- xem tat ca hoa don, tim hoa don

@@ -7,6 +7,7 @@
 
 Receipt::Receipt()
 {
+    status = 0;
     CountMedicine = 0;
     Customer::Name = "";
     Customer::SDT = "";
@@ -29,6 +30,7 @@ Receipt::Receipt(const Customer& C, const Staff& S)
 {
     List = new Medicine[1];
     Number = new int[1];
+    status = 0;
 }
 
 void Receipt::addNewMedicine(const Medicine &M, const int &n){
@@ -77,7 +79,7 @@ void Receipt::showReceipt(){
     for (int i = 1; i <= CountMedicine; ++i){
         cout << i << "  "<< List[i - 1].ID << "  "<< List[i - 1].Name << "  " << Number[i - 1] << "  "<< Number[i - 1] * List[i - 1].Price << endl;
     } 
-    cout << "Tong cong: " << Total << endl;
+    cout << "Tong cong: " << Total  << "       Trang thai: " << (status ? "Da thanh toan" : "Chua thanh toan") << endl;
 
 }
 
@@ -182,6 +184,8 @@ void Receipt :: readReceiptFromFile (ifstream &in)
 {
     string t;
     getline(in, ReceiptID, '|');
+    in >> status;
+    getline(in, t, '|');
     getline(in, DateOfTran, '|');
     in >> CountMedicine;
     getline(in, t, '|');

@@ -4,29 +4,29 @@ using namespace std;
 
 int main(){
 
-    // MedicineManagement mdList;
-    // ifstream FileMedicine("./Data/Medicine.txt");
-    // mdList.readMedicineFromFile(FileMedicine);
-    // FileMedicine.close();
+    MedicineManagement mdList;
+    ifstream FileMedicine("./Data/Medicine.txt");
+    mdList.readMedicineFromFile(FileMedicine);
+    FileMedicine.close();
 
-    // CustomerManagement csList;
-    // ifstream FileCustomer("./Data/Customer.txt");
-    // csList.readCustomerFromFile(FileCustomer);
-    // FileCustomer.close();
+    CustomerManagement csList;
+    ifstream FileCustomer("./Data/Customer.txt");
+    csList.readCustomerFromFile(FileCustomer);
+    FileCustomer.close();
 
-    // StaffManagement stList;
-    // ifstream FileStaff("./Data/Staff.txt");
-    // stList.readStaffFromFile(FileStaff);
-    // FileStaff.close();
+    StaffManagement stList;
+    ifstream FileStaff("./Data/Staff.txt");
+    stList.readStaffFromFile(FileStaff);
+    FileStaff.close();
 
     ReceiptManagement rcList;
     ifstream FileReceipt("./Data/Receipt.txt");
     rcList.readReceiptFromFile(FileReceipt);
     FileReceipt.close();
-   // cout << rcList.Count;
-   // ExecuteCode::Run(mdList, csList, stList);
-    rcList.showReceiptByYear();
-    //rcList.updateReceiptFile();
+    //rcList.List[2].showReceipt();
+    ExecuteCode::Run(mdList, csList, stList);
+    //rcList.showReceiptByYear();
+    rcList.updateReceiptFile();
     // mdList.updateMedicineFile();
     // csList.updateCustomerFile();
     // stList.updateStaffFile();

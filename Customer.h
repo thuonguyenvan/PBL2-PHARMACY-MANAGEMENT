@@ -8,7 +8,7 @@ class Customer :  public Person
 protected:
     int Point = 0;
 public:
-    friend CustomerManagement;
+    friend class CustomerManagement;
     Customer();
     Customer(const Customer&);
     ~Customer();

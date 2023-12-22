@@ -21,27 +21,8 @@ string ReceiptManagement::chooseMedicine(){
     return s;
 }
 
-void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, MedicineManagement& MM){
-    Receipt R(C, S);
-    R.DateOfTran = getCurrentDate();
-    string t = chooseMedicine();
-    while (t != "1"){
-        int p = MM.CheckExisted(t);
-        if (!p) cout << "- Thuoc khong ton tai, vui lonng nhap thuoc khac: ";
-        else{
-            int l = MM.List[p-1].Left;
-            cout << "- Nhap so luong ban muon mua (hien con: " << l << "):  ";
-            int n;
-            cin >> n;
-            while (n > l || n < 0) {
-                cout << "- So luong khong hop le vui long nhap lai, (hien con: " << l << "):  ";
-                cin >> n;
-            } 
-            MM.List[p-1].Left -= n;
-            R.addNewMedicine(MM.List[p-1], n);
-        }
-        t = chooseMedicine();
-    }
+void ReceiptManagement::addNewReceipt(const Receipt & R){
+    
     this -> Count ++;
     if (this -> Count == 1){
         List = new Receipt[1];
@@ -72,6 +53,7 @@ void ReceiptManagement::updateReceiptFile(){
     File << Count << "\n";
     for (int i = 0; i < Count; ++i){
         File << List[i].ReceiptID << "|";
+        File << List[i].status << "|";
         File << List[i].DateOfTran << "|";
         File << List[i].CountMedicine << "|";
         File << List[i].Staff::Name << "|";
@@ -146,14 +128,12 @@ void ReceiptManagement::showReceiptByMonth1(const string & bg, const string & ed
         List[i].showReceipt();
         c++;
     }
-    cout << "- Co " << c << " giao dich  tu thang " << bg << " den thang " << ed << endl;
+    cout << "- Co " << c << " giao dich tu thang " << bg << " den thang " << ed << endl;
 }
 
 
 void ReceiptManagement::showReceiptByYear1(const string & bg, const string & ed){
-  //  cout << List[0].DateOfTran;
     string rcDate = List[0].DateOfTran.substr(6, 4);
-    cout << rcDate;
     int t = soSanhNam(bg, rcDate);
     int id = -1;
     if (t) id = 0;
@@ -206,4 +186,14 @@ void ReceiptManagement::showReceiptByYear(){
     cout << "- Nhap nam ket thuc: ";
     cin >> s2;
     showReceiptByYear1(s1, s2);
+}
+void ReceiptManagement::showOrderHistory(const string &CSDT){
+    int c = 0;
+    for (int i = 0; i < Count; ++i){
+        if (this -> List[i].Customer::SDT == CSDT) {
+            List[i].showReceipt(); 
+            c++;
+        }
+    }
+    cout << "- Co tong cong " << c << " giao dich" << endl;
 }

@@ -10,7 +10,8 @@ class ReceiptManagement;
 
 class Receipt: public Customer, public Staff
 {
-private:
+protected:
+    bool status;
     string ReceiptID;
     string DateOfTran;
     int CountMedicine;

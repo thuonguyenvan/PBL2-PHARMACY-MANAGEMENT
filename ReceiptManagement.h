@@ -10,7 +10,7 @@ public:
     ReceiptManagement();
     ~ReceiptManagement();
     string chooseMedicine();
-    void addNewReceipt(const Customer&, const Staff&, MedicineManagement&);
+    void addNewReceipt(const Receipt &);
     void readReceiptFromFile(ifstream &);
     void updateReceiptFile();
 
@@ -20,6 +20,8 @@ public:
     void showReceiptByDate();
     void showReceiptByMonth();
     void showReceiptByYear();
+
+    void showOrderHistory(const string &);
    // void removeReceipt(const string &);
 };
 
