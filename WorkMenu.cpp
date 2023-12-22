@@ -38,6 +38,9 @@ int WorkMenu::SearchByName(T& List){
         this->leftEmpty = true;
         return -1;
     }
+    name[0] = toupper(name[0]);
+    for (int i=1; i<name.length(); i++)
+        name[i] = tolower(name[i]);
     for (int i=0; i<List.returnCount(); i++){
         if (name == List.returnMedicineName(i)){
             checkName = true;
@@ -46,6 +49,7 @@ int WorkMenu::SearchByName(T& List){
     }
     if (!checkName){
         cout << "Ten khong ton tai.\n";
+        system("pause");
         return (-1);
     }
     else return 0;
@@ -64,14 +68,21 @@ bool WorkMenu::SearchByFunction(T& List){
         this->leftEmpty = true;
         return true;
     }
+    function[0] = toupper(function[0]);
+    for (int i=1; i<function.length(); i++){
+        if (function[i-1] == ' ') function[i] = toupper(function[i]);
+        else function[i] = tolower(function[i]);
+    }
     for (int i=0; i<List.returnCount(); i++){
         if (function == List.returnMedicineFunction(i)){
             checkFunction = true;
             List.returnMedicineInfo(i);
         }
     }
-    if (!checkFunction)
+    if (!checkFunction){
         cout << "Khong tim thay thuoc voi chuc nang nay.\n";
+        system("pause");
+    }
     return checkFunction;
 }
 
@@ -162,7 +173,7 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                 }
                 switch(temp){
                     case '1':{
-                        retryFindName: int index = this->SearchByName(mdList);
+                        int index = this->SearchByName(mdList);
                         if (this->leftEmpty){           // kiem tra trong de quay lai
                             this->leftEmpty = false;
                             system("cls");
@@ -202,10 +213,6 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
                                     break;
                                 }
                             }
-                        }
-                        else{       // khong tim thay
-                            system("pause");
-                            goto retryFindName;
                         }
                         break;
                     }
@@ -310,7 +317,7 @@ void WorkMenu::EditInformation(T& person, int& authentication){
     }
 }
 
-void WorkMenu::ReceiptMenu(Receipt& receipt){
+void WorkMenu::ReceiptMenu(Receipt& receipt, ReceiptManagement& rcList){
     while (true){
         system("cls");
         receipt.showReceipt();
@@ -327,6 +334,7 @@ void WorkMenu::ReceiptMenu(Receipt& receipt){
                 break;
             }
             case '2':{
+                rcList.addNewReceipt(receipt);
                 system("cls");
                 cout << "Thong tin chuyen khoan:\n";
                 cout << "   - So tai khoan: 0972327742\n";

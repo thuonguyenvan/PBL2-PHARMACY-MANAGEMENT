@@ -5,22 +5,21 @@
 #include "..\CustomerManagement.cpp"
 #include "..\StaffManagement.cpp"
 #include "..\MedicineManagement.cpp"
-#include "..\ReceiptManagement.cpp"
 using namespace std;
 
-void ExecuteCode::Run(MedicineManagement &M, CustomerManagement &C, StaffManagement &S){
+void ExecuteCode::Run(MedicineManagement &M, CustomerManagement &C, StaffManagement &S, ReceiptManagement& R){
     while (true){
         system("cls");
         char temp = ExecuteCode::Show();
         switch(temp){
             case '1':{
                 GuestLogin guestLogin;
-                guestLogin.Run(C, S, M);
+                guestLogin.Run(C, S, M,R);
                 break;
             }
             case '2':{
                 StaffLogin staffLogin;
-                staffLogin.Run(S, C, M);
+                staffLogin.Run(S, C, M,R);
                 break;
             }
             case '3':{

@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 #include "Receipt.h"
-class ReceiptManagement: public Management<Receipt>
+class ReceiptManagement
 {
 public:
     Receipt *List;
@@ -22,6 +22,12 @@ public:
     void showReceiptByYear();
 
     void showOrderHistory(const string &);
+    void readCountFromFile(ifstream &in)
+    {
+        in >> Count;
+        string t; 
+        getline(in, t, '\n');
+    }
    // void removeReceipt(const string &);
 };
 

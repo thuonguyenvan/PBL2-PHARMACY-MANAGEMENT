@@ -12,7 +12,7 @@ char StaffLogin::Show(){
     return temp;
 }
 
-void StaffLogin::Run(StaffManagement &stList, CustomerManagement &csList, MedicineManagement &mdList){
+void StaffLogin::Run(StaffManagement &stList, CustomerManagement &csList, MedicineManagement &mdList, ReceiptManagement& rcList){
     bool breaker = false;
     while (!breaker){
         system("cls");
@@ -30,7 +30,7 @@ void StaffLogin::Run(StaffManagement &stList, CustomerManagement &csList, Medici
                         system("cls");
                         cout << "Welcome " << stList.returnEmail(index);
                         StaffMenu staffMenu;
-                        staffMenu.Run(stList,index, mdList, csList);
+                        staffMenu.Run(stList,index, mdList, csList,rcList);
                     }
                     else{       // dang nhap khong thanh cong
                         system("pause");

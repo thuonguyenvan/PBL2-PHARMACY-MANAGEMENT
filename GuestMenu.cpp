@@ -16,7 +16,7 @@ char GuestMenu::Show(const int& index){
     return temp;
 }
 
-void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManagement &mdList){
+void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManagement &mdList, ReceiptManagement& rcList){
     Customer c;
     if (index!=-1){
         Customer temp(csList.returnInfo(index));
@@ -38,7 +38,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                 break;
             }
             case '2':{      // Xem gio hang
-                ReceiptMenu(receipt);
+                ReceiptMenu(receipt,rcList);
                 break;
             }
             case '3':{      // xem thong tin ca nhan || tro lai

@@ -24,7 +24,7 @@ int main(){
     rcList.readReceiptFromFile(FileReceipt);
     FileReceipt.close();
     //rcList.List[2].showReceipt();
-    ExecuteCode::Run(mdList, csList, stList);
+    ExecuteCode::Run(mdList, csList, stList,rcList);
     //rcList.showReceiptByYear();
     rcList.updateReceiptFile();
     // mdList.updateMedicineFile();

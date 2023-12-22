@@ -5,7 +5,7 @@ using namespace std;
 #include "MedicineManagement.cpp"
 ReceiptManagement::ReceiptManagement()
 {
-    List = new Receipt[1];
+    //List = new Receipt[1];
     Count = 0;
 }
 
@@ -31,7 +31,7 @@ void ReceiptManagement::addNewReceipt(const Receipt & R){
     else {
         Receipt tr[Count - 1];
         for (int i = 0; i < Count - 1; i++) tr[i] = List[i];
-        delete [] List;
+        delete[] List;
         List = new Receipt[Count];
         List[Count - 1] = R;
         for (int i = 0; i < Count - 1; i++) List[i] = tr[i];
@@ -40,7 +40,6 @@ void ReceiptManagement::addNewReceipt(const Receipt & R){
 
 void ReceiptManagement::readReceiptFromFile(ifstream &File){
     this->readCountFromFile(File);
-    this -> Count = Management<Receipt>::Count;
     this -> List = new Receipt[this -> Count];
     for (int i = 0; i < Count; ++ i){
         List[i].readReceiptFromFile(File);

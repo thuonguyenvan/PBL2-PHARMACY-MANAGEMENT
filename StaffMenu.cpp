@@ -100,7 +100,7 @@ void StaffMenu::ManagementMenu(StaffManagement& stList, MedicineManagement &mdLi
     }
 }
 
-void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagement &mdList, CustomerManagement &csList){
+void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagement &mdList, CustomerManagement &csList, ReceiptManagement& rcList){
     int authentication = checkAuthentication(stList,index);
     Customer c;
     Staff s(stList.returnInfo(index));
@@ -115,7 +115,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 break;
             }
             case '2':{      // tao giao dich
-                ReceiptMenu(receipt);
+                ReceiptMenu(receipt,rcList);
                 break;
             }
             case '3':{      // Quan ly khach

@@ -178,6 +178,8 @@ void Receipt::ClearReceipt(){
     delete[] Number;
     List = new Medicine[1];
     Number = new int[1];
+    DateOfTran=getCurrentDate();
+    ReceiptID=generate_transaction_code();
 }
 
 void Receipt :: readReceiptFromFile (ifstream &in) 

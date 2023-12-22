@@ -22,5 +22,5 @@ class WorkMenu{
         void BuyMedicine(MedicineManagement&, Receipt&);
         template<typename T>
         void EditInformation(T&, int&);
-        void ReceiptMenu(Receipt&);
+        void ReceiptMenu(Receipt&,ReceiptManagement&);
 };

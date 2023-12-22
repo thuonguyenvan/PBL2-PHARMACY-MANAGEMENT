@@ -17,7 +17,7 @@ char GuestLogin::Show(){
     return temp;
 }
 
-void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, MedicineManagement &mdList){
+void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, MedicineManagement &mdList, ReceiptManagement& rcList){
     bool breaker = false;
     while (!breaker){
         system("cls");
@@ -27,7 +27,7 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                 system("cls");
                 int index = -1;
                 GuestMenu guestMenu;
-                guestMenu.Run(csList,index, mdList);
+                guestMenu.Run(csList,index, mdList,rcList);
                 break;
             }
             case '2':{      // dang ky
@@ -48,7 +48,7 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                         system("cls");
                         cout << "Welcome " << csList.returnEmail(index);
                         GuestMenu guestMenu;
-                        guestMenu.Run(csList,index, mdList);
+                        guestMenu.Run(csList,index, mdList,rcList);
                     }
                     else{       // dang nhap khong thanh cong
                         system("pause");
