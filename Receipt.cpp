@@ -197,7 +197,6 @@ void Receipt :: readReceiptFromFile (ifstream &in)
         in >> Number[i];
         getline(in, t, '|');
         in >> List[i].Price;
-        List[i].Price /= Number[i];
         getline(in, t, '|');
     }
     in >> Total;

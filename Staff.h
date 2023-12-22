@@ -4,12 +4,14 @@ using namespace std;
 #include "Person.h"
 class Receipt;
 class StaffManagement;
+class ReceiptManagement;
 class Staff: public Person
 {
 private:
     string StaffID;
     long long int Salary;
 public:
+    friend class ReceiptManagement;
     friend class Receipt;
     friend class StaffManagement;
     Staff();

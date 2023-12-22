@@ -1,5 +1,6 @@
 #pragma once
 #include ".\ExecuteCode\ExecuteCode.cpp"
+#include "MedicineManagement.cpp"
 using namespace std;
 
 int main(){
@@ -19,13 +20,14 @@ int main(){
     stList.readStaffFromFile(FileStaff);
     FileStaff.close();
 
-    Receipt rcList;
+    ReceiptManagement rcList(mdList);
     ifstream FileReceipt("./Data/Receipt.txt");
     rcList.readReceiptFromFile(FileReceipt);
     FileReceipt.close();
 
     ExecuteCode::Run(mdList, csList, stList);
 
+    rcList.updateReceiptFile();
     // mdList.updateMedicineFile();
     // csList.updateCustomerFile();
     // stList.updateStaffFile();

@@ -7,11 +7,12 @@ private:
     Receipt *List;
     int Count;
 public:
-    ReceiptManagement();
+    ReceiptManagement(const MedicineManagement &);
     ~ReceiptManagement();
     string chooseMedicine();
     void addNewReceipt(const Customer&, const Staff&, const MedicineManagement&);
     void readReceiptFromFile(ifstream &);
+    void updateReceiptFile();
    // void removeReceipt(const string &);
 };
 

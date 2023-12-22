@@ -3,7 +3,7 @@ using namespace std;
 #include "ReceiptManagement.h"
 #include "Receipt.cpp"
 #include "MedicineManagement.cpp"
-ReceiptManagement::ReceiptManagement(): MedicineManagement()
+ReceiptManagement::ReceiptManagement(const MedicineManagement &MM): MedicineManagement(MM)
 {
     List = new Receipt[1];
     Count = 0;
@@ -63,4 +63,27 @@ void ReceiptManagement::readReceiptFromFile(ifstream &File){
     for (int i = 0; i < Count; ++ i){
         List[i].readReceiptFromFile(File);
     }
+}
+
+
+void ReceiptManagement::updateReceiptFile(){
+    ofstream File("./Data/Receipt.txt");
+    File << Count << "\n";
+    for (int i = 0; i < Count; ++i){
+        File << List[i].ReceiptID << "|";
+        File << List[i].DateOfTran << "|";
+        File << List[i].CountMedicine << "|";
+        File << List[i].Staff::Name << "|";
+        File << List[i].Staff::StaffID << "|";
+        File << List[i].Customer::Name << "|";
+        File << List[i].Customer::SDT << "|";
+        for (int j =  0; j < List[i].CountMedicine; ++j){
+            File << List[i].List[j].ID << "|";
+            File << List[i].List[j].Name << "|";
+            File << List[i].Number[j] << "|";
+            File << List[i].List[j].Price << "|";
+        }
+        File << List[i].Total<< "\n";
+    }
+    File.close();
 }
