@@ -241,3 +241,7 @@ void Receipt::operator=(const Receipt& receipt){
         Number[i] = receipt.Number[i];
     }
 }
+
+void Receipt::editReceiptStatus(){
+    status = 1;
+}

@@ -20,7 +20,7 @@ Staff::~Staff()
 ostream &operator << (ostream &out, const Staff &P) 
 {
     out << left << setw(7) << P.StaffID << left << setw(25) << P.Name  << left << setw(15) << P.SDT << left << setw(12)<< P.DateOfBirth << left << setw(14) 
-    << P.CCCD << left << setw(40) << P.Address << left << setw(10) << P.Salary << endl;
+    << P.CCCD << left << setw(40) << P.Address << left << setw(10) << P.Salary << left << setw(25) << P.Email << endl;
     return out;
 }
 istream &operator >> (istream &in, Staff &S){

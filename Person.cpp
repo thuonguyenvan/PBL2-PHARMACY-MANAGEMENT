@@ -19,7 +19,7 @@ Person::~Person()
 ostream &operator << (ostream &out, const Person &P) 
 {
     out << left << setw(20) << P.Name  << left << setw(13) << P.SDT << left << setw(12)<< P.DateOfBirth << left << setw(14) 
-    << P.CCCD << left << setw(40) << P.Address << endl ;
+    << P.CCCD << left << setw(40) << P.Address << left << setw(25) << P.Email << endl ;
     return out;
 }
 

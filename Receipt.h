@@ -11,7 +11,7 @@ class ReceiptManagement;
 class Receipt: public Customer, public Staff
 {
 protected:
-    bool status;
+    int status;
     string ReceiptID;
     string DateOfTran;
     int CountMedicine;
@@ -34,4 +34,5 @@ public:
     long long returnTotal();
     void ClearReceipt();
     void operator=(const Receipt&);
+    void editReceiptStatus();
 };

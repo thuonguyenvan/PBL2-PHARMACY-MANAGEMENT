@@ -196,3 +196,43 @@ void ReceiptManagement::showOrderHistory(const string &CSDT){
     }
     cout << "- Co tong cong " << c << " giao dich" << endl;
 }
+
+void ReceiptManagement::showAllUnpaidReceipt(){
+    cout << "- Nhung hoa don chua thanh toan la: ";
+    for (int i = 0; i < Count; ++i) {
+        if (List[i].status) cout << List[i].ReceiptID << ", ";
+    }
+    cout << endl;
+}
+
+int ReceiptManagement::findReceiptByID(const string &ID){
+    for (int i = 0; i < Count; i++){
+        if (List[i].ReceiptID == ID) return i;
+    }
+    return -1;
+}
+
+void ReceiptManagement::deleteOODReceipt(MedicineManagement &MD){
+    string cd = getCurrentDate().substr(0, 10);
+    int c = 0;
+    for (int i = 0; i < Count; i++) {
+        if (!List[i].status && tinhSoNgay(List[i].DateOfTran.substr(0, 10), cd) > 10){
+            for (int j = 0; j < List[i].CountMedicine; ++j) {
+                MD.List[MD.CheckExisted(List[i].List[j].ID) - 1].Left += List[i].Number[j];
+            }
+            List[i].status = 2;
+            c++;
+        }
+    }
+    Receipt tr[Count - c];
+    int k = 0;
+    for (int i = 0; i < Count; i++){
+        if (List[i].status !=2 ) tr[k++] = List[i];
+    }
+    delete [] List;
+    Count -= c;
+    this -> List = new Receipt[Count];
+    for (int i = 0; i < Count; i++){
+        List[i] = tr[i];
+    }
+}

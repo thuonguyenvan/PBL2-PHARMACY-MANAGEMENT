@@ -3,6 +3,8 @@
 #include <chrono>
 #include <string.h>
 #include <limits>
+#include <ctime>
+#include <sstream>
 using namespace std;
 #include "extraFunction.h"
 #define getenter cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -128,4 +130,33 @@ bool soSanhNam(const std::string& nam1, const std::string& nam2) {
        // std::cout << nam1 << " và " << nam2 << " là cùng một năm." << std::endl;
         return true;
     }
+}
+
+int tinhSoNgay(std::string tuNgay, std::string denNgay) {
+    std::tm tmTuNgay = {};
+    std::tm tmDenNgay = {};
+
+    std::istringstream ssTuNgay(tuNgay);
+    ssTuNgay >> std::get_time(&tmTuNgay, "%d/%m/%Y");
+
+    std::istringstream ssDenNgay(denNgay);
+    ssDenNgay >> std::get_time(&tmDenNgay, "%d/%m/%Y");
+
+    if (ssTuNgay.fail() || ssDenNgay.fail()) {
+        // Xử lý lỗi khi chuyển đổi chuỗi thành thời gian
+        return -1;
+    }
+
+    std::time_t tuNgay_time = std::mktime(&tmTuNgay);
+    std::time_t denNgay_time = std::mktime(&tmDenNgay);
+
+    if (tuNgay_time == -1 || denNgay_time == -1) {
+        // Xử lý lỗi khi chuyển đổi thời gian
+        return -1;
+    }
+
+    const int giayTrongNgay = 60 * 60 * 24;
+    int soNgay = std::difftime(denNgay_time, tuNgay_time) / giayTrongNgay;
+
+    return soNgay;
 }
