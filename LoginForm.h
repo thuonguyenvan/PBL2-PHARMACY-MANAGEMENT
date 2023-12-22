@@ -10,5 +10,6 @@ class LoginForm{
         template<typename T>
         int checkLogin(T&);
         bool leftEmpty = false;
+        bool exitPressed = false;
         void static Show();
 };

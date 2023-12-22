@@ -15,16 +15,17 @@ void ExecuteCode::Run(MedicineManagement &M, CustomerManagement &C, StaffManagem
             case '1':{
                 GuestLogin guestLogin;
                 guestLogin.Run(C, S, M,R);
+                if (guestLogin.exitPressed) return;
                 break;
             }
             case '2':{
                 StaffLogin staffLogin;
                 staffLogin.Run(S, C, M,R);
+                if (staffLogin.exitPressed) return;
                 break;
             }
             case '3':{
-                exit(0);
-                break;
+                return;
             }
             default:{
                 cout << "Lua chon khong hop le!\n";

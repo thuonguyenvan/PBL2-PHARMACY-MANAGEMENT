@@ -13,40 +13,44 @@ char StaffLogin::Show(){
 }
 
 void StaffLogin::Run(StaffManagement &stList, CustomerManagement &csList, MedicineManagement &mdList, ReceiptManagement& rcList){
-    bool breaker = false;
-    while (!breaker){
+    while (true){
         system("cls");
         char temp = this->Show();
         switch(temp){
             case '1':{      // dang nhap
-                retryLogin: system("cls");
-                int index = this->checkLogin(stList);
-                if (this->leftEmpty){           // kiem tra trong de quay lai
-                    this->leftEmpty = false;
+                while (true){
                     system("cls");
-                }
-                else{
-                    if (index != (-1)){     // dang nhap thanh cong
+                    int index = this->checkLogin(stList);
+                    if (this->leftEmpty){           // kiem tra trong de quay lai
+                        this->leftEmpty = false;
                         system("cls");
-                        cout << "Welcome " << stList.returnEmail(index);
-                        StaffMenu staffMenu;
-                        staffMenu.Run(stList,index, mdList, csList,rcList);
+                        break;
                     }
-                    else{       // dang nhap khong thanh cong
-                        system("pause");
-                        goto retryLogin;
+                    else{
+                        if (index != (-1)){     // dang nhap thanh cong
+                            system("cls");
+                            cout << "Welcome " << stList.returnEmail(index);
+                            StaffMenu staffMenu;
+                            staffMenu.Run(stList,index, mdList, csList,rcList);
+                            if (staffMenu.exitPressed){
+                                exitPressed = true;
+                                return;
+                            }
+                            break;
+                        }
+                        else{       // dang nhap khong thanh cong
+                            system("pause");
+                        }
                     }
                 }
                 break;
             }
             case '2':{      // tro lai
-                system("cls");
-                breaker = true;
-                break;
+                return;
             }
             case '3':{      // thoat
-                exit(0);
-                break;
+                exitPressed = true;
+                return;
             }
             default:{
                 cout << "Lua chon khong hop le!\n";

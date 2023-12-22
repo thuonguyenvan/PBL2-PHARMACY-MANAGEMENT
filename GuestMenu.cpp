@@ -28,8 +28,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
     }
     Staff s;
     Receipt receipt(c,s);
-    bool breaker = false;
-    while (!breaker){
+    while (true){
         system("cls");
         char temp = this->Show(index);
         switch(temp){
@@ -47,18 +46,19 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                     EditInformation(c,authentication);
                 }
                 else
-                    breaker = true;
+                    return;
                 break;
             }
             case '4':{      // tro lai || thoat
-                if (index!=-1)
-                    breaker = true;
-                else
-                    exit(0);
-                break;
+                if (index==-1)
+                    exitPressed = true;
+                return;
             }
             case '5':{      // thoat
-                if (index!=-1) exit(0);
+                if (index!=-1){
+                    exitPressed = true;
+                    return;
+                }
             }
             default:{
                 cout << "Lua chon khong hop le!\n";

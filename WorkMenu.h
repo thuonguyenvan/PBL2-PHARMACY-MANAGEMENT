@@ -17,6 +17,7 @@ class WorkMenu{
         template<typename T>
         bool SearchByFunction(T&);
         bool leftEmpty = false;
+        bool exitPressed = false;
         int ChooseMedicineAmount();
         string ChooseMedicineID();
         void BuyMedicine(MedicineManagement&, Receipt&);

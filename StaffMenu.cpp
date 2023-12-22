@@ -88,7 +88,6 @@ void StaffMenu::ManagementMenu(StaffManagement& stList, MedicineManagement &mdLi
             }
             case '4':{
                 return;
-                break;
             }
             default:{
                 cout << "Lua chon khong phu hop!\n";
@@ -105,8 +104,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
     Customer c;
     Staff s(stList.returnInfo(index));
     Receipt receipt(c,s);
-    bool breaker = false;
-    while (!breaker){
+    while (true){
         system("cls");
         char temp = this->Show(authentication);
         switch(temp){
@@ -132,7 +130,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             case '5':{      // quan ly thuoc || tro ve
                 if (!authentication)
                     ManagementMenu(stList,mdList,csList,2);
-                else breaker = true;
+                else return;
                 break;
             }
             case '6':{      // xem thu chi
@@ -141,7 +139,10 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                     rcList.showOrderHistory(a);
                     system("pause");
                 }
-                else exit(0);
+                else{
+                    exitPressed = true;
+                    return;
+                }
                 break;
             }
             case '7':{      // xem ttcn
@@ -156,7 +157,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '8':{      // tro ve
                 if (!authentication)
-                    breaker = true;
+                    return;
                 else{
                     cout << "Lua chon khong hop le!\n";
                     system("pause");
@@ -165,7 +166,10 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 break;
             }
             case '9':{
-                if (!authentication) exit(0);
+                if (!authentication){
+                    exitPressed = true;
+                    return;
+                }
             }
             default:{
                 cout << "Lua chon khong hop le!\n";

@@ -18,8 +18,7 @@ char GuestLogin::Show(){
 }
 
 void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, MedicineManagement &mdList, ReceiptManagement& rcList){
-    bool breaker = false;
-    while (!breaker){
+    while (true){
         system("cls");
         char temp = this->Show();
         switch(temp){
@@ -28,6 +27,10 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                 int index = -1;
                 GuestMenu guestMenu;
                 guestMenu.Run(csList,index, mdList,rcList);
+                if (guestMenu.exitPressed){
+                    exitPressed = true;
+                    return;
+                }
                 break;
             }
             case '2':{      // dang ky
@@ -37,33 +40,39 @@ void GuestLogin::Run(CustomerManagement &csList, StaffManagement &stList, Medici
                 break;
             }
             case '3':{      // dang nhap
-                retryLogin: system("cls");
-                int index = this->checkLogin(csList);
-                if (this->leftEmpty){           // kiem tra trong de quay lai
-                    this->leftEmpty = false;
+                while(true){
                     system("cls");
-                }
-                else{
-                    if (index != (-1)){     // dang nhap thanh cong
+                    int index = this->checkLogin(csList);
+                    if (this->leftEmpty){           // kiem tra trong de quay lai
+                        this->leftEmpty = false;
                         system("cls");
-                        cout << "Welcome " << csList.returnEmail(index);
-                        GuestMenu guestMenu;
-                        guestMenu.Run(csList,index, mdList,rcList);
+                        break;
                     }
-                    else{       // dang nhap khong thanh cong
-                        system("pause");
-                        goto retryLogin;
+                    else{
+                        if (index != (-1)){     // dang nhap thanh cong
+                            system("cls");
+                            cout << "Welcome " << csList.returnEmail(index);
+                            GuestMenu guestMenu;
+                            guestMenu.Run(csList,index, mdList,rcList);
+                            if (guestMenu.exitPressed){
+                                exitPressed = true;
+                                return;
+                            }
+                            break;
+                        }
+                        else{       // dang nhap khong thanh cong
+                            system("pause");
+                        }
                     }
                 }
                 break;
             }
             case '4':{      // tro lai
-                breaker = true;
-                break;
+                return;
             }
             case '5':{      // thoat
-                exit(0);
-                break;
+                exitPressed = true;
+                return;
             }
             default:{
                 cout << "Lua chon khong hop le!\n";
