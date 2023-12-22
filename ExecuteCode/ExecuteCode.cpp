@@ -5,6 +5,7 @@
 #include "..\CustomerManagement.cpp"
 #include "..\StaffManagement.cpp"
 #include "..\MedicineManagement.cpp"
+#include "..\ReceiptManagement.cpp"
 using namespace std;
 
 void ExecuteCode::Run(MedicineManagement &M, CustomerManagement &C, StaffManagement &S){

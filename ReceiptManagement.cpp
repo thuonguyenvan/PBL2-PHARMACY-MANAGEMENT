@@ -3,7 +3,7 @@ using namespace std;
 #include "ReceiptManagement.h"
 #include "Receipt.cpp"
 #include "MedicineManagement.cpp"
-ReceiptManagement::ReceiptManagement(const MedicineManagement &MM): MedicineManagement(MM)
+ReceiptManagement::ReceiptManagement()
 {
     List = new Receipt[1];
     Count = 0;
@@ -21,15 +21,15 @@ string ReceiptManagement::chooseMedicine(){
     return s;
 }
 
-void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, const MedicineManagement& MM){
+void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, MedicineManagement& MM){
     Receipt R(C, S);
     R.DateOfTran = getCurrentDate();
     string t = chooseMedicine();
     while (t != "1"){
-        int p = MedicineManagement::CheckExisted(t);
+        int p = MM.CheckExisted(t);
         if (!p) cout << "- Thuoc khong ton tai, vui lonng nhap thuoc khac: ";
         else{
-            int l = MedicineManagement::List[p-1].Left;
+            int l = MM.List[p-1].Left;
             cout << "- Nhap so luong ban muon mua (hien con: " << l << "):  ";
             int n;
             cin >> n;
@@ -37,8 +37,8 @@ void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, const M
                 cout << "- So luong khong hop le vui long nhap lai, (hien con: " << l << "):  ";
                 cin >> n;
             } 
-            MedicineManagement::List[p-1].Left -= n;
-            R.addNewMedicine(MedicineManagement::List[p-1], n);
+            MM.List[p-1].Left -= n;
+            R.addNewMedicine(MM.List[p-1], n);
         }
         t = chooseMedicine();
     }

@@ -3,12 +3,12 @@ using namespace std;
 #include "Management.cpp"
 #include "Medicine.cpp"
 class Receipt;
-class ReceptManagement;
+class ReceiptManagement;
 class  MedicineManagement: public Management<Medicine>
 {
 public:
     friend class Receipt;
-    friend class ReceptManagement;
+    friend class ReceiptManagement;
     void readMedicineFromFile(ifstream &);
     void ViewAllMedicines();
     void addNewMedicine(const string = "!");

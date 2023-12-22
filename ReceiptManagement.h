@@ -1,16 +1,16 @@
 #pragma once
 using namespace std;
 #include "Receipt.h"
-class ReceiptManagement: public MedicineManagement
+class ReceiptManagement: public Management<Receipt>
 {
 private:
     Receipt *List;
     int Count;
 public:
-    ReceiptManagement(const MedicineManagement &);
+    ReceiptManagement();
     ~ReceiptManagement();
     string chooseMedicine();
-    void addNewReceipt(const Customer&, const Staff&, const MedicineManagement&);
+    void addNewReceipt(const Customer&, const Staff&, MedicineManagement&);
     void readReceiptFromFile(ifstream &);
     void updateReceiptFile();
 
