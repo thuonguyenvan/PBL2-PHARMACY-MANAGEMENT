@@ -59,6 +59,7 @@ void ReceiptManagement::addNewReceipt(const Customer &C, const Staff &S, Medicin
 
 void ReceiptManagement::readReceiptFromFile(ifstream &File){
     this->readCountFromFile(File);
+    this -> Count = Management<Receipt>::Count;
     this -> List = new Receipt[this -> Count];
     for (int i = 0; i < Count; ++ i){
         List[i].readReceiptFromFile(File);
@@ -89,7 +90,7 @@ void ReceiptManagement::updateReceiptFile(){
 }
 
 
-void ReceiptManagement::showReceiptByDate(const string & bg, const string & ed){
+void ReceiptManagement::showReceiptByDate1(const string & bg, const string & ed){
     string rcDate = List[0].DateOfTran.substr(0, 10);
     int t = soSanhNgay(bg, rcDate);
     int id = -1;
@@ -105,7 +106,7 @@ void ReceiptManagement::showReceiptByDate(const string & bg, const string & ed){
         }
     }
     if (id == -1){
-        printf("- Khong co giao dich nao tu ngay %s den ngay %s", bg, ed);
+        cout << "- Khong co giao dich nao tu ngay " << bg << " den ngay " << ed << endl; 
         return;
     }
     int c = 0;
@@ -115,18 +116,18 @@ void ReceiptManagement::showReceiptByDate(const string & bg, const string & ed){
         List[i].showReceipt();
         c++;
     }
-    printf("- Co tong cong %d giao dich tu ngay %s den ngay %s", c, bg, ed);
+    cout << "- Co " << c << " giao dich  tu ngay " << bg << " den ngay " << ed << endl;
 }
 
 
-void ReceiptManagement::showReceiptByMonth(const string & bg, const string & ed){
-    string rcDate = List[0].DateOfTran.substr(3, 10);
+void ReceiptManagement::showReceiptByMonth1(const string & bg, const string & ed){
+    string rcDate = List[0].DateOfTran.substr(3, 7);
     int t = soSanhNgay(bg, rcDate);
     int id = -1;
     if (t) id = 0;
     else{
         for (int i = 1; i < Count; ++i){
-            rcDate = List[i].DateOfTran.substr(3, 10);
+            rcDate = List[i].DateOfTran.substr(3, 7);
             t = soSanhNgay(bg, rcDate);
             if (t) {
                 id = i; 
@@ -135,28 +136,30 @@ void ReceiptManagement::showReceiptByMonth(const string & bg, const string & ed)
         }
     }
     if (id == -1){
-        printf("- Khong co giao dich nao tu thang %s den thang %s", bg, ed);
+        cout << "- Khong co giao dich nao tu thang " << bg << " den thang " << ed << endl; 
         return;
     }
     int c = 0;
     for (int i = id; i < Count; ++i){
-        rcDate = List[i].DateOfTran.substr(3, 10);
-        if (soSanhNgay(rcDate, ed)) break;
+        rcDate = List[i].DateOfTran.substr(3, 7);
+        if (!soSanhNgay(rcDate, ed)) break;
         List[i].showReceipt();
         c++;
     }
-    printf("- Co tong cong %d giao dich tu thang %s den thang %s", c, bg, ed);
+    cout << "- Co " << c << " giao dich  tu thang " << bg << " den thang " << ed << endl;
 }
 
 
-void ReceiptManagement::showReceiptByYear(const string & bg, const string & ed){
-    string rcDate = List[0].DateOfTran.substr(6, 10);
+void ReceiptManagement::showReceiptByYear1(const string & bg, const string & ed){
+  //  cout << List[0].DateOfTran;
+    string rcDate = List[0].DateOfTran.substr(6, 4);
+    cout << rcDate;
     int t = soSanhNam(bg, rcDate);
     int id = -1;
     if (t) id = 0;
     else{
         for (int i = 1; i < Count; ++i){
-            rcDate = List[i].DateOfTran.substr(6, 10);
+            rcDate = List[i].DateOfTran.substr(6, 4);
             t = soSanhNam(bg, rcDate);
             if (t) {
                 id = i; 
@@ -165,15 +168,42 @@ void ReceiptManagement::showReceiptByYear(const string & bg, const string & ed){
         }
     }
     if (id == -1){
-        printf("- Khong co giao dich nao tu nam %s den nam %s", bg, ed);
+        cout << "- Khong co giao dich nao tu nam " << bg << " den nam " << ed << endl; 
         return;
     }
     int c = 0;
     for (int i = id; i < Count; ++i){
-        rcDate = List[i].DateOfTran.substr(3, 10);
-        if (soSanhNam(rcDate, ed)) break;
+        rcDate = List[i].DateOfTran.substr(6, 4);
+        if (!soSanhNam(rcDate, ed)) break;
         List[i].showReceipt();
         c++;
     }
-    printf("- Co tong cong %d giao dich tu nam %s den nam %s", c, bg, ed);
+    cout << "- Co " << c << " giao dich  tu nam " << bg << " den nam " << ed << endl;
+}
+
+void ReceiptManagement::showReceiptByDate(){
+    string s1, s2;
+    cout << "- Nhap ngay bat dau theo dinh dang dd/mm/yyyy: ";
+    cin >> s1;
+    cout << "- Nhap ngay ket thuc theo dinh dang dd/mm/yyyy: ";
+    cin >> s2;
+    showReceiptByDate1(s1, s2);
+}
+
+void ReceiptManagement::showReceiptByMonth(){
+    string s1, s2;
+    cout << "- Nhap thang bat dau theo dinh dang mm/yyyy: ";
+    cin >> s1;
+    cout << "- Nhap thang ket thuc theo dinh dang mm/yyyy: ";
+    cin >> s2;
+    showReceiptByMonth1(s1, s2);
+}
+
+void ReceiptManagement::showReceiptByYear(){
+    string s1, s2;
+    cout << "- Nhap nam bat dau: ";
+    cin >> s1;
+    cout << "- Nhap nam ket thuc: ";
+    cin >> s2;
+    showReceiptByYear1(s1, s2);
 }

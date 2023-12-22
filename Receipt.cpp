@@ -200,5 +200,5 @@ void Receipt :: readReceiptFromFile (ifstream &in)
         getline(in, t, '|');
     }
     in >> Total;
-    getline(in, t, '|');
+    getline(in, t, '\n');
 }

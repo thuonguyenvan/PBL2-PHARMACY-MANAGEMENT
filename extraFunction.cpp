@@ -81,11 +81,11 @@ bool soSanhNgay(const std::string& ngay1, const std::string& ngay2) {
     if (nam1_int < nam2_int ||
         (nam1_int == nam2_int && thang1_int < thang2_int) ||
         (nam1_int == nam2_int && thang1_int == thang2_int && ngay1_int < ngay2_int)) {
-        return false;
+        return true;
     } else if (nam1_int > nam2_int ||
                (nam1_int == nam2_int && thang1_int > thang2_int) ||
                (nam1_int == nam2_int && thang1_int == thang2_int && ngay1_int > ngay2_int)) {
-        return true;
+        return false;
     } else {
         return true;
     }
@@ -102,10 +102,10 @@ bool soSanhThang(const std::string& thang1, const std::string& thang2) {
 
     if (nam1_int < nam2_int || (nam1_int == nam2_int && thang1_int < thang2_int)) {
         //std::cout << thang1 << " trước " << thang2 << std::endl;
-        return false;
+        return true;
     } else if (nam1_int > nam2_int || (nam1_int == nam2_int && thang1_int > thang2_int)) {
        // std::cout << thang2 << " trước " << thang1 << std::endl;
-        return true;
+        return false;
     } else {
        // std::cout << thang1 << " và " << thang2 << " là cùng một tháng." << std::endl;
         return true;
@@ -120,10 +120,10 @@ bool soSanhNam(const std::string& nam1, const std::string& nam2) {
 
     if (nam1_int < nam2_int) {
        // std::cout << nam1 << " trước " << nam2 << std::endl;
-        return false;
+        return true;
     } else if (nam1_int > nam2_int) {
        // std::cout << nam2 << " trước " << nam1 << std::endl;
-        return true;
+        return false;
     } else {
        // std::cout << nam1 << " và " << nam2 << " là cùng một năm." << std::endl;
         return true;

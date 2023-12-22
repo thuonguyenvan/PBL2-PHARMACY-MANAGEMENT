@@ -3,7 +3,7 @@ using namespace std;
 #include "Receipt.h"
 class ReceiptManagement: public Management<Receipt>
 {
-private:
+public:
     Receipt *List;
     int Count;
 public:
@@ -14,9 +14,12 @@ public:
     void readReceiptFromFile(ifstream &);
     void updateReceiptFile();
 
-    void showReceiptByDate(const string &, const string &);
-    void showReceiptByMonth(const string &, const string &);
-    void showReceiptByYear(const string &, const string &);
+    void showReceiptByDate1(const string &, const string &);
+    void showReceiptByMonth1(const string &, const string &);
+    void showReceiptByYear1(const string &, const string &);
+    void showReceiptByDate();
+    void showReceiptByMonth();
+    void showReceiptByYear();
    // void removeReceipt(const string &);
 };
 
