@@ -33,4 +33,5 @@ public:
     void buyMedicine(const string &, MedicineManagement&); // khi nhap ID thuoc muon mua vao thi goi ham nay
     long long returnTotal();
     void ClearReceipt();
+    void operator=(const Receipt&);
 };

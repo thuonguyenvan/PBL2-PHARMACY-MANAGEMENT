@@ -137,7 +137,9 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '6':{      // xem thu chi
                 if (!authentication){
-                    cout << "xem thu chi";
+                    string a = "a";
+                    rcList.showOrderHistory(a);
+                    system("pause");
                 }
                 else exit(0);
                 break;

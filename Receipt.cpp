@@ -208,3 +208,36 @@ void Receipt :: readReceiptFromFile (ifstream &in)
     in >> Total;
     getline(in, t, '\n');
 }
+
+void Receipt::operator=(const Receipt& receipt){
+    delete[] List;
+    delete[] Number;
+    List = new Medicine[receipt.CountMedicine];
+    Number = new int[receipt.CountMedicine];
+    status = receipt.status;
+    ReceiptID = receipt.ReceiptID;
+    DateOfTran = receipt.DateOfTran;
+    CountMedicine = receipt.CountMedicine;
+    Total = receipt.Total;
+    Customer::Name = receipt.Customer::Name;
+    Customer::SDT = receipt.Customer::SDT;
+    Customer::DateOfBirth = receipt.Customer::DateOfBirth;
+    Customer::CCCD = receipt.Customer::CCCD;
+    Customer::Address = receipt.Customer::Address;
+    Customer::Email = receipt.Customer::Email;
+    Customer::Password = receipt.Customer::Password;
+    Customer::Point = receipt.Customer::Point;
+    Staff::Name = receipt.Staff::Name;
+    Staff::SDT = receipt.Staff::SDT;
+    Staff::DateOfBirth = receipt.Staff::DateOfBirth;
+    Staff::CCCD = receipt.Staff::CCCD;
+    Staff::Address = receipt.Staff::Address;
+    Staff::Email = receipt.Staff::Email;
+    Staff::Password = receipt.Staff::Password;
+    Staff::StaffID = receipt.Staff::StaffID;
+    Staff::Salary = receipt.Staff::Salary;
+    for (int i=0; i<receipt.CountMedicine; i++){
+        List[i] = receipt.List[i];
+        Number[i] = receipt.Number[i];
+    }
+}
