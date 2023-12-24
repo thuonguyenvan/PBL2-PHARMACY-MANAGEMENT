@@ -11,4 +11,5 @@ public:
     void addNewCustomer();
     void removeCustomer(const string &);
     void editCustomer(const string &);
+    int FindCustomerByPhoneNum(const string&);
 };

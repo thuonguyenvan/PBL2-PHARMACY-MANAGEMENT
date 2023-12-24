@@ -6,4 +6,5 @@ class GuestMenu: public WorkMenu{
         char Show(const int&);
         void GetCustomerInfo(Customer&, CustomerManagement&, int&);
         void Run(CustomerManagement&, const int&, MedicineManagement &, ReceiptManagement&);
+        void ReceiptMenu(CustomerManagement&, const int&, Receipt&, ReceiptManagement&);
 };

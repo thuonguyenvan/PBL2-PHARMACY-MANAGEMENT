@@ -35,4 +35,5 @@ public:
     void ClearReceipt();
     void operator=(const Receipt&);
     void editReceiptStatus();
+    void DeductTotal(const int&);
 };

@@ -46,6 +46,13 @@ void CustomerManagement::editCustomer(const string &E){
     this->Edit(E);
 }
 
+int CustomerManagement::FindCustomerByPhoneNum(const string& SDT){
+    for (int i = 0; i < Count; ++i){
+        if (this -> List[i].SDT == SDT) return i;
+    }
+    return -1;
+}
+
 /*
 void List::List_overwriteNewArticle()
 {

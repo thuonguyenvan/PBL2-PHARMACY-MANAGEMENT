@@ -16,6 +16,79 @@ char GuestMenu::Show(const int& index){
     return temp;
 }
 
+void GuestMenu::ReceiptMenu(CustomerManagement& csList, const int& index, Receipt& receipt, ReceiptManagement& rcList){
+    while (true){
+        system("cls");
+        receipt.showReceipt();
+        cout << "\n1. Chinh sua thuoc.\n";
+        cout << "2. Tien hanh thanh toan.\n";
+        cout << "3. Tro lai.\n";
+        char temp;
+        cin >> temp;
+        getenter;
+        switch(temp){
+            case '1':{
+                system("cls");
+                receipt.editReceipt();
+                break;
+            }
+            case '2':{
+                if (index != -1){
+                    cout << "Tong hoa don hien tai la: " << receipt.returnTotal() << '\n'; 
+                    cout << "Quy khach hien co " << csList.returnInfo(index).returnPoint() << " diem.\n";
+                    if (csList.returnInfo(index).returnPoint() != 0){
+                        cout << "Quy khach co muon dung diem khong? (Mot diem tuong duong 100 dong)\n";
+                        cout << "1. Co.\n";
+                        cout << "2. Khong.\n";
+                        int temp;
+                        cin >> temp;
+                        getenter;
+                        while (temp!=1 && temp!=2){
+                            cout << "Lua chon khong hop le!\n";
+                            cout << "Vui long chon lai.\n";
+                            system("pause");
+                            system("cls");
+                            cout << "Quy khach co muon dung diem khong? (Mot diem tuong duong 100 dong)\n";
+                            cout << "1. Co.\n";
+                            cout << "2. Khong.\n";
+                            int temp;
+                            cin >> temp;
+                            getenter;
+                        }
+                        if (temp==1){
+                            receipt.DeductTotal((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
+                            csList.returnInfo(index).DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
+                        }
+                    }
+                    csList.returnInfo(index).AccumPoint(receipt.returnTotal());
+                }
+                rcList.addNewReceipt(receipt);
+                system("cls");
+                cout << "Thong tin chuyen khoan:\n";
+                cout << "   - So tai khoan: 0972327742\n";
+                cout << "   - Ngan hang: MB Bank\n";
+                cout << "   - Ten: Nguyen Huu Hung Dung\n";
+                cout << "   - So tien: " << receipt.returnTotal() << '\n';
+                cout << "\nVui long luu lai hinh anh chuyen khoan de nhan thuoc.\n";
+                cout << "Hoac quy khach co the thanh toan truc tiep khi nhan thuoc.\n";
+                cout << "\nXin cam on quy khach.\n";
+                system("pause");
+                receipt.ClearReceipt();
+                return;
+            }
+            case '3':{
+                return;
+            }
+            default:{
+                cout << "Lua chon khong hop le!\n";
+                system("pause");
+                system("cls");
+                break;
+            }
+        }
+    }
+}
+
 void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManagement &mdList, ReceiptManagement& rcList){
     Customer c;
     if (index!=-1){
@@ -37,7 +110,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                 break;
             }
             case '2':{      // Xem gio hang
-                ReceiptMenu(receipt,rcList);
+                ReceiptMenu(csList,index,receipt,rcList);
                 break;
             }
             case '3':{      // xem thong tin ca nhan || tro lai

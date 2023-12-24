@@ -305,56 +305,9 @@ void WorkMenu::EditInformation(T& person, int& authentication){
             }
             case '2':{
                 return;
-                break;
             }
             default:{
                 cout << "Lua chon khong phu hop!\n";
-                system("pause");
-                system("cls");
-                break;
-            }
-        }
-    }
-}
-
-void WorkMenu::ReceiptMenu(Receipt& receipt, ReceiptManagement& rcList){
-    while (true){
-        system("cls");
-        receipt.showReceipt();
-        cout << "\n1. Chinh sua thuoc.\n";
-        cout << "2. Tien hanh thanh toan.\n";
-        cout << "3. Tro lai.\n";
-        char temp;
-        cin >> temp;
-        getenter;
-        switch(temp){
-            case '1':{
-                system("cls");
-                receipt.editReceipt();
-                break;
-            }
-            case '2':{
-                rcList.addNewReceipt(receipt);
-                system("cls");
-                cout << "Thong tin chuyen khoan:\n";
-                cout << "   - So tai khoan: 0972327742\n";
-                cout << "   - Ngan hang: MB Bank\n";
-                cout << "   - Ten: Nguyen Huu Hung Dung\n";
-                cout << "   - So tien: " << receipt.returnTotal() << '\n';
-                cout << "\nVui long luu lai hinh anh chuyen khoan de nhan thuoc.\n";
-                cout << "Hoac quy khach co the thanh toan truc tiep khi nhan thuoc.\n";
-                cout << "\nXin cam on quy khach.\n";
-                system("pause");
-                receipt.ClearReceipt();
-                return;
-                break;
-            }
-            case '3':{
-                return;
-                break;
-            }
-            default:{
-                cout << "Lua chon khong hop le!\n";
                 system("pause");
                 system("cls");
                 break;

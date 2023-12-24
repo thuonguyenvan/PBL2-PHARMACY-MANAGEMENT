@@ -118,7 +118,8 @@ int Receipt::checkExistedMedicine(const string &ID){
 void Receipt::editMedicineInReceipt(const string &ID){
     int p = checkExistedMedicine(ID);
     if (!p){
-        cout << "- Thuoc khong ton tai";
+        cout << "- Thuoc khong co trong hoa don!\n";
+        system("pause");
         return;
     }
     cout << "- Nhap moi so luong muon mua: ";
@@ -244,4 +245,8 @@ void Receipt::operator=(const Receipt& receipt){
 
 void Receipt::editReceiptStatus(){
     status = 1;
+}
+
+void Receipt::DeductTotal(const int& Point){
+    Total-=Point*100;
 }
