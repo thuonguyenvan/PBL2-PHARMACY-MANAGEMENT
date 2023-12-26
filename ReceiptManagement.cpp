@@ -22,7 +22,7 @@ string ReceiptManagement::chooseMedicine(){
 }
 
 void ReceiptManagement::addNewReceipt(const Receipt & R){
-    
+    if (!R.CountMedicine) return;
     this -> Count ++;
     if (this -> Count == 1){
         List = new Receipt[1];
