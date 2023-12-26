@@ -31,5 +31,6 @@ public:
     void showAllUnpaidReceipt();
     int findReceiptByID(const string &); //tra ve vi tri cua hoa don
     void deleteOODReceipt(MedicineManagement &); // truyen MD vao de tra lai thuoc , ham xoa hoa don qua han
+    void removeReceipt(const string &);
 };
 
