@@ -236,3 +236,27 @@ void ReceiptManagement::deleteOODReceipt(MedicineManagement &MD){
         List[i] = tr[i];
     }
 }
+
+void ReceiptManagement::removeReceipt(const string &rcid){
+    int idx = -1;
+    for (int i = 0; i < Count; ++i){
+        if (List[i].ReceiptID == rcid){
+            idx = i;
+            break;
+        }
+    }
+    if (idx == -1){
+        cout << "- Khong tim thay hoa don voi id " << rcid << endl;
+    }
+    else{
+        Receipt tr[Count - 1];
+        int k = 0;
+        for (int i = 0; i < Count; ++i){
+            if (i != idx) tr[k++] = List[i];
+        }
+        delete [] List;
+        Count -= 1;
+        List = new Receipt[Count];
+        for (int i = 0; i < Count; ++i) List[i] = tr[i];
+    }
+}
