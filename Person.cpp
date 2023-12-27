@@ -135,3 +135,11 @@ void Person::Edit(int t){
     }
 
 }
+
+string Person::returnSDT(){
+    return SDT;
+}
+
+string Person::returnName(){
+    return Name;
+}

@@ -4,7 +4,10 @@
 using namespace std;
 
 char StaffLogin::Show(){
+    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "              STAFF LOGIN\n\n";
     LoginForm::Show();
+    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     StaffLogin::count = 1;
     char temp;
     cin >> temp;

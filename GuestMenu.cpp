@@ -5,10 +5,16 @@
 using namespace std;
 
 char GuestMenu::Show(const int& index){
-    cout << GuestMenu::count++ << ". Xem va mua thuoc.\n";
-    cout << GuestMenu::count++ << ". Xem gio hang va thanh toan.\n";
-    if (index != -1) cout << GuestMenu::count++ << ". Xem thong tin ca nhan.\n";
+    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "               GUEST MENU\n\n";
+    cout << "           " << GuestMenu::count++ << ". Xem va mua thuoc.\n";
+    cout << "           " << GuestMenu::count++ << ". Xem gio hang va thanh toan.\n";
+    if (index != -1){
+        cout << "           " << GuestMenu::count++ << ". Xem thong tin ca nhan.\n";
+        cout << "           " << GuestMenu::count++ << ". Xem lich su mua hang.\n";
+    }
     WorkMenu::Show();
+    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     GuestMenu::count = 1;
     char temp;
     cin >> temp;
@@ -16,7 +22,7 @@ char GuestMenu::Show(const int& index){
     return temp;
 }
 
-void GuestMenu::ReceiptMenu(CustomerManagement& csList, const int& index, Receipt& receipt, ReceiptManagement& rcList){
+void GuestMenu::ReceiptMenu(CustomerManagement& csList, Customer& customer, const int& index, Receipt& receipt, ReceiptManagement& rcList){
     while (true){
         system("cls");
         receipt.showReceipt();
@@ -33,7 +39,7 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, const int& index, Receip
                 break;
             }
             case '2':{
-                if (index != -1){
+                if (customer.returnSDT() != ""){
                     cout << "Tong hoa don hien tai la: " << receipt.returnTotal() << '\n'; 
                     cout << "Quy khach hien co " << csList.returnInfo(index).returnPoint() << " diem.\n";
                     if (csList.returnInfo(index).returnPoint() != 0){
@@ -61,6 +67,10 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, const int& index, Receip
                         }
                     }
                     csList.returnInfo(index).AccumPoint(receipt.returnTotal());
+                }
+                else{
+                    cin >> customer;
+                    receipt.addCustomerToReceipt(customer);
                 }
                 rcList.addNewReceipt(receipt);
                 system("cls");
@@ -110,7 +120,7 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                 break;
             }
             case '2':{      // Xem gio hang
-                ReceiptMenu(csList,index,receipt,rcList);
+                ReceiptMenu(csList,c,index,receipt,rcList);
                 break;
             }
             case '3':{      // xem thong tin ca nhan || tro lai
@@ -122,12 +132,23 @@ void GuestMenu::Run(CustomerManagement& csList, const int& index, MedicineManage
                     return;
                 break;
             }
-            case '4':{      // tro lai || thoat
-                if (index==-1)
+            case '4':{      //xem lich su mua hang || thoat
+                if (index==-1){
                     exitPressed = true;
-                return;
+                    return;
+                }
+                else{
+                    rcList.showOrderHistory(c.returnSDT());
+                    system("pause");
+                    break;
+                }
             }
-            case '5':{      // thoat
+            case '5':{      // tro lai
+                if (index!=-1){
+                    return;
+                }
+            }
+            case '6':{      //thoat
                 if (index!=-1){
                     exitPressed = true;
                     return;

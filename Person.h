@@ -31,4 +31,6 @@ public:
     void Edit(int = -1);
     friend istream &operator >> (istream&, Person &);
     friend ostream &operator << (ostream&, const Person &);
+    string returnSDT();
+    string returnName();
 };

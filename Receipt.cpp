@@ -173,6 +173,8 @@ long long Receipt::returnTotal(){
 }
 
 void Receipt::ClearReceipt(){
+    Customer::Name = "";
+    Customer::SDT = "";
     CountMedicine = 0;
     Total = 0;
     delete[] List;
@@ -249,4 +251,9 @@ void Receipt::editReceiptStatus(){
 
 void Receipt::DeductTotal(const int& Point){
     Total-=Point*100;
+}
+
+void Receipt::addCustomerToReceipt(Customer& customer){
+    Customer::Name = customer.returnName();
+    Customer::SDT = customer.returnSDT();
 }

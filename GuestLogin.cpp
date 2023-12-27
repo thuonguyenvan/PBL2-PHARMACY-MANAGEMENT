@@ -7,9 +7,12 @@
 using namespace std;
 
 char GuestLogin::Show(){
-    cout << GuestLogin::count++ << ". Khong dung tai khoan.\n";
-    cout << GuestLogin::count++ << ". Dang ky.\n";
+    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "              GUEST LOGIN\n\n";
+    cout << "           " << GuestLogin::count++ << ". Khong dung tai khoan.\n";
+    cout << "           " << GuestLogin::count++ << ". Dang ky.\n";
     LoginForm::Show();
+    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     GuestLogin::count = 1;
     char temp;
     cin >> temp;
