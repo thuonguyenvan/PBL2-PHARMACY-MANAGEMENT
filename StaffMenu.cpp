@@ -3,19 +3,24 @@
 using namespace std;
 
 int StaffMenu::Show(const int& authentication){
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
-    cout << "              STAFF MENU\n\n";
-    cout << "           " << StaffMenu::count++ << ". Xem va tim thuoc.\n";
-    cout << "           " << StaffMenu::count++ << ". Tao giao dich.\n";
-    cout << "           " << StaffMenu::count++ << ". Quan ly khach hang.\n";
+    cout << "        ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n\n";
+    cout << " _____ _____ ___  ____________  ___  ___ _____ _   _ _   _\n";
+    cout << "/  ___|_   _/ _ \\ |  ___|  ___| |  \\/  ||  ___| \\ | | | | |\n";
+    cout << "\\ `--.  | |/ /_\\ \\| |_  | |_    | .  . || |__ |  \\| | | | |\n";
+    cout << " `--. \\ | ||  _  ||  _| |  _|   | |\\/| ||  __|| . ` | | | |\n";
+    cout << "/\\__/ / | || | | || |   | |     | |  | || |___| |\\  | |_| |\n";
+    cout << "\\____/  \\_/\\_| |_/\\_|   \\_|     \\_|  |_/\\____/\\_| \\_/\\___/\n\n";
+    cout << "                   " << StaffMenu::count++ << ". Xem va tim thuoc.\n";
+    cout << "                   " << StaffMenu::count++ << ". Tao giao dich.\n";
+    cout << "                   " << StaffMenu::count++ << ". Quan ly khach hang.\n";
     if (!authentication){
-        cout << "           " << StaffMenu::count++ << ". Quan ly nhan vien.\n";
-        cout << "           " << StaffMenu::count++ << ". Quan ly thuoc.\n";
-        cout << "           " << StaffMenu::count++ << ". Quan ly hoa don.\n";
+        cout << "                   " << StaffMenu::count++ << ". Quan ly nhan vien.\n";
+        cout << "                   " << StaffMenu::count++ << ". Quan ly thuoc.\n";
+        cout << "                   " << StaffMenu::count++ << ". Quan ly hoa don.\n";
     }
-    cout << "           " << StaffMenu::count++ << ". Xem thong tin ca nhan.\n";
+    cout << "                   " << StaffMenu::count++ << ". Xem thong tin ca nhan.\n";
     WorkMenu::Show();
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "        ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     StaffMenu::count = 1;
     int temp;
     cin >> temp;
@@ -187,18 +192,19 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
     }
 }
 
-void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& authentication){
+void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& authentication, CustomerManagement& csList){
     while(true){
         system("cls");
         char temp;
         cout << "1. Xem tat ca hoa don.\n";
         cout << "2. Tim hoa don.\n";
         cout << "3. Xem hoa don chua thanh toan.\n";
+        cout << "4. Xac nhan hoa don da thanh toan.\n";
         if (authentication)
-            cout << "4. Tro ve.\n";
-        else{
-            cout << "4. Xoa hoa don.\n";
             cout << "5. Tro ve.\n";
+        else{
+            cout << "5. Xoa hoa don.\n";
+            cout << "6. Tro ve.\n";
         }
         cin >> temp;
         getenter
@@ -273,6 +279,49 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                 break;
             }
             case '4':{
+                system("cls");
+                string ID;
+                cout << "Nhap ma giao dich (de trong de quay lai): ";
+                getline(cin,ID);
+                if (!ID.empty()){
+                    int index = rcList.findReceiptByID(ID);
+                    if (index != -1){
+                        if (rcList.List[index].returnStatus()){
+                            rcList.List[index].showReceipt();
+                            cout << "\n Ban co chac muon xac nhan hoa don nay da thanh toan khong?\n";
+                            cout << "1. Co.\n";
+                            cout << "2. Khong.\n";
+                            cin >> temp;
+                            getenter;
+                            while (temp != '1' && temp != '2'){
+                                cout << "Lua chon khong hop le!\n";
+                                cout << "Vui long chon lai.\n";
+                                system("pause");
+                                rcList.List[index].showReceipt();
+                                cout << "\n Ban co chac muon xac nhan hoa don nay da thanh toan khong?\n";
+                                cout << "1. Co.\n";
+                                cout << "2. Khong.\n";
+                                cin >> temp;
+                                getenter;
+                            }
+                            if (temp == '1'){
+                                csList.returnInfo(csList.FindCustomerByPhoneNum(rcList.List[index].Customer::returnSDT())).AccumPoint(rcList.List[index].returnTotal());
+                                cout << "Xac nhan thanh cong.\n";
+                                rcList.List[index].editReceiptStatus();
+                                system("pause");
+                            }
+                        }
+                        else{
+                            cout << "Hoa don nay da duoc thanh toan!\n";
+                            system("pause");
+                        }
+                    }
+                    else cout << "Khong tim thay hoa don voi ma giao dich nay!\n";
+                    system("pause");
+                }
+                break;
+            }
+            case '5':{
                 if (!authentication){
                     system("cls");
                     cout << "Nhap ma giao dich cua hoa don can xoa: ";
@@ -286,7 +335,7 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                 }
                 else return;
             }
-            case '5':{
+            case '6':{
                 if (!authentication) return;
             }
             default:{
@@ -322,7 +371,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case 4:{      //  xem ttcn || quan ly nv
                 if (authentication)
-                    EditInformation(s,authentication);
+                    ReceiptManagementMenu(rcList,authentication,csList);
                 else
                     ManagementMenu(stList,mdList,csList,0);
                 break;
@@ -330,15 +379,14 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             case 5:{      // quan ly thuoc || tro ve
                 if (!authentication)
                     ManagementMenu(stList,mdList,csList,2);
-                else return;
+                else EditInformation(s,authentication);
                 break;
             }
-            case 6:{      // xem thu chi
+            case 6:{      // quan ly hoa don
                 if (!authentication){
-                    ReceiptManagementMenu(rcList,authentication);
+                    ReceiptManagementMenu(rcList,authentication,csList);
                 }
                 else{
-                    exitPressed = true;
                     return;
                 }
                 break;
@@ -347,9 +395,8 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 if (!authentication)
                     EditInformation(s,authentication);
                 else{
-                    cout << "Lua chon khong hop le!\n";
-                    system("pause");
-                    system("cls");
+                    exitPressed = true;
+                    return;
                 }
                 break;
             }

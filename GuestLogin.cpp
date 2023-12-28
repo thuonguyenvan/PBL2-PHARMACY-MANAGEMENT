@@ -7,12 +7,17 @@
 using namespace std;
 
 char GuestLogin::Show(){
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
-    cout << "              GUEST LOGIN\n\n";
-    cout << "           " << GuestLogin::count++ << ". Khong dung tai khoan.\n";
-    cout << "           " << GuestLogin::count++ << ". Dang ky.\n";
+    cout << "         ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n\n";
+    cout << " _____ _   _ _____ _____ _____   _     _____ _____ _____ _   _ \n";
+    cout << "|  __ \\ | | |  ___/  ___|_   _| | |   |  _  |  __ \\_   _| \\ | |\n";
+    cout << "| |  \\/ | | | |__ \\ `--.  | |   | |   | | | | |  \\/ | | |  \\| |\n";
+    cout << "| | __| | | |  __| `--. \\ | |   | |   | | | | | __  | | | . ` |\n";
+    cout << "| |_\\ \\ |_| | |___/\\__/ / | |   | |___\\ \\_/ / |_\\ \\_| |_| |\\  |\n";
+    cout << " \\____/\\___/\\____/\\____/  \\_/   \\_____/\\___/ \\____/\\___/\\_| \\_/\n\n";
+    cout << "                    " << GuestLogin::count++ << ". Khong dung tai khoan.\n";
+    cout << "                    " << GuestLogin::count++ << ". Dang ky.\n";
     LoginForm::Show();
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "         ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     GuestLogin::count = 1;
     char temp;
     cin >> temp;

@@ -246,7 +246,7 @@ void Receipt::operator=(const Receipt& receipt){
 }
 
 void Receipt::editReceiptStatus(){
-    status = 1;
+    status = 0;
 }
 
 void Receipt::DeductTotal(const int& Point){
@@ -256,4 +256,8 @@ void Receipt::DeductTotal(const int& Point){
 void Receipt::addCustomerToReceipt(Customer& customer){
     Customer::Name = customer.returnName();
     Customer::SDT = customer.returnSDT();
+}
+
+int Receipt::returnStatus(){
+    return status;
 }

@@ -38,13 +38,18 @@ void ExecuteCode::Run(MedicineManagement &M, CustomerManagement &C, StaffManagem
 }
 
 char ExecuteCode::Show(){
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
-    cout << "              PLACEHOLDER\n\n";
-    cout << "             Vui long chon:\n";
-    cout << "             1. Khach hang.\n";
-    cout << "             2. Nhan vien.\n\n";
-    cout << "             3. Thoat ung dung.\n\n";
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "                 ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n\n";
+    cout << " _____ _____  ___ _____  ______ _   _   ___  _________  ___  ___  _______   __ \n";             
+    cout << "|  __ \\  _  |/ _ \\_   _| | ___ \\ | | | / _ \\ | ___ \\  \\/  | / _ \\/  __ \\ \\ / /\n";
+    cout << "| |  \\/ | | / /_\\ \\| |   | |_/ / |_| |/ /_\\ \\| |_/ / .  . |/ /_\\ \\ /  \\/\\ V / \n";
+    cout << "| | __| | | |  _  || |   |  __/|  _  ||  _  ||    /| |\\/| ||  _  | |     \\ /  \n";
+    cout << "| |_\\ \\ \\_/ / | | || |   | |   | | | || | | || |\\ \\| |  | || | | | \\__/\\ | | \n";
+    cout << " \\____/\\___/\\_| |_/\\_/   \\_|   \\_| |_/\\_| |_/\\_| \\_\\_|  |_/\\_| |_/\\____/ \\_/ \n\n";
+    cout << "                             Vui long chon:\n";
+    cout << "                             1. Khach hang.\n";
+    cout << "                             2. Nhan vien.\n\n";
+    cout << "                             3. Thoat ung dung.\n\n";
+    cout << "                 ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     char temp;
     cin >> temp;
     getenter;

@@ -5,16 +5,21 @@
 using namespace std;
 
 char GuestMenu::Show(const int& index){
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
-    cout << "               GUEST MENU\n\n";
-    cout << "           " << GuestMenu::count++ << ". Xem va mua thuoc.\n";
-    cout << "           " << GuestMenu::count++ << ". Xem gio hang va thanh toan.\n";
+    cout << "         ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n\n";
+    cout << " _____ _   _ _____ _____ _____  ___  ___ _____ _   _ _   _ \n";
+    cout << "|  __ \\ | | |  ___/  ___|_   _| |  \\/  ||  ___| \\ | | | | |\n";
+    cout << "| |  \\/ | | | |__ \\ `--.  | |   | .  . || |__ |  \\| | | | |\n";
+    cout << "| | __| | | |  __| `--. \\ | |   | |\\/| ||  __|| . ` | | | |\n";
+    cout << "| |_\\ \\ |_| | |___/\\__/ / | |   | |  | || |___| |\\  | |_| |\n";
+    cout << " \\____/\\___/\\____/\\____/  \\_/   \\_|  |_/\\____/\\_| \\_/\\___/\n\n";
+    cout << "                    " << GuestMenu::count++ << ". Xem va mua thuoc.\n";
+    cout << "                    " << GuestMenu::count++ << ". Xem gio hang va thanh toan.\n";
     if (index != -1){
-        cout << "           " << GuestMenu::count++ << ". Xem thong tin ca nhan.\n";
-        cout << "           " << GuestMenu::count++ << ". Xem lich su mua hang.\n";
+        cout << "                    " << GuestMenu::count++ << ". Xem thong tin ca nhan.\n";
+        cout << "                    " << GuestMenu::count++ << ". Xem lich su mua hang.\n";
     }
     WorkMenu::Show();
-    cout << "~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "         ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     GuestMenu::count = 1;
     char temp;
     cin >> temp;
@@ -66,7 +71,6 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, Customer& customer, cons
                             csList.returnInfo(index).DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
                         }
                     }
-                    csList.returnInfo(index).AccumPoint(receipt.returnTotal());
                 }
                 else{
                     cin >> customer;

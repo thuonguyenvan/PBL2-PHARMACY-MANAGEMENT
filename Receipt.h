@@ -37,4 +37,5 @@ public:
     void editReceiptStatus();
     void DeductTotal(const int&);
     void addCustomerToReceipt(Customer&);
+    int returnStatus();
 };
