@@ -19,6 +19,7 @@ char GuestMenu::Show(const int& index){
         cout << "                    " << GuestMenu::count++ << ". Xem lich su mua hang.\n";
     }
     WorkMenu::Show();
+    cout << "                    Lien he 0972327742 de duoc ho tro va tu van.\n";
     cout << "         ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     GuestMenu::count = 1;
     char temp;
