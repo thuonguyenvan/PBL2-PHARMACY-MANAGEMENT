@@ -22,7 +22,7 @@ char StaffMenu::Show(const int& authentication){
     WorkMenu::Show();
     cout << "        ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
     StaffMenu::count = 1;
-    int temp;
+    char temp;
     cin >> temp;
     getenter;
     return temp;
