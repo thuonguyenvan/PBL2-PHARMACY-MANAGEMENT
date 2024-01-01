@@ -198,9 +198,9 @@ void ReceiptManagement::showOrderHistory(const string &CSDT){
 }
 
 void ReceiptManagement::showAllUnpaidReceipt(){
-    cout << "- Nhung hoa don chua thanh toan la: ";
+    cout << "- Nhung hoa don chua thanh toan la:\n";
     for (int i = 0; i < Count; ++i) {
-        if (List[i].status) cout << List[i].ReceiptID << ", ";
+        if (List[i].status) List[i].showReceipt();
     }
     cout << endl;
 }

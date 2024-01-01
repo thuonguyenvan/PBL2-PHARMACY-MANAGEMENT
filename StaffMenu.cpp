@@ -2,7 +2,7 @@
 #include "MedicineManagement.cpp"
 using namespace std;
 
-int StaffMenu::Show(const int& authentication){
+char StaffMenu::Show(const int& authentication){
     cout << "        ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n\n";
     cout << " _____ _____ ___  ____________  ___  ___ _____ _   _ _   _\n";
     cout << "/  ___|_   _/ _ \\ |  ___|  ___| |  \\/  ||  ___| \\ | | | | |\n";
@@ -355,34 +355,34 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
     Receipt receipt(c,s);
     while (true){
         system("cls");
-        int temp = this->Show(authentication);
+        char temp = this->Show(authentication);
         switch(temp){
-            case 1:{      // Xem thuoc
+            case '1':{      // Xem thuoc
                 StaffMenu::BuyMedicine(mdList,receipt);
                 break;
             }
-            case 2:{      // tao giao dich
+            case '2':{      // tao giao dich
                 ReceiptMenu(csList,receipt,rcList);
                 break;
             }
-            case 3:{      // Quan ly khach
+            case '3':{      // Quan ly khach
                 ManagementMenu(stList,mdList,csList,1);
                 break;
             }
-            case 4:{      //  xem ttcn || quan ly nv
+            case '4':{      //  xem ttcn || quan ly nv
                 if (authentication)
                     ReceiptManagementMenu(rcList,authentication,csList);
                 else
                     ManagementMenu(stList,mdList,csList,0);
                 break;
             }
-            case 5:{      // quan ly thuoc || tro ve
+            case '5':{      // quan ly thuoc || tro ve
                 if (!authentication)
                     ManagementMenu(stList,mdList,csList,2);
                 else EditInformation(s,authentication);
                 break;
             }
-            case 6:{      // quan ly hoa don
+            case '6':{      // quan ly hoa don
                 if (!authentication){
                     ReceiptManagementMenu(rcList,authentication,csList);
                 }
@@ -391,7 +391,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 }
                 break;
             }
-            case 7:{      // xem ttcn
+            case '7':{      // xem ttcn
                 if (!authentication)
                     EditInformation(s,authentication);
                 else{
@@ -400,7 +400,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 }
                 break;
             }
-            case 8:{      // tro ve
+            case '8':{      // tro ve
                 if (!authentication)
                     return;
                 else{
@@ -410,7 +410,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
                 }
                 break;
             }
-            case 9:{
+            case '9':{
                 if (!authentication){
                     exitPressed = true;
                     return;

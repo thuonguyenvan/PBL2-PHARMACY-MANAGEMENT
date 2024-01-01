@@ -4,7 +4,7 @@ using namespace std;
 
 class StaffMenu: public WorkMenu{
     public:
-        int Show(const int&);
+        char Show(const int&);
         void Run(StaffManagement&, const int&, MedicineManagement&, CustomerManagement&, ReceiptManagement&);
         int checkAuthentication(StaffManagement&, const int&);
         void ManagementMenu(StaffManagement&, MedicineManagement &, CustomerManagement&, int);
