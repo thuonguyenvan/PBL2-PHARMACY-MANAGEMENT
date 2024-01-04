@@ -9,8 +9,9 @@ WorkMenu::WorkMenu(){}
 WorkMenu::~WorkMenu(){}
 
 void WorkMenu::Show(){
-    cout << "                    " << WorkMenu::count++ << ". Tro ve.\n";
-    cout << "                    " << WorkMenu::count++ << ". Thoat.\n\n";
+    cout << "\t\t| " << WorkMenu::count++ << ". Tro ve.                     |\n";
+    cout << "\t\t|--------------------------------|\n";
+    cout << "\t\t| " << WorkMenu::count++ << ". Thoat.                      |\n";
 }
 
 void WorkMenu::ViewMedsOptionMenu(){

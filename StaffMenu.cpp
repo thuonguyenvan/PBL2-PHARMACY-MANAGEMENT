@@ -3,26 +3,34 @@
 using namespace std;
 
 char StaffMenu::Show(const int& authentication){
-    cout << "        ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n\n";
     cout << " _____ _____ ___  ____________  ___  ___ _____ _   _ _   _\n";
     cout << "/  ___|_   _/ _ \\ |  ___|  ___| |  \\/  ||  ___| \\ | | | | |\n";
     cout << "\\ `--.  | |/ /_\\ \\| |_  | |_    | .  . || |__ |  \\| | | | |\n";
     cout << " `--. \\ | ||  _  ||  _| |  _|   | |\\/| ||  __|| . ` | | | |\n";
     cout << "/\\__/ / | || | | || |   | |     | |  | || |___| |\\  | |_| |\n";
     cout << "\\____/  \\_/\\_| |_/\\_|   \\_|     \\_|  |_/\\____/\\_| \\_/\\___/\n\n";
-    cout << "                   " << StaffMenu::count++ << ". Xem va tim thuoc.\n";
-    cout << "                   " << StaffMenu::count++ << ". Tao giao dich.\n";
-    cout << "                   " << StaffMenu::count++ << ". Quan ly khach hang.\n";
+    cout << "\t\t|--------------------------------|\n";
+    cout << "\t\t| " << StaffMenu::count++ << ". Xem va tim thuoc.           |\n";
+    cout << "\t\t|--------------------------------|\n";
+    cout << "\t\t| " << StaffMenu::count++ << ". Tao giao dich.              |\n";
+    cout << "\t\t|--------------------------------|\n";
+    cout << "\t\t| " << StaffMenu::count++ << ". Quan ly khach hang.         |\n";
+    cout << "\t\t|--------------------------------|\n";
     if (!authentication){
-        cout << "                   " << StaffMenu::count++ << ". Quan ly nhan vien.\n";
-        cout << "                   " << StaffMenu::count++ << ". Quan ly thuoc.\n";
-        cout << "                   " << StaffMenu::count++ << ". Quan ly hoa don.\n";
+        cout << "\t\t| " << StaffMenu::count++ << ". Quan ly nhan vien.          |\n";
+        cout << "\t\t|--------------------------------|\n";
+        cout << "\t\t| " << StaffMenu::count++ << ". Quan ly thuoc.              |\n";
+        cout << "\t\t|--------------------------------|\n";
+        cout << "\t\t| " << StaffMenu::count++ << ". Quan ly hoa don.            |\n";
+        cout << "\t\t|--------------------------------|\n";
     }
-    cout << "                   " << StaffMenu::count++ << ". Xem thong tin ca nhan.\n";
+    cout << "\t\t| " << StaffMenu::count++ << ". Xem thong tin ca nhan.      |\n";
+    cout << "\t\t|--------------------------------|\n";
     WorkMenu::Show();
-    cout << "        ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "\t\t|--------------------------------|\n\n";
     StaffMenu::count = 1;
     char temp;
+    cout << "Nhap lua chon: ";
     cin >> temp;
     getenter;
     return temp;

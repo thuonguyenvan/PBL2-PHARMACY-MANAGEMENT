@@ -45,7 +45,9 @@ int LoginForm::checkLogin(T& List){
 }
 
 void LoginForm::Show(){
-    cout << "                    " << LoginForm::count++ << ". Dang nhap.\n";
-    cout << "                    " << LoginForm::count++ << ". Tro ve.\n";
-    cout << "                    " << LoginForm::count++ << ". Thoat.\n\n";
+    cout << "\t\t| " << LoginForm::count++ << ". Dang nhap.            |\n";
+    cout << "\t\t|--------------------------|\n";
+    cout << "\t\t| " << LoginForm::count++ << ". Tro ve.               |\n";
+    cout << "\t\t|--------------------------|\n";
+    cout << "\t\t| " << LoginForm::count++ << ". Thoat.                |\n";
 }
