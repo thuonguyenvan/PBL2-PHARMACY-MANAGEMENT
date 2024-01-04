@@ -27,8 +27,8 @@ int main(){
     ExecuteCode::Run(mdList, csList, stList,rcList);
     //rcList.showReceiptByYear();
     rcList.updateReceiptFile();
-    mdList.updateMedicineFile();
-    csList.updateCustomerFile();
-    stList.updateStaffFile();
+    // mdList.updateMedicineFile();
+    // csList.updateCustomerFile();
+    // stList.updateStaffFile();
 }
 //thuongnguyenvan2209@gmail.com
