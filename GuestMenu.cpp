@@ -5,24 +5,29 @@
 using namespace std;
 
 char GuestMenu::Show(const int& index){
-    cout << "         ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n\n";
     cout << " _____ _   _ _____ _____ _____  ___  ___ _____ _   _ _   _ \n";
     cout << "|  __ \\ | | |  ___/  ___|_   _| |  \\/  ||  ___| \\ | | | | |\n";
     cout << "| |  \\/ | | | |__ \\ `--.  | |   | .  . || |__ |  \\| | | | |\n";
     cout << "| | __| | | |  __| `--. \\ | |   | |\\/| ||  __|| . ` | | | |\n";
     cout << "| |_\\ \\ |_| | |___/\\__/ / | |   | |  | || |___| |\\  | |_| |\n";
     cout << " \\____/\\___/\\____/\\____/  \\_/   \\_|  |_/\\____/\\_| \\_/\\___/\n\n";
-    cout << "                    " << GuestMenu::count++ << ". Xem va mua thuoc.\n";
-    cout << "                    " << GuestMenu::count++ << ". Xem gio hang va thanh toan.\n";
+    cout << "\t\t\u00A6--------------------------------\u00A6\n";
+    cout << "\t\t\u00A6 " << GuestMenu::count++ << ". Xem va mua thuoc.           \u00A6\n";
+    cout << "\t\t\u00A6--------------------------------\u00A6\n";
+    cout << "\t\t\u00A6 " << GuestMenu::count++ << ". Xem gio hang va thanh toan. \u00A6\n";
+    cout << "\t\t\u00A6--------------------------------\u00A6\n";
     if (index != -1){
-        cout << "                    " << GuestMenu::count++ << ". Xem thong tin ca nhan.\n";
-        cout << "                    " << GuestMenu::count++ << ". Xem lich su mua hang.\n";
+        cout << "\t\t\u00A6 " << GuestMenu::count++ << ". Xem thong tin ca nhan.      \u00A6\n";
+        cout << "\t\t\u00A6--------------------------------\u00A6\n";
+        cout << "\t\t\u00A6 " << GuestMenu::count++ << ". Xem lich su mua hang.       \u00A6\n";
+        cout << "\t\t\u00A6--------------------------------\u00A6\n";
     }
     WorkMenu::Show();
-    cout << "                    Lien he 0972327742 de duoc ho tro va tu van.\n";
-    cout << "         ~~~~~~~~~~~|||~~~~~~~~~~~|||~~~~~~~~~~~\n";
+    cout << "\t\t\u00A6--------------------------------\u00A6\n";
+    cout << "\t   Lien he 0972327742 de duoc ho tro va tu van.\n\n";
     GuestMenu::count = 1;
     char temp;
+    cout << " Nhap lua chon: ";
     cin >> temp;
     getenter;
     return temp;
