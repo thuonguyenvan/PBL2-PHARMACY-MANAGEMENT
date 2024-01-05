@@ -13,7 +13,6 @@ public:
     ~Management();
     void Add();
     void View();
-   // void Edit(const string &);
     void Remove(const string &);
     int CheckExisted(const string &);
     void readCountFromFile(ifstream &);

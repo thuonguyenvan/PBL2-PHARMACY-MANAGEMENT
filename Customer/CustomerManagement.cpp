@@ -14,7 +14,7 @@ void CustomerManagement::readCustomerFromFile(ifstream &File){
 
 void CustomerManagement::ViewAllCustomers(){
     cout << left << setw(25) << "Ho va ten"  << left << setw(15) << "So dien thoai" << left << setw(12)<< "Ngay sinh" << left << setw(14) 
-    << "CCCD" << left << setw(40) << "Dia chi" << left << setw(3) << "Diem tich luy" << endl;
+    << "CCCD" << left << setw(40) << "Dia chi" << left << setw(14) << "Diem tich luy" << "Email" << endl;
     this -> View();
 }
 

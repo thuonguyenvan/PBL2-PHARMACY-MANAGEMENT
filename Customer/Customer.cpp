@@ -19,7 +19,7 @@ Customer::~Customer()
 ostream &operator << (ostream &out, const Customer &P) 
 {
     out << left << setw(25) << P.Name  << left << setw(15) << P.SDT << left << setw(12)<< P.DateOfBirth << left << setw(14) 
-    << P.CCCD << left << setw(40) << P.Address << "Diem tich luy: " << left << setw(3) << P.Point << left << setw(25) << P.Email << endl;
+    << P.CCCD << left << setw(40) << P.Address << left << setw(14) << P.Point << left << setw(25) << P.Email << endl;
     return out;
 }
 void Customer :: readCustomerFromFile (ifstream &in) 
