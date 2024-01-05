@@ -249,15 +249,17 @@ void ReceiptManagement::removeReceipt(const string &rcid, MedicineManagement& md
         cout << "- Khong tim thay hoa don voi id " << rcid << endl;
     }
     else{
-        cout << "Thuoc co duoc hoan lai khong?\n";
-        cout << "1. Co.\n";
-        cout << "2. Khong.\n";
-        char temp;
-        cin >> temp;
-        getenter;
-        if (temp == '1'){
-            for (int i=0; i<List[idx].CountMedicine; i++){
-                mdList.increaseLeft(mdList.CheckExisted(List[idx].List[i].ID)-1,List[idx].Number[i]);
+        if (List[idx].status){
+            cout << "Thuoc co duoc hoan lai khong?\n";
+            cout << "1. Co.\n";
+            cout << "2. Khong.\n";
+            char temp;
+            cin >> temp;
+            getenter;
+            if (temp == '1'){
+                for (int i=0; i<List[idx].CountMedicine; i++){
+                    mdList.List[mdList.CheckExisted(List[idx].List[i].ID)-1].Left += List[idx].Number[i];
+                }
             }
         }
         Receipt tr[Count - 1];

@@ -79,8 +79,12 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, Customer& customer, cons
                     }
                 }
                 else{
-                    cin >> customer;
-                    receipt.addCustomerToReceipt(customer);
+                    string name, SDT;
+                    cout << "Vui long nhap ten: ";
+                    getline(cin,name);
+                    cout << "Vui long nhap SDT: ";
+                    getline(cin,SDT);
+                    receipt.addCustomerToReceipt(name,SDT);
                 }
                 rcList.addNewReceipt(receipt);
                 system("cls");
@@ -92,6 +96,7 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, Customer& customer, cons
                 cout << "\nVui long luu lai hinh anh chuyen khoan de nhan thuoc.\n";
                 cout << "Hoac quy khach co the thanh toan truc tiep khi nhan thuoc.\n";
                 cout << "\nXin cam on quy khach.\n";
+                cout << "\nDon hang se tu dong bi xoa sau 10 ngay khong thanh toan va nhan thuoc.\n";
                 system("pause");
                 receipt.ClearReceipt();
                 return;

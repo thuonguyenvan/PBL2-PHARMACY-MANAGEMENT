@@ -26,6 +26,7 @@ int main(){
     //rcList.List[2].showReceipt();
     ExecuteCode::Run(mdList, csList, stList,rcList);
     //rcList.showReceiptByYear();
+    rcList.deleteOODReceipt(mdList);
     rcList.updateReceiptFile();
     mdList.updateMedicineFile();
     csList.updateCustomerFile();

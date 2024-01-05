@@ -24,5 +24,5 @@ public:
     void EditStaffID();
     void MenuEdit();
     void Edit();
-
+    string returnID();
 };

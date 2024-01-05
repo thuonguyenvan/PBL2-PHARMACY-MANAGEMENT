@@ -253,11 +253,16 @@ void Receipt::DeductTotal(const int& Point){
     Total-=Point*100;
 }
 
-void Receipt::addCustomerToReceipt(Customer& customer){
-    Customer::Name = customer.returnName();
-    Customer::SDT = customer.returnSDT();
+void Receipt::addCustomerToReceipt(const string& name, const string& SDT){
+    Customer::Name = name;
+    Customer::SDT = SDT;
 }
 
 int Receipt::returnStatus(){
     return status;
+}
+
+void Receipt::addStaffToReceipt(Staff& staff){
+    Staff::Name = staff.returnName();
+    Staff::StaffID = staff.returnID();
 }

@@ -36,6 +36,7 @@ public:
     void operator=(const Receipt&);
     void editReceiptStatus();
     void DeductTotal(const int&);
-    void addCustomerToReceipt(Customer&);
+    void addCustomerToReceipt(const string&, const string&);
     int returnStatus();
+    void addStaffToReceipt(Staff&);
 };

@@ -139,7 +139,7 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
                     int index = csList.FindCustomerByPhoneNum(temp);
                     if(index!=-1){
                         Customer c(csList.returnInfo(index));
-                        receipt.addCustomerToReceipt(c);
+                        receipt.addCustomerToReceipt(c.returnName(),c.returnSDT());
                         cout << "Tong hoa don hien tai la: " << receipt.returnTotal() << '\n'; 
                         cout << "Quy khach hien co " << csList.returnInfo(index).returnPoint() << "diem.\n";
                         if (csList.returnInfo(index).returnPoint() != 0){
@@ -169,7 +169,8 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
                         csList.returnInfo(index).AccumPoint(receipt.returnTotal());
                     }
                     else{
-                        receipt.Customer::returnSDT() == temp;
+                        string name="";
+                        receipt.addCustomerToReceipt(name,temp);
                     }
                 }
                 receipt.editReceiptStatus();
@@ -200,7 +201,7 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
     }
 }
 
-void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& authentication, CustomerManagement& csList, MedicineManagement& mdList){
+void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& authentication, CustomerManagement& csList, MedicineManagement& mdList, Staff& s){
     while(true){
         system("cls");
         char temp;
@@ -316,12 +317,11 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                                 csList.returnInfo(csList.FindCustomerByPhoneNum(rcList.List[index].Customer::returnSDT())).AccumPoint(rcList.List[index].returnTotal());
                                 cout << "Xac nhan thanh cong.\n";
                                 rcList.List[index].editReceiptStatus();
-                                system("pause");
+                                rcList.List[index].addStaffToReceipt(s);
                             }
                         }
                         else{
                             cout << "Hoa don nay da duoc thanh toan!\n";
-                            system("pause");
                         }
                     }
                     else cout << "Khong tim thay hoa don voi ma giao dich nay!\n";
@@ -379,7 +379,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '4':{      //  xem ttcn || quan ly nv
                 if (authentication)
-                    ReceiptManagementMenu(rcList,authentication,csList,mdList);
+                    ReceiptManagementMenu(rcList,authentication,csList,mdList,s);
                 else
                     ManagementMenu(stList,mdList,csList,0);
                 break;
@@ -392,7 +392,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '6':{      // quan ly hoa don
                 if (!authentication){
-                    ReceiptManagementMenu(rcList,authentication,csList,mdList);
+                    ReceiptManagementMenu(rcList,authentication,csList,mdList,s);
                 }
                 else{
                     return;

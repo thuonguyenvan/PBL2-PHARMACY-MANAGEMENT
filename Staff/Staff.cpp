@@ -88,3 +88,7 @@ void Staff::Edit(){
         }
     }
 }
+
+string Staff::returnID(){
+    return StaffID;
+}
