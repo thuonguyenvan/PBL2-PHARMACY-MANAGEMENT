@@ -1,8 +1,8 @@
 #include <iostream>
-#include "..\CustomerManagement.cpp"
-#include "..\StaffManagement.cpp"
-#include "..\MedicineManagement.cpp"
-#include "..\ReceiptManagement.cpp"
+#include "../Customer/CustomerManagement.cpp"
+#include "../Staff/StaffManagement.cpp"
+#include "../Medicine/MedicineManagement.cpp"
+#include "../Receipt/ReceiptManagement.cpp"
 using namespace std;
 
 class ExecuteCode{

@@ -1,10 +1,7 @@
 #pragma once
 #include "ExecuteCode.h"
-#include "..\GuestLogin.cpp"
-#include "..\StaffLogin.cpp"
-#include "..\CustomerManagement.cpp"
-#include "..\StaffManagement.cpp"
-#include "..\MedicineManagement.cpp"
+#include "../LoginMenu/GuestLogin.cpp"
+#include "../LoginMenu/StaffLogin.cpp"
 using namespace std;
 
 void ExecuteCode::Run(MedicineManagement &M, CustomerManagement &C, StaffManagement &S, ReceiptManagement& R){

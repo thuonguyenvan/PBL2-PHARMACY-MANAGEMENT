@@ -3,9 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-//#include <limits>
 #include "extraFunction.cpp"
-//#define getenter cin.ignore(numeric_limits<streamsize>::max(), '\n');
 // quan ly nhan vien, khach hang, quan ly, thuoc
 
 template <class T>
