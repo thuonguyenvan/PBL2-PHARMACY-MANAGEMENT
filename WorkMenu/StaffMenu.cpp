@@ -21,9 +21,9 @@ char StaffMenu::Show(const int& authentication){
         cout << "\t\t|--------------------------------|\n";
         cout << "\t\t| " << StaffMenu::count++ << ". Quan ly thuoc.              |\n";
         cout << "\t\t|--------------------------------|\n";
-        cout << "\t\t| " << StaffMenu::count++ << ". Quan ly hoa don.            |\n";
-        cout << "\t\t|--------------------------------|\n";
     }
+    cout << "\t\t| " << StaffMenu::count++ << ". Quan ly hoa don.            |\n";
+    cout << "\t\t|--------------------------------|\n";
     cout << "\t\t| " << StaffMenu::count++ << ". Xem thong tin ca nhan.      |\n";
     cout << "\t\t|--------------------------------|\n";
     WorkMenu::Show();
@@ -167,7 +167,7 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
                                 csList.DeductPoint((csList.returnInfo(index).returnPoint()<total)?csList.returnInfo(index).returnPoint():total,index);
                             }
                         }
-                        csList.AccumPoint(receipt.returnTotal(),index);
+                        csList.AccumPoint(receipt.returnTotal()/100,index);
                     }
                     else{
                         string name="";
@@ -231,10 +231,12 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                 cout << "2. Tim theo thang.\n";
                 cout << "3. Tim theo nam.\n";
                 cout << "4. Tim theo ma giao dich.\n";
-                cout << "5. Tro ve.\n";
+                cout << "5. Tim theo khach hang.\n";
+                cout << "6. Tim theo nhan vien.\n";
+                cout << "7. Tro ve.\n";
                 cin >> temp;
                 getenter
-                while (temp < '1' || temp > '5'){
+                while (temp < '1' || temp > '7'){
                     cout << "Lua chon khong hop le!\n";
                     cout << "Vui long chon lai.\n";
                     system("pause");
@@ -243,7 +245,9 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                     cout << "2. Tim theo thang.\n";
                     cout << "3. Tim theo nam.\n";
                     cout << "4. Tim theo ma giao dich.\n";
-                    cout << "5. Tro ve.\n";
+                    cout << "5. Tim theo khach hang.\n";
+                    cout << "6. Tim theo nhan vien.\n";
+                    cout << "7. Tro ve.\n";
                     cin >> temp;
                     getenter;
                 }
@@ -279,6 +283,23 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                         }
                         break;
                     }
+                    case '5':{
+                        string SDT;
+                        cout << "Nhap SDT cua khach hang can tim: ";
+                        getline(cin,SDT);
+                        rcList.showOrderHistory(SDT);
+                        system("pause");
+                        break;
+                    }
+                    case '6':{
+                        string ID;
+                        cout << "Nhap ID cua nhan vien can tim: ";
+                        getline(cin,ID);
+                        rcList.showReceiptByStaff(ID);
+                        system("pause");
+                        break;
+                    }
+                    case '7': break;
                 }
                 break;
             }
@@ -338,7 +359,7 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                     string maGD;
                     getline(cin,maGD);
                     if (!maGD.empty()){
-                        rcList.removeReceipt(maGD,mdList);
+                        rcList.removeReceipt(maGD,mdList,csList);
                         system("pause");
                     }
                     break;

@@ -20,7 +20,8 @@ public:
     void showReceiptByDate();
     void showReceiptByMonth();
     void showReceiptByYear();
-    void showOrderHistory(const string &); 
+    void showOrderHistory(const string &);
+    void showReceiptByStaff(const string&);
     void readCountFromFile(ifstream &in)
     {
         in >> Count;
@@ -28,8 +29,8 @@ public:
         getline(in, t, '\n');
     }
     void showAllUnpaidReceipt();
-    int findReceiptByID(const string &); 
-    void deleteOODReceipt(MedicineManagement &); 
-    void removeReceipt(const string &, MedicineManagement&);
+    int findReceiptByID(const string &);
+    void deleteOODReceipt(MedicineManagement &);
+    void removeReceipt(const string &, MedicineManagement&, CustomerManagement&);
 };
 

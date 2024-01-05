@@ -197,6 +197,17 @@ void ReceiptManagement::showOrderHistory(const string &CSDT){
     cout << "- Co tong cong " << c << " giao dich" << endl;
 }
 
+void ReceiptManagement::showReceiptByStaff(const string& ID){
+    int c = 0;
+    for (int i = 0; i < Count; ++i){
+        if (this -> List[i].Staff::StaffID == ID) {
+            List[i].showReceipt(); 
+            c++;
+        }
+    }
+    cout << "- Co tong cong " << c << " giao dich" << endl;
+}
+
 void ReceiptManagement::showAllUnpaidReceipt(){
     cout << "- Nhung hoa don chua thanh toan la:\n";
     for (int i = 0; i < Count; ++i) {
@@ -237,7 +248,7 @@ void ReceiptManagement::deleteOODReceipt(MedicineManagement &MD){
     }
 }
 
-void ReceiptManagement::removeReceipt(const string &rcid, MedicineManagement& mdList){
+void ReceiptManagement::removeReceipt(const string &rcid, MedicineManagement& mdList, CustomerManagement& csList){
     int idx = -1;
     for (int i = 0; i < Count; ++i){
         if (List[i].ReceiptID == rcid){
@@ -257,6 +268,7 @@ void ReceiptManagement::removeReceipt(const string &rcid, MedicineManagement& md
             cin >> temp;
             getenter;
             if (temp == '1'){
+                csList.DeductPoint(List[idx].Total*0.05/100,csList.FindCustomerByPhoneNum(List[idx].Customer::SDT));
                 for (int i=0; i<List[idx].CountMedicine; i++){
                     mdList.List[mdList.CheckExisted(List[idx].List[i].ID)-1].Left += List[idx].Number[i];
                 }
