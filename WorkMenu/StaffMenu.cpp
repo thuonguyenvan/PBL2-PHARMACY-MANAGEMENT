@@ -162,8 +162,9 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
                                 getenter;
                             }
                             if (temp==1){
-                                receipt.DeductTotal((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
-                                csList.DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100,index);
+                                long long total = receipt.returnTotal()/100;
+                                receipt.DeductTotal((csList.returnInfo(index).returnPoint()<total)?csList.returnInfo(index).returnPoint():total);
+                                csList.DeductPoint((csList.returnInfo(index).returnPoint()<total)?csList.returnInfo(index).returnPoint():total,index);
                             }
                         }
                         csList.AccumPoint(receipt.returnTotal(),index);

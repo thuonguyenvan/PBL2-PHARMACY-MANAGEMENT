@@ -68,13 +68,15 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, Customer& customer, cons
                             cout << "Quy khach co muon dung diem khong? (Mot diem tuong duong 100 dong)\n";
                             cout << "1. Co.\n";
                             cout << "2. Khong.\n";
-                            int temp;
                             cin >> temp;
                             getenter;
                         }
                         if (temp==1){
-                            receipt.DeductTotal((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
-                            csList.DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100,index);
+                            long long total = receipt.returnTotal()/100;
+                            receipt.DeductTotal((csList.returnInfo(index).returnPoint()<total)?csList.returnInfo(index).returnPoint():total);
+                            csList.DeductPoint((csList.returnInfo(index).returnPoint()<total)?csList.returnInfo(index).returnPoint():total,index);
+                            Customer temp(csList.returnInfo(index));
+                            customer = temp;
                         }
                     }
                 }
