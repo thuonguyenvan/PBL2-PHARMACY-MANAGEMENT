@@ -53,6 +53,14 @@ int CustomerManagement::FindCustomerByPhoneNum(const string& SDT){
     return -1;
 }
 
+void CustomerManagement::DeductPoint(const int& Total, const int& index){
+    List[index].Point-=Total;
+}
+
+void CustomerManagement::AccumPoint(const int& Total, const int& index){
+    List[index].Point+=Total*0.05;
+}
+
 /*
 void List::List_overwriteNewArticle()
 {

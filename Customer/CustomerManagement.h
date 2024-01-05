@@ -12,4 +12,6 @@ public:
     void removeCustomer(const string &);
     void editCustomer(const string &);
     int FindCustomerByPhoneNum(const string&);
+    void DeductPoint(const int&, const int&);
+    void AccumPoint(const int&, const int&);
 };

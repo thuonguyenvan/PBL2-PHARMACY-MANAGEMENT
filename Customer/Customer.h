@@ -12,11 +12,9 @@ public:
     Customer();
     Customer(const Customer&);
     ~Customer();
-    void AccumPoint(const int&);
     friend ostream& operator<<(ostream &, const Customer&);
     void readCustomerFromFile(ifstream &);
     int returnPoint();
-    void DeductPoint(const int&);
 };
 
 /*

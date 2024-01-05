@@ -163,10 +163,10 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
                             }
                             if (temp==1){
                                 receipt.DeductTotal((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
-                                csList.returnInfo(index).DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
+                                csList.DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100,index);
                             }
                         }
-                        csList.returnInfo(index).AccumPoint(receipt.returnTotal());
+                        csList.AccumPoint(receipt.returnTotal(),index);
                     }
                     else{
                         string name="";
@@ -314,7 +314,8 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                                 getenter;
                             }
                             if (temp == '1'){
-                                csList.returnInfo(csList.FindCustomerByPhoneNum(rcList.List[index].Customer::returnSDT())).AccumPoint(rcList.List[index].returnTotal());
+                                int index = csList.FindCustomerByPhoneNum(rcList.List[index].Customer::returnSDT());
+                                csList.AccumPoint(rcList.List[index].returnTotal(),index);
                                 cout << "Xac nhan thanh cong.\n";
                                 rcList.List[index].editReceiptStatus();
                                 rcList.List[index].addStaffToReceipt(s);

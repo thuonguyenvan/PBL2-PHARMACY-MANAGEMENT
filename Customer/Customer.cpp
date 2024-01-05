@@ -16,11 +16,6 @@ Customer::Customer(const Customer& C)
 Customer::~Customer()
 {}
 
-void Customer::AccumPoint(const int& Total)
-{
-    Point+=Total*0.05;
-}
-
 ostream &operator << (ostream &out, const Customer &P) 
 {
     out << left << setw(25) << P.Name  << left << setw(15) << P.SDT << left << setw(12)<< P.DateOfBirth << left << setw(14) 
@@ -43,8 +38,4 @@ void Customer :: readCustomerFromFile (ifstream &in)
 
 int Customer::returnPoint(){
     return Point;
-}
-
-void Customer::DeductPoint(const int& Total){
-    Point-=Total;
 }

@@ -74,7 +74,7 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, Customer& customer, cons
                         }
                         if (temp==1){
                             receipt.DeductTotal((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
-                            csList.returnInfo(index).DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100);
+                            csList.DeductPoint((csList.returnInfo(index).returnPoint()<receipt.returnTotal()/100)?csList.returnInfo(index).returnPoint():receipt.returnTotal()/100,index);
                         }
                     }
                 }
