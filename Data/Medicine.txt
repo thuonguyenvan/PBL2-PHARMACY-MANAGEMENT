@@ -1,5 +1,5 @@
 8
-T001|Paracetamol|15/03/2018|31/12/2023|Giam Sot|Uong Voi Nuoc Khong Vuot Qua Lieu Luong Khuyen Nghi|5|100000|Khong
+T001|Paracetamol|15/03/2018|31/12/2023|Giam Sot|Uong Voi Nuoc Khong Vuot Qua Lieu Luong Khuyen Nghi|3|100000|Khong
 T002|Ibuprofen|22/06/2018|28/02/2024|Giam Dau|Uong Sau Bua An Tranh An Doi|8|50000|Buon Non, Dau Dau
 T003|Cetirizine|12/11/2018|30/11/2023|Giam Di Ung|Uong Vao Buoi Toi Tranh Uong Ruou|10|75000|Buon Ngu
 T004|Aspirin|18/02/2019|15/10/2023|Giam Dau|Uong Sau Khi An Uong Du Nuoc|6|30000|Kich Thich Da Day

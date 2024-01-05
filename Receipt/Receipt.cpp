@@ -80,7 +80,7 @@ void Receipt::showReceipt(){
         cout << left << setw(10)<< i << left << setw(15)<< List[i - 1].ID << left << setw(18) << List[i - 1].Name << left << setw(18) << Number[i - 1]  << Number[i - 1] * List[i - 1].Price << endl;
     } 
     cout << "\nTong cong: " << Total  << "       Trang thai: " << (status ? "Da thanh toan" : "Chua thanh toan") << endl;
-
+    cout << "-----------------------------------------\n\n";
 }
 
 
