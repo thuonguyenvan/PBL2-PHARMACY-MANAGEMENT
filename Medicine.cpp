@@ -24,8 +24,8 @@ void Medicine::WarningHSD(){
 }
 
 ostream& operator<<(ostream &out, const Medicine &M){
-    out << left << setw(7) << M.ID << left << setw(15) << M.Name << left << setw(13) << M.NSX << left << setw(13)<< M.HSD << left << setw(20) 
-    << M.Uses << left << setw(40) << M.Guide << left << setw(10) << M.SideEffects << left << setw(10) << M.Left << left << setw(10) << M.Price <<  endl;
+    out << left << setw(7) << M.ID << left << setw(13) << M.Name << left << setw(14) << M.NSX << left << setw(13)<< M.HSD << left << setw(17) 
+    << M.Uses << left << setw(55) << M.Guide << left << setw(21) << M.SideEffects << "   " <<  left << setw(10)  << M.Left << left << setw(10) << M.Price <<  endl;
     return out;
 }
 
@@ -39,7 +39,7 @@ istream &operator >> (istream &in, Medicine &M)
     //getenter;
     getline(cin, M.NSX);
     removeSpaces(M.NSX);
-    cout << "- Nhap han su dung (dd/bb/yyyy): ";
+    cout << "- Nhap han su dung (dd/mm/yyyy): ";
     //getenter;
     getline(cin, M.HSD);
     removeSpaces(M.HSD);
@@ -48,8 +48,6 @@ istream &operator >> (istream &in, Medicine &M)
     getline(cin, M.Uses);
     cout << "- Nhap huong dan su dung: ";
     getline(cin, M.Guide);
-    removeSpaces(M.Guide);
-    removeSpaces(M.Uses);
     cout << "- Nhap tac dung phu cua thuoc: ";
     cin >> M.SideEffects;
     getenter;
@@ -119,16 +117,16 @@ void Medicine :: readMedicineFromFile (ifstream &in)
 
 void Medicine::MenuEdit(){
     cout << "- Nhap thong tin can thay doi hoac lua chon thoat: ";
-    cout << "\n                      1. ID";
-    cout << "\n                      2. Ten";
-    cout << "\n                      3. Ngay san xuat";
-    cout << "\n                      4. Han su dung";
-    cout << "\n                      5. Cong dung";
-    cout << "\n                      6. Cach dung";
-    cout << "\n                      7. So luong trong kho";
-    cout << "\n                      8. Gia";
-    cout << "\n                      9. Tac dung phu";
-    cout << "\n                      10. Thoat";
+    cout << "\n     1. ID";
+    cout << "\n     2. Ten";
+    cout << "\n     3. Ngay san xuat";
+    cout << "\n     4. Han su dung";
+    cout << "\n     5. Cong dung";
+    cout << "\n     6. Cach dung";
+    cout << "\n     7. So luong trong kho";
+    cout << "\n     8. Gia";
+    cout << "\n     9. Tac dung phu";
+    cout << "\n     10. Thoat";
     cout << "- Nhap lua chon cua ban: ";
 }
 
@@ -181,21 +179,3 @@ void Medicine::Edit(){
             break;
     }
 }
-// void EditName();
-//     void EditNSX();
-//     void EditHSD();
-//     void EditUses();
-//     void EditGuide();
-//     void EditPrice();
-//     void EditSideEffects();
-/*
-truong hop cung loai thuoc nhung khac NSX
-string Name;
-    string NSX;
-    string HSD;
-    string Uses;
-    string Guide;
-    int Price;
-    int Left;
-    string SideEffects;
-*/

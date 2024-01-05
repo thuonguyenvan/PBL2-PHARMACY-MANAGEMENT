@@ -13,8 +13,8 @@ void MedicineManagement::readMedicineFromFile(ifstream &File){
 }
 
 void MedicineManagement::ViewAllMedicines(){
-    cout << left << setw(7) << "ID" << left << setw(15) << "Ten thuoc"  << left << setw(13) << "Ngay san xuat" << left << setw(13)<< "Han su dung" << left << setw(20) 
-    << "Cong dung" << left << setw(40) << "Huong dan su dung" << left << setw(10) << "Tac dung phu" << left << setw(10) << "So luong con" << left << setw(10) << "Gia" <<  endl;
+    cout << left << setw(7) << "ID" << left << setw(13) << "Ten thuoc"  << left << setw(14) << "Ngay san xuat" << left << setw(13)<< "Han su dung" << left << setw(17) 
+    << "Cong dung" << left << setw(55) << "Huong dan su dung" << left << setw(21) << "Tac dung phu" << left << setw(13) << "So luong con" << left << setw(10) << "Gia" <<  endl;
     this -> View();
 }
 int MedicineManagement::CheckExisted(const string &ID){

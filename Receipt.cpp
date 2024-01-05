@@ -72,14 +72,14 @@ void Receipt::addNewMedicine(const Medicine &M, const int &n){
 void Receipt::showReceipt(){
     refreshReceipt();
     cout << "           GOAT PHARMACY \n";
-    cout << "Ma giao dich: " << ReceiptID << "     Time: " << DateOfTran << endl;
-    cout << "Ten nhan vien: " << Staff::Name << "    Ma nhan vien: " << StaffID << endl;
-    cout << "Ten khach hang:    " << Customer::Name << "    So dien thoai: " << Customer::SDT << endl;
-    cout << "   STT " << "  Ma thuoc    " << "  Ten thuoc   " << "  So luong    " << "  Gia\n" ;
+    cout << "Ma giao dich  : " << left << setw(20) << ReceiptID <<     "Thoi gian    : " << DateOfTran << endl;
+    cout << "Ten nhan vien : " << left << setw(20) <<Staff::Name <<    "Ma nhan vien : " << StaffID << endl;
+    cout << "Ten khach hang: " << left << setw(20) <<Customer::Name << "So dien thoai: " << Customer::SDT << endl << endl;
+    cout << left << setw(10) << "STT"  << left << setw(15) << "Ma thuoc" << left << setw(18) << "Ten thuoc"<< left << setw(18) << "So luong"  << "Gia\n";
     for (int i = 1; i <= CountMedicine; ++i){
-        cout << i << "  "<< List[i - 1].ID << "  "<< List[i - 1].Name << "  " << Number[i - 1] << "  "<< Number[i - 1] * List[i - 1].Price << endl;
+        cout << left << setw(10)<< i << left << setw(15)<< List[i - 1].ID << left << setw(18) << List[i - 1].Name << left << setw(18) << Number[i - 1]  << Number[i - 1] * List[i - 1].Price << endl;
     } 
-    cout << "Tong cong: " << Total  << "       Trang thai: " << (status ? "Da thanh toan" : "Chua thanh toan") << endl;
+    cout << "\nTong cong: " << Total  << "       Trang thai: " << (status ? "Da thanh toan" : "Chua thanh toan") << endl;
 
 }
 
