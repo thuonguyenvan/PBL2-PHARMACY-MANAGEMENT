@@ -124,8 +124,8 @@ void WorkMenu::BuyMedicine(MedicineManagement& mdList, Receipt& receipt){
         getenter;
         switch(temp){
             case '1':{
+                mdList.ViewAllMedicines();
                 while (true){
-                    mdList.ViewAllMedicines();
                     string ID = this->ChooseMedicineID();
                     if (this->leftEmpty){
                         this->leftEmpty = false;

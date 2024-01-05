@@ -200,7 +200,7 @@ void ReceiptManagement::showOrderHistory(const string &CSDT){
 void ReceiptManagement::showAllUnpaidReceipt(){
     cout << "- Nhung hoa don chua thanh toan la:\n";
     for (int i = 0; i < Count; ++i) {
-        if (!List[i].status ) List[i].showReceipt();
+        if (!List[i].status) List[i].showReceipt();
     }
     cout << endl;
 }
@@ -237,7 +237,7 @@ void ReceiptManagement::deleteOODReceipt(MedicineManagement &MD){
     }
 }
 
-void ReceiptManagement::removeReceipt(const string &rcid){
+void ReceiptManagement::removeReceipt(const string &rcid, MedicineManagement& mdList){
     int idx = -1;
     for (int i = 0; i < Count; ++i){
         if (List[i].ReceiptID == rcid){
@@ -249,6 +249,17 @@ void ReceiptManagement::removeReceipt(const string &rcid){
         cout << "- Khong tim thay hoa don voi id " << rcid << endl;
     }
     else{
+        cout << "Thuoc co duoc hoan lai khong?\n";
+        cout << "1. Co.\n";
+        cout << "2. Khong.\n";
+        char temp;
+        cin >> temp;
+        getenter;
+        if (temp == '1'){
+            for (int i=0; i<List[idx].CountMedicine; i++){
+                mdList.increaseLeft(mdList.CheckExisted(List[idx].List[i].ID)-1,List[idx].Number[i]);
+            }
+        }
         Receipt tr[Count - 1];
         int k = 0;
         for (int i = 0; i < Count; ++i){

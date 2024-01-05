@@ -169,6 +169,10 @@ void MedicineManagement::updateMedicineFile(){
     }
     File.close();
 }
+
+void MedicineManagement::increaseLeft(const int& index, const long long& amount){
+    List[index].Left += amount;
+}
     
 /*
 thuongnguyenvan2209@gmail.com

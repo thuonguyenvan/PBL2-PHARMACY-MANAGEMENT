@@ -200,7 +200,7 @@ void StaffMenu::ReceiptMenu(CustomerManagement& csList, Receipt& receipt, Receip
     }
 }
 
-void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& authentication, CustomerManagement& csList){
+void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& authentication, CustomerManagement& csList, MedicineManagement& mdList){
     while(true){
         system("cls");
         char temp;
@@ -294,7 +294,7 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                 if (!ID.empty()){
                     int index = rcList.findReceiptByID(ID);
                     if (index != -1){
-                        if (rcList.List[index].returnStatus()){
+                        if (!rcList.List[index].returnStatus()){
                             rcList.List[index].showReceipt();
                             cout << "\n Ban co chac muon xac nhan hoa don nay da thanh toan khong?\n";
                             cout << "1. Co.\n";
@@ -336,7 +336,7 @@ void StaffMenu::ReceiptManagementMenu(ReceiptManagement& rcList, const int& auth
                     string maGD;
                     getline(cin,maGD);
                     if (!maGD.empty()){
-                        rcList.removeReceipt(maGD);
+                        rcList.removeReceipt(maGD,mdList);
                         system("pause");
                     }
                     break;
@@ -379,7 +379,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '4':{      //  xem ttcn || quan ly nv
                 if (authentication)
-                    ReceiptManagementMenu(rcList,authentication,csList);
+                    ReceiptManagementMenu(rcList,authentication,csList,mdList);
                 else
                     ManagementMenu(stList,mdList,csList,0);
                 break;
@@ -392,7 +392,7 @@ void StaffMenu::Run(StaffManagement& stList, const int& index, MedicineManagemen
             }
             case '6':{      // quan ly hoa don
                 if (!authentication){
-                    ReceiptManagementMenu(rcList,authentication,csList);
+                    ReceiptManagementMenu(rcList,authentication,csList,mdList);
                 }
                 else{
                     return;

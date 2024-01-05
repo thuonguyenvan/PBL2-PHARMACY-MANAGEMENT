@@ -246,7 +246,7 @@ void Receipt::operator=(const Receipt& receipt){
 }
 
 void Receipt::editReceiptStatus(){
-    status = 0;
+    status = 1;
 }
 
 void Receipt::DeductTotal(const int& Point){

@@ -22,4 +22,5 @@ public:
     void returnMedicineInfo(const int&);
     int returnMedicineAmount(const int&);
     void updateMedicineFile();
+    void increaseLeft(const int&, const long long&);
 };

@@ -9,5 +9,5 @@ class StaffMenu: public WorkMenu{
         int checkAuthentication(StaffManagement&, const int&);
         void ManagementMenu(StaffManagement&, MedicineManagement &, CustomerManagement&, int);
         void ReceiptMenu(CustomerManagement&, Receipt&, ReceiptManagement&);
-        void ReceiptManagementMenu(ReceiptManagement&, const int&, CustomerManagement&);
+        void ReceiptManagementMenu(ReceiptManagement&, const int&, CustomerManagement&, MedicineManagement&);
 };
