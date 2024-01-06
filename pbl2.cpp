@@ -23,13 +23,13 @@ int main(){
     ifstream FileReceipt("./Data/Receipt.txt");
     rcList.readReceiptFromFile(FileReceipt);
     FileReceipt.close();
-    //rcList.List[2].showReceipt();
+
     ExecuteCode::Run(mdList, csList, stList,rcList);
-    //rcList.showReceiptByYear();
+
+
     rcList.deleteOODReceipt(mdList);
     rcList.updateReceiptFile();
     mdList.updateMedicineFile();
     csList.updateCustomerFile();
     stList.updateStaffFile();
 }
-//thuongnguyenvan2209@gmail.com

@@ -26,6 +26,7 @@ ostream &operator << (ostream &out, const Staff &P)
 istream &operator >> (istream &in, Staff &S){
     cout << "- Nhap ID cua nhan vien: ";
     in >> S.StaffID;
+    getenter;
     in >> static_cast<Person&>(S);
     cout << "- Nhap luong cua nhan vien: ";
     in >> S.Salary;

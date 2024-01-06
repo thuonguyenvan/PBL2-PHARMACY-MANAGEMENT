@@ -125,11 +125,10 @@ void Receipt::editMedicineInReceipt(const string &ID){
     cout << "- Nhap moi so luong muon mua: ";
     int n;
     cin >> n;
-    getenter;
-    while (n < 0 || n > Number[p - 1]) {
+
+    while (n < 0) {
         cout << "- So luong khong hop le, vui long nhap lai: ";
         cin >> n;
-        getenter;
     }
     Number[p - 1] = n;
 }

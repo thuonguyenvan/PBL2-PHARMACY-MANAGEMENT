@@ -27,9 +27,8 @@ istream &operator >> (istream &in, Person &P)
 {
     cout << endl << "- Nhap ho va ten: "; 
 //    getenter;
-    //getline(cin, P.Name);
-    cin >> P.Name;
-    getenter;
+    getline(cin, P.Name);
+    //cin >> P.Name;
     cout << "- Nhap so dien thoai: ";
 //    getenter;
     getline(cin, P.SDT);

@@ -260,7 +260,12 @@ void ReceiptManagement::removeReceipt(const string &rcid, MedicineManagement& md
         cout << "- Khong tim thay hoa don voi id " << rcid << endl;
     }
     else{
-        if (List[idx].status){
+        if (!List[idx].status){
+            for (int i=0; i<List[idx].CountMedicine; i++){
+                mdList.List[mdList.CheckExisted(List[idx].List[i].ID)-1].Left += List[idx].Number[i];
+            }
+        }
+        else {
             cout << "Thuoc co duoc hoan lai khong?\n";
             cout << "1. Co.\n";
             cout << "2. Khong.\n";

@@ -53,7 +53,7 @@ void GuestMenu::ReceiptMenu(CustomerManagement& csList, Customer& customer, cons
                 if (customer.returnSDT() != ""){
                     cout << "Tong hoa don hien tai la: " << receipt.returnTotal() << '\n'; 
                     cout << "Quy khach hien co " << csList.returnInfo(index).returnPoint() << " diem.\n";
-                    if (csList.returnInfo(index).returnPoint() != 0){
+                    if (csList.returnInfo(index).returnPoint() > 0){
                         cout << "Quy khach co muon dung diem khong? (Mot diem tuong duong 100 dong)\n";
                         cout << "1. Co.\n";
                         cout << "2. Khong.\n";
